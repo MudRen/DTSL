@@ -1,0 +1,95 @@
+
+
+[1;31m¡¼[1;33mÌú	½³[1;31m¡½[2;37;0m
+ 
+  Ìú½³ÐèÒª30µÄ±ÛÁ¦£¬Çë×¢Òâ£¡
+    µ½ÏåÑôµÄÌú½³ÆÌ£¬qiuzhi tie¾Í¿ÉÒÔ³ÉÎªÌú½³¡£¿ÉÒÔÏòÉÏ¹ÙÏÈÉúÑ§
+Ï°¶ÍÔì¼¼Êõ¡£xue shangguan duanzao-jishu£¬¶ÍÔì¼¼ÊõÖ»ÄÜÑ§µ½100¼¶£¬ 
+ÒÔºó¿¿´òÔì¶«Î÷Ìá¸ß¡£ ÏòÌú½³´òÌýÓÐ¹Ø¡º·ÖÖ§¡»µÄÏûÏ¢¡£ Ä¿Ç°Ìú½³ÓÐ
+Èý¸ö·ÖÖ§£º 
+1¡£´òÔì±øÆ÷Àà(weapon) 
+2¡£¶ÍÔì¿ø¼×¡¢Ò©¶¦Àà(armor) 
+3¡£´òÔì¿ÉÒÔÍ¿¶¾±øÆ÷Àà(poison)¡£ 
+Äã¿ÉÒÔÊ¹ÓÃchoose À´Ñ¡Ôñ¡£Èç choose weapon ¡£ 
+
+1)´òÔì±øÆ÷Àà¡£´ËÀàÌú½³ÔÚ´òÔì±øÆ÷ÉÏÓÐÓÅÊÆ£¬µ«ÊÇ´òÔì¿ø¼×¾Í·Ç³£²»
+ÐÐÁË¡£¶øÇÒ´òÔìµÄ±øÆ÷²»ÄÜÍ¿Ä¨¶¾Ò©¡£²»¹ý´ËÌú½³ÓÐ»ú»á´òÔì³ö·Ç³£ºÃ
+µÄ±øÆ÷¡£²¢ÇÒÒ»ÉúÓÐÈý´ÎºÍÒ©Ê¦ÅäºÏ´òÔìºÃ±øÆ÷¡£ 
+    ÅäºÏ·½·¨ÈçÏÂ£º 
+    Ê×ÏÈÒªÕÒÒ»¸ö ´òÔì¶¾±øÆ÷ÀàµÄÌú½³£¬´òÔìÒ»¸ödagger_poisonÀà±ø
+Æ÷¡£È»ºóÒ»¸ö¶¾ÊõÒ©Ê¦ÄÃ×ÅÕâ¸ö±øÆ÷Ôú (zha)´ËÀàÌú½³Ò»ÏÂ¡£È»ºóÔÙÓÉ
+±¾²ÝÒ©ÀíÒ©Ê¦ÄÃÒ»¸ö dagger_poisonÀà±øÆ÷£¬¸øÌú½³É¢¶¾(sandu) £¬Õâ
+Ñù´ËÊ±Ìú½³´òÔìºÃ±øÆ÷µÄ¼¸ÂÊ»áÌá¸ß¡£
+    È»ºóÌú½³¿ÉÒÔ¼ÌÐø±»Ôú£¬´òÔì±øÆ÷¡£²»¹ýÕâÑùµÄ»ú»áÖ»ÓÐÈý´Î¡£¶ø
+ÇÒ½â¶¾µÄÒ©Ê¦±¾²ÝµÈ¼¶²»ÄÜ±È¶¾Ò©Ê¦µÍ³¬¹ý100 ¼¶¡£´òÔìºÃ±øÆ÷µÄ¹Ø¼ü
+ÊÇ¶¾Ò©Ê¦µÄ¶¾ÊõµÈ¼¶ºÍÌú½³µÄ¶ÍÔì¼¼ÊõµÈ¼¶£¬×îºÃ¶þÕß½Ï¸ß£¨400-500£©
+Ö®¼ä±È½ÏºÃ¡£ 
+    ´ËÍâ£¬Ìú½³ËùÄÜ´òÔì±øÆ÷µÄºÃ»µºÜ´ó³Ì¶È¾ö¶¨ÓÚ¿óÊ¯¡£¿óÊ¯µÄÐ§¹û
+Ö¸ÊýÒ»°ãÔÚ 15-100£¬100ÊÇ×îºÃµÄ¿óÊ¯¡£Ô½ÊÇ¸ß¼¶±ðµÄ¿óÊ¯£¬Ô½ÊÇÄÑµÃ¡£ 
+¿óÊ¯Í¨¹ý´óÌÆÐ¡Æ·ºÍËÑÊ¬ÌåµÃµ½¡£ 
+    ´òÔìµÄ±øÆ÷¿ÉÒÔ»ñµÃºÜ¶àÊôÐÔ£¬µ±È»¶¼ÊÇÓÐ¼¸ÂÊµÄ¡£ÊôÐÔÓÐÔö¼Ó±Û
+Á¦¡¢Ôö¼Ó¸ù¹Ç¡¢Ôö¼ÓÉí·¨¡¢Ôö¼ÓÎòÐÔ¡¢Ôö¼ÓÃüÖÐ¡¢Ôö¼Ó·ÀÓù¡¢Ôö¼ÓÈÝÃ²¡¢
+Ôö¼Ó¸£Ôµ¡¢Ôö¼Ó×îÐ¡ÉËº¦¡¢Ôö¼Óµþ¼ÓÍþÁ¦µÈ¡£´òÔìµÄ±øÆ÷²»ÊÇÈÎºÎÈË¶¼
+¿ÉÒÔ×°±¸µÄ£¬Ã¿ÖÖ±øÆ÷¶¼ÓÐ×Ô¼ºµÄ×°±¸ÐèÇó£¬±øÆ÷Ô½ºÃ£¬×°±¸ÐèÇóÔ½¸ß¡£
+µ±È»£¬±øÆ÷ÖÐÒ²»á³öÏÖ½µµÍÄÚÁ¦ÐèÇó¡¢ÎÞÄÚÁ¦ÐèÇó¡¢½µµÍÄÚÁ¦ÉÏÏÞÒªÇó¡¢
+ÎÞÄÚÁ¦ÉÏÏÞÒªÇó¡¢½µµÍÊôÐÔÒªÇó¡¢ÎÞÊôÐÔÒªÇóµÈ¡£
+    ´òÔìµÄ±øÆ÷²»ÊÇÈÎºÎÈËÓÃÁË¶¼¾ßÓÐ×î´óµÄÍþÁ¦£¬±ØÐëÊÇ±øÆ÷µÄÖ÷ÈË
+Ê¹ÓÃ²Å¿ÉÒÔ¡£Ìú½³¿ÉÒÔÊ¹ÓÃÃüÁîÈÏÖ÷£¨renzhu£©£¬À´¸ø±øÆ÷È·¶¨Ö÷ÈË£¬
+ÕâÑù¼´Ê¹ÄãµÄ±øÆ÷±»±ðÈËÄÃ×ß£¬ËûÒ²ÎÞ·¨·¢»Ó×î´óµÄÍþÁ¦¡£
+    ËäÈ»´òÔìµÄ±øÆ÷²»ÂúÒâ £¬µ«ÊÇ¿ÉÒÔÊ¹ÓÃÃüÁî¼Ó¹¤£¨jiagong£©À´¼Ó
+¹¤´òÔìµÄ±øÆ÷¡£×¢Òâ£º¼Ó¹¤³É¹¦µÄ¼¸ÂÊÊÇºÜµÍµÄ£¡
+    ´òÔìµÄ±øÆ÷¿ÉÒÔ±£´æÔÚÉíÉÏ¡£
+
+2)¶ÍÔìÀàÌú½³¡£´ËÀàÌú½³ÔÚ¶ÍÔì¿ø¼×ÉÏÓÐºÜ´óÓÅÊÆ£¬µ«ÊÇ´òÔì±øÆ÷¾Í²»
+ÐÐÁË£¬¶øÇÒ´òÔìµÄ±øÆ÷²»ÄÜÍ¿¶¾¡£³ýÁËÄÜ¶ÍÔì¿ø¼×Íâ£¬´ËÀàÌú½³»¹ÄÜ¶Í
+ÔìÒ©¶¦£¬¸øÒ©Ê¦Á¶ÖÆÒ©ÎïÓÃ¡£Ò©¶¦Ô½ºÃ£¬Ò©ÎïÔ½ºÃ¡£
+    ¶ÍÔìÀàÌú½³¶ÍÔìµÄ»¤¾ß£¬»áÓÐÒ»¶¨µÄ¼¸ÂÊ¸ø»¤¾ß´øÉÏÒ»Ð©ÊôÐÔ£¬Õâ
+Ð©ÊôÐÔÓë±øÆ÷ÖÐËù¼ÓµÄÊôÐÔ»ù±¾ÏàÍ¬¡£²»Í¬µÄÊÇ£¬»¤¾ß²»»á¸øÄãÔö¼ÓÉË
+º¦ÊôÐÔ¡£»¤¾ß²»ÓÃÖ¸¶¨Ö÷ÈË£¬ÈÎºÎÈË´©ÁË¶¼¿ÉÒÔ£¬µ±È»Ò²¾Í²»±ØÈÏ¶¨Ö÷
+ÈËÁË£¡
+    ¶ÍÔìµÄ»¤¾ß¿ÉÒÔ±£´æÔÚÉíÉÏ¡£
+
+3)´òÔì¶¾±øÆ÷ÁËÌú½³¡£´ËÀàÌú½³²»ÉÃ³¤´òÔì±øÆ÷ºÍ¿ø¼×£¬µ«ÊÇ´òÔìµÄ±ø
+Æ÷¿ÉÒÔÍ¿Ä¨ÉÏ¶¾Ò©£¬¶øÇÒ¿ÉÒÔ´òÔì¶¾Àà±øÆ÷¡£¶øÇÒ´òÔì³öÀ´µÄ±øÆ÷ºÍ¶Í
+Ôì³öÀ´µÄ¿ø¼×¶¼²»»á´øÈÎºÎ¸½¼ÓÊôÐÔ¡£
+
+ÒÔÏÂÊÇ dazao ºÍ duanzao µÄ°ïÖúÎÄ¼þ 
+
+Ö¸Áî¸ñÊ½ : dazao Ô­ÁÏÃû³Æ ±øÆ÷Ãû³Æ ±øÆ÷ÀàÐÍ ÉËº¦¶È ¼á¹Ì¶È 
+±øÆ÷Ãû³ÆÖ§³ÖÑÕÉ«×Ö·û¡£ 
+dazao -wm ±øÆ÷ ÎÄ×Ö À´ÐÞ¸Ä wield ±øÆ÷Ê±µÄÃèÊö 
+dazao -uwm ±øÆ÷ ÎÄ×Ö À´ÐÞ¸Ä unwield ±øÆ÷Ê±µÄÃèÊö¡£ 
+ÎÄ×Ö¸ñÊ½£º $N£º×Ô¼º $n£º±øÆ÷ 
+Èç£º$N¡¸à§¡¹µØÒ»Éù³é³öÒ»°Ñ$nÎÕÔÚÊÖÖÐ¡£ 
+
+´ËÃüÁîÎªÌú½³µÄ×¨ÓÃÃüÁî£¬¿ÉÒÔÓÃÀ´´òÔì±øÆ÷¡£ 
+¿ÉÒÔ´òÔìµÄÀàÐÍÎª£º 
+½£Àà£ºsword 
+µ¶Àà£ºblade 
+ÕÈÀà£ºstaff 
+´¸Àà£ºhammer 
+±ÞÀà£ºwhip 
+¸«Àà£ºaxe 
+²æÀà£ºfork 
+Ç¹Àà£ºspear 
+Ø°Ê×Àà£ºdagger 
+¶¾Àà£ºdagger_poison ´ËÀàØ°Ê×¿ÉÒÔÉ¢¶¾Ò²¿ÉÒÔ´Ì¼¤ 
+¼¤·¢Ìú½³µÄÇ±ÄÜ¡£ 
+
+Ö¸Áî¸ñÊ½ : duanzao Ô­ÁÏÃû³Æ ¿ø¼×Ãû³Æ ¿ø¼×ÀàÐÍ 
+¿ø¼×Ãû³ÆÖ§³ÖÑÕÉ«×Ö·û¡£ 
+´ËÃüÁîÎªÌú½³µÄ×¨ÓÃÃüÁî£¬¿ÉÒÔÓÃÀ´¶ÍÔì¿ø¼×¡£ 
+¿ÉÒÔ¶ÍÔìµÄÀàÐÍÎª£º 
+armor :¿ø¼× 
+head :Í·¿ø 
+neck :»¤¾± 
+waist :»¤Ñü 
+wrists :»¤Íó 
+shield :¶ÜÅÆ 
+finger :°åÖ¸ 
+hands :»¤ÕÆ 
+boots :Ñ¥×Ó 
+yaoding:Ò©¶¦£¬ÓÃÓÚ¸øÒ©Ê¦Á¶ÖÆÒ©Îï¡£ 
+
+
+                                               [1;33m-- DtSl.Wiz --[2;37;0m

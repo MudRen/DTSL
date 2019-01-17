@@ -1,0 +1,53 @@
+
+ 
+[1;31m¡¼[1;32m²âÊÔ½±Àø[1;31m¡½[2;37;0m
+    ×÷Îª¶Ô´óÌÆË«ÁúÓÐ¹±Ï×µÄ²âÊÔÍæ¼Ò£¬½«ÔÚÕýÊ½¿ªÕ¾ºóµÃµ½Ò»Ð©½±Àø¡£
+Èç¹ûÄãÊÇ²âÊÔÊ±ÆÚµÄ×¢²áÍæ¼Ò£¬ÄÇÃ´ÔÚÕýÊ½¿ªÕ¾ºó£¬ÇëÊ¹ÓÃÄãµÄ²âÊÔID
+À´µÇÂ¼£¬Äã»á¿´µ½ÏÂÃæµÄÏûÏ¢£º
+[1;32m
+ÄúµÄÓ¢ÎÄÃû×Ö£º*********
+ÇëÊäÈëÃÜÂë£º********* 
+
+ÄãµÄÕËºÅÊôÓÚ²âÊÔÕËºÅ£¬ÏÖÔÚ½«É¾³ý´ËÕËºÅ¡£ 
+ÇëÖØÐÂÊ¹ÓÃ´ËÕËºÅ×¢²áµÇÂ¼£¬È»ºóÊ¹ÓÃ help jiangli À´²é¿´ÈçºÎ»ñµÃ
+²âÊÔ½±Àø¡£ 
+[2;37;0m
+    È»ºó£¬ÇëÖØÐÂ½øÈëÓÎÏ·£¬×¢²á¡£
+    ÔÚÎä¹ÝÖÐ£¬ËùÓÐÍæ¼Ò¶¼ÊÇÒ»ÑùµÄ£¬ÐèÒª´ÓÍ·Á·Æð¡£³öÁËÎä¹Ýºó£¬²â
+ÊÔÊ±µÄÍæ¼Ò¿ÉÒÔµ½³¤°²£¬ÕÒµ½¡°ÌìóÃ¸ßÉ®¡±£¬È»ºóÏòËûÑ¯ÎÊ¡°²âÊÔ½±Àø¡±£¬
+Äã¾Í»áµÃµ½½±ÀøÁË£¡
+
+    ²âÊÔ½±ÀøµÄµÈ¼¶ÈçÏÂ£º
+1¡¢²âÊÔÊ±ÆÚµÇÂ¼µÄID£º½±ÀøÇ±ÄÜ 500 µã£¬ÊôÐÔ 1 µã£¬¹¦¼¨ 5 µã¡£
+2¡¢ÆÕÍ¨²âÊÔID      £º½±ÀøÇ±ÄÜ 1000µã£¬ÊôÐÔ 2 µã£¬¹¦¼¨ 5 µã¡£
+3¡¢ÓÐ¹±Ï×µÄ²âÊÔID  £º½±ÀøÇ±ÄÜ 2000µã£¬ÊôÐÔ 4 µã£¬¹¦¼¨ 10µã¡£ 
+4¡¢¸ß¼¶¹±Ï×µÄ²âÊÔID£º½±ÀøÇ±ÄÜ 3000µã£¬ÊôÐÔ 6 µã£¬¹¦¼¨ 15µã¡£ 
+5¡¢ÌØÊâ¹±Ï×µÄ²âÊÔID£º½±ÀøÇ±ÄÜ 4000µã£¬ÊôÐÔ 8 µã£¬¹¦¼¨ 20µã¡£ 
+
+ÒÔÏÂÊÇ2-4¼¶µÄÃûµ¥£º
+Ò»¡¢ ÌØÊâ¹±Ï×½±Àø£º
+xuer leo 
+
+¶þ¡¢ ¸ß¼¶¹±Ï×½±Àø£º 
+yuki caimi winner tott zhch anan
+
+Èý¡¢ ÓÐ¹±Ï×µÄ²âÊÔID
+hide forget ylei gest trsk sister hope yihe kitty lanse 
+sjsega mercuri over stopgab love zxmly yatina tiexue dagon 
+jerry tely lklk leon tly zxy
+
+ËÄ¡¢ ÆÕÍ¨²âÊÔID
+pound xhx wish anything zax huanle yuhe tianyi none miclon 
+denis xing lazylong sea strong zyf xuedao ddyy aojian  
+
+[1;31m¡¼[1;32m¹ØÓÚÌìóÃ¸ßÉ®[1;31m¡½[2;37;0m
+    ¿¼ÂÇµ½ÓÎÏ·ÖÐÇ±ÄÜµÄÓÐÐ§ÀûÓÃ£¬ËùÒÔ´óÌÆË«ÁúÐÂ¼ÓÁËÒ»¸öNPC½ÇÉ«£¬
+´ËNPC¿ÉÒÔÎªÄú´æ´¢Ç±ÄÜ£¬ÔÚÐèÒªµÄÊ±ºòÔÙÈ¡³öÀ´£¡
+    Ïà¹ØÖ¸Áî£º
+    savepot£º±£´æÇ±ÄÜ¡£
+    getpot £ºÈ¡³öÇ±ÄÜ¡£
+    
+    ÏòÌìóÃ¸ßÉ®Ñ¯ÎÊ¡°Ç±ÄÜ¡±µÄÏûÏ¢£¬Ôò»áÖªµÀ×Ô¼º´æ´¢ÁË¶àÉÙÇ±ÄÜ¡£
+
+
+                                               [1;33m-- DtSl.Wiz --[2;37;0m

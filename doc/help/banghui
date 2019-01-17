@@ -1,0 +1,119 @@
+
+
+[1;31m¡¼[1;33m°ï»á·çÔÆ[1;31m¡½[2;37;0m
+ 
+    °ï»áÊÇ´óÌÆÉú»îÖÐµÄÖØÒª²¿·Ö£¬Í¨¹ý°ï»á£¬Äã¿ÉÒÔ×³´ó×Ô¼ºµÄÊµÁ¦£¬
+½áÊ¶¸ü¶àµÄÅóÓÑ£¬µ±È»ÄãÒ²ÄÑÃâÏÝÈëµ½°ï»áÖ®¼äµÄÕ½¶·Ö®ÖÐ£¬Ôì³ÉºÜ´ó
+µÄËðÊ§¡£Èç¹ûÄãÊÇ°ï»áµÄÊ×ÄÔ£¬ÔòÒª¸ºÔð¸ü¶àµÄÔðÈÎ¡£ËäÈ»Èç´Ë£¬µ«ÊÇ
+ÔÚ°ï»áÖÐ£¬¶ÔÄãµÄ³É³¤»á¸ü¼ÓÓÐÀû£¬ÄãµÄÉú»îÒ²»áÏà¶Ô·á¸»Ðí¶à¡£
+    ´óÌÆÖÐÏÖÓÐÒÔÏÂ¼¸¸ö°ï»á(ÊÆÁ¦)£º³¤°²Ìì²ß¸®¡¢ÁëÄÏËÎ·§¡¢³É¶¼¶À
+×ð±¤¡¢½­ÄÏµÄ´ó½­Áª¡¢º£É±°ïºÍ·ÉÂíÄÁ³¡¡£
+    Ã¿¸ö°ï»á¶¼ÓÐÄ¬ÈÏµÄ°ïÖ÷Ò»Ãû£¬ÄãÈç¹ûÏë¼ÓÈë°ï»á£¬ÕÒµ½°ïÖ÷£¬È»
+ºóÊ¹ÓÃ enroll °ïÖ÷id µÄÃüÁî £¬½Ó×Åµ½×Ô¼º°ï»áµÄÓ¢ÐÛ°ñÄÇÀïÈ¥Ê¹ÓÃ
+join ×Ô¼ºµÄid ÃüÁî¾Í¿ÉÒÔÁË¡£µÈÄãµÄÎä¹¦ÈÕÒæÔö¸ß£¬¿ÉÒÔÈ¥ÌôÕ½Ô­°ï
+Ö÷¡£Ê¹ÓÃ gage ÃüÁî¾Í¿ÉÒÔ¡£ÓÐµÄ°ïÖ÷ÒªºÍÄã´òÉÏÒ»ÕÌ£¬ÓÐµÄÔò¿¼ÑéÒ»
+ÏÂ¾Í¿ÉÒÔÁË¡£
+    ¼ÓÈë°ï»áÒÔºó£¬Äã²»ÄÜºÍ×Ô¼º°ïÅÉµÄÈË»¥Ïà¶·É±£¬Ò²²»ÄÜºÍÓë×Ô¼º
+°ïÅÉ½áÃËµÄ°ïÅÉÖÐµÄÈË»¥Ïà¶·É±¡£Èç¹ûÒ»¶¨Òª¶·É±£¬¾Íµ½ÀÞÌ¨»òÍË³ö°ï
+»á°É£¡
+    
+    Ã¿¸ö°ï»á¶¼ÓÐÒ»¸öÏà¶Ô°²È«µÄÇøÓò£¬Õâ¸öÇøÓòÓÐÁ½¸ö»¤ÎÀ°ÑÊØ£¬²»
+ÊÇ±¾°ï»áµÄ³ÉÔ±»òÕß²»ÊÇÓë±¾°ï»á½áÃËµÄ³ÉÔ±ÊÇ²»ÄÜ½øÈ¥µÄ¡£Õâ¸öµØ·½
+µÄÒ»¸ö×÷ÓÃ¾ÍÊÇ±£»¤Ã¿¸ö¸Õ¸Õ¼ÓÈë°ï»áµÄÐÂÊÖ£¬·ÀÖ¹ËûÃÇ±»Ò»Ð©Ä§Í·É±
+ËÀ¡£
+    ÔÚÕâ¸öÏà¶ÔµÄ°²È«ÇøÓòÄÚ£¬ÓÐÒ»¸öÐÞÏ°ÊÒ¡£ÕâÀïÊÇÓëÃ¿¸ö°ï»áµÜ×Ó
+³É³¤ÃÜÇÐÏà¹ØµÄµØ·½¡£ÔÚ´óÌÆÖÐ£¬ËùÓÐµÄÎä¹¦¶¼Ö»ÄÜÑ§µ½ 200¼¶£¬Èç¹û
+ÔÙÏòÉÏÌá¸ß£¬±ØÐëÁìÎò»ù±¾¹¦·ò£¬È»ºóÔÙÊ¹ÓÃpractice½«ÌØÊâÎä¹¦Á·ÉÏ
+È¥¡£Èç¹û²»Èë°ï»á£¬ÔÚºãÉ½ÁìÎò£¬ÔòÐ§¹ûÒªµÍºÜ¶à¡£¶øÔÚ°ï»áÁìÎò£¬»á
+¿ìºÜ¶à¡£Äã¿ÉÒÔÊ¹ÓÃ checkskills À´²é¿´°ï»áÑÐ¾¿»ù±¾¼¼ÄÜµÄÇé¿ö£º
+    Èç£º
+    ËÎ·§Ä¿Ç°ËùÑÐ¾¿µÄ¼¼ÄÜ£º
+
+    »ù±¾µ¶·¨(blade)                       201/4000
+    »ù±¾È­·¨(cuff)                        200/  0
+    »ù±¾Çá¹¦(dodge)                       200/  0
+    »ù±¾Ö¸·¨(finger)                      200/  0
+    »ù±¾ÄÚ¹¦(force)                       200/8000
+    »ù±¾´¸·¨(hammer)                      200/  0
+    »ù±¾ÍÈ·¨(leg)                         200/  0
+    »ù±¾ÕÐ¼Ü(parry)                       200/  0
+    »ù±¾Ç¹·¨(spear)                       200/  0
+    »ù±¾ÕÆ·¨(strike)                      200/  0
+    »ù±¾½£·¨(sword)                       200/  0
+    »ù±¾±Þ·¨(whip)                        200/4000
+    
+    Èç¹ûÄãÔÚÐÞÏ°ÊÒÁìÎò»ù±¾¼¼ÄÜ£¬ÔòÁìÎòµÄÉÏÏÞÊÇÊ¹ÓÃcheckskills
+Ëù¿´µ½µÄ¼¼ÄÜÉÏÏÞ¡£
+    Ìá¸ß°ï»áµÄ¼¼ÄÜÉÏÏÞÒª±ØÐëÑÐ¾¿(yanjiu)²Å¿ÉÒÔ¡£
+    ÑÐ¾¿¿ÉÒÔµ¥ÈËÑÐ¾¿£¬Ò²¿ÉÒÔ team(×é¶Ó) ÑÐ¾¿¡£²»¹ý×é¶ÓÑÐ¾¿µÄÐ§
+¹ûÒªºÃµÃ¶à¡£ÒòÎªÑÐ¾¿ÒªÏûºÄ×Ô¼º°ï»áµÄ¾­ÑéÖü±¸£¬ËùÒÔ×îºÃÊÇ×é¶ÓÀ´
+ÑÐ¾¿£¬²»¹ý×î¶à¿ÉÒÔÎå¸öÈË×é¶ÓÑÐ¾¿¡£
+    µ«²¢²»ÊÇÃ¿¸öÈË¶¼¿ÉÒÔÑÐ¾¿¼¼ÄÜµÄ¡£Äã±ØÐëÊÇ´Ë°ï»á»ò½áÃË°ï»áµÄ
+³ÉÔ±£¬Í¬Ê±¶ÁÊéÊ¶×Ö´ïµ½200¼¶£¬¶øÇÒÖÁÉÙÒª°ÑÑÐ¾¿µÄ¼¼ÄÜÑ§µ½200¼¶£¬
+°ï»áÖü±¸µÄ¾­Ñé±ØÐë×ã¹»ÑÐ¾¿¡£ÒÔÉÏÌõ¼þÂú×ã£¬²Å¿ÉÒÔÑÐ¾¿¡£
+    µ«ÊÇÑÐ¾¿Ò²²»ÊÇÄÇÃ´¼òµ¥µÄ£¬ÑÐ¾¿Ò»´Î£¬ÑÐ¾¿µÄÈËµÄ¶ÁÊéÊ¶×Ö»áµô
+Ò»¼¶£¡
+    Èç¹ûÓÐÈËÑÐ¾¿ÁË¼¼ÄÜ£¬²¢ÇÒ¸ßÓÚÄãËùÑ§µÄ¼¼ÄÜµÄµÈ¼¶£¬ÄÇÄã¾Í¿ÉÒÔ
+ÔÚ×Ô¼º°ï»áµÄÐÞÏ°ÊÒÁìÎò(lingwu)ÁË£¬Ð§¹ûÒªÔ¶Ô¶ºÃÓÚ²»Èë°ï»á¡£
+    ¼ÓÈë°ï»áÒÑºó£¬ÒÔºóÄãÃ¿´Î×öÈÎÎñ£¬¶¼»áÎªÔö¼Ó°ï»áµÄÖü±¸--½ðÇ®
+ºÍ¾­Ñé¡£È»ºóÓÉ°ïÖ÷À´·ÖÅä½ðÇ®ºÍ¾­Ñé¡£Ã¿´ÎÄãÄÜµÃµ½µÄ¾­ÑéÉÏÏÞÎªÄã
+×Ô¼º¾­ÑéµÄ 1/300£¬Í¬Ê±»¹²»ÄÜ³¬¹ýÄãµÄ½­ºþÉùÍûÊýÖµ¡£²»¹ý°ï»áÖÐÈç
+¹ûÓÐÒ»¸öÈË±»pk£¬ÄÇÃ´°ï»áµÄÖü±¸¾Í»á½µµÍ¡£½µµÍµÄ¾­ÑéµÄÊýÄ¿Îª±»É±
+ÈËµÄ¾­ÑéµÄ1/100 £¬½ðÇ®Îª±»É±ÈËµÄ¾­ÑéµÄ 1/500£¨µ¥Î»£ºÍ­Ç®£©¡£
+    ÒÔºóÈç¹ûÄãÖ÷¶¯ÍË³ö°ï»á£¬ÔòÒª¼õµô´Ó°ï»áµÃµ½µÄ¾­Ñé£¬°üÀ¨ÄãÒÔ
+Ç°´ÓÆäËû°ï»áÖÐ»ñµÃµÄ¾­Ñé£¡×÷ÎªÖ÷¶¯±³ÅÑ°ï»áµÄ³Í·££¡
+    
+    Óë°ï»áÓÐ¹ØµÄÃüÁî£º
+    
+ enroll     :  ¼ÓÈë°ï»áµÄÃüÁî¡£ÓÃ·¨£ºenroll xxx
+ adopt      :  ÔÊÐíÄ³ÈË¼ÓÈë°ï»á¡£°ïÖ÷ÃüÁî¡£ÓÃ·¨£ºadopt xxx
+ list       :  ²é¿´Ä³°ï»á³ÉÔ±¡£
+ join       :  ÕýÊ½¼ÓÈë°ï»áÃüÁî¡£ÓÃ·¨£º join ×Ô¼ºµÄid
+ discard    :  ¿ª³ýÄ³ÈË³ö°ï»á¡£¼¶±ð¸ß¿ÉÒÔ½«¼¶±ðµÍµÄ¿ª³ý°ï»á¡£Èç¹û
+               discard ÊÇ×Ô¼ºµÄ±àºÅ£¬ÔòÊÇÖ÷¶¯ÍË°ï¡£
+               °ïÖ÷²»ÔÊÐíÍË°ï¡£
+ check      :  ²é¿´±¾°ï»áµÄÖü±¸
+ qu         :  ´ÓÖü±¸ÖÐÈ¡³ö½ðÇ®
+ deposit/cun:  Ïò°ï»áÖÐ´æÇ®
+ jiangli    :  ½±Àø°ï»áÈËÔ±¾­ÑéÖµ
+ renming    :  ÈÎÃü°ï»áÈËÔ±Ö°Îñ¡£
+ power      :  ÈÎÃüÄ³ÈËÄ³µØ·½µÄÖ°Îñ£¬»¹ÓÐÈ¨ÏÞ¡£ 
+               Èç power  yanyan yangzhou 2
+          yangzhou:³ÇÊÐ´úºÅ¡£ ºóÃæµÄÊý×ÖÊÇÈ¨Á¦µÄ´óÐ¡¡£Îª1~8¡£ÈôÎª
+          1£¬¾ÍÊÇ°Ñ°ïÖ÷µÄÎ»×Ó´«¸ø¶Ô·½ÁË¡£
+          Ä¿Ç°¿ÉÒÔÈÎÃüµÄ³ÇÊÐ´úºÅ£º
+          
+changan:³¤°²    luoyang:ÂåÑô       xiangyang:ÏåÑô      chengdu:³É¶¼
+baling:°ÍÁê     hefei:ºÏ·Ê         jiujiang:¾Å½­       yangzhou:ÑïÖÝ
+hangzhou:º¼ÖÝ   xingyang:ÜþÑô      liyang:ÀèÑô         xucheng:Ðí³Ç
+pengliang:ÅíÁº  leshou:ÀÖÊÙ        yuyang:ÓãÑô         shanhaiguan:É½º£¹Ø
+taiyuan:Ì«Ô­    mayi:ÂíÒØ          dingxiang:¶¨Ïå      saiwai:ÈûÍâ
+suiye:ËéÒ¶      tuyuhun:ÍÁ¹È»ë     gaoli:¸ßÀö
+          
+          ÆäÖÐpower ºÍ renming ÊÇÁ½»ØÊÂ¡£¿ÉÒÔrenming Ä³ÈËÎª¸±
+          °ïÖ÷£¬µ«ËûµÄÈ¨Á¦¿ÉÒÔÊÇ4.
+ order  : ºÍpower ÃÜÇÐÏà¹ØµÄÃüÁî¡£Èç¹ûÁ½¸öÈËÊÇÍ¬Ò»¸ö³ÇÊÐ·¶Î§£¬
+          Èç¶¼ÊÇyz,¶øÇÒÆäÖÐÒ»¸öµÄÈ¨Á¦´óÓÚÁíÒ»¸ö£¬Ôò¿ÉÒÔorder¶Ô
+          ·½£¡°ïÖ÷ÔòÊÇËæ±ãorder µÄ£¡
+ jiemeng: ²é¿´×Ô¼º°ï»áµÄ½áÃË/½âÃËÇé¿ö¡£
+ history: ²é¿´°ï»áµÄÀúÊ·£¬Èç·ÖÅäÖü±¸¡¢°ïÖ÷¼ÌÈÎÇé¿öµÈ¡£
+ 
+ÔÚ°ï»áÖÐ£¬Äã¿ÉÒÔÏóÔÚ³ÇÊÐÖÐÒ»ÑùÖ´ÐÐÒ»Ð©ÃüÁî£¬Èç£º
+×¤±ø£¬³ö±ø£¬³·±ø£¬Á·±ø£¬Îä×°£¬ÊÕ±ø¡££¨Çë¿´ help war£©
+ÃüÁîÓë³ÇÊÐÒ»Ñù¡£
+Ê¹ÓÃ checkwar ¿ÉÒÔ²é¿´µ½Ò»Ð©±øÁ¦µÄÐÅÏ¢¡£
+°ï»á½«×÷Îª×î³õ±øÁ¦µÄÉú³ÉµØ£¬°ï»á³ÉÔ±ÒªÔÚ°ï»áµÄÓ¢ÐÛ°ñ´¦Ê¹ÓÃÕâÐ©
+ÃüÁî£¬È»ºóÈ¥¹¥´ò³ÇÊÐ£¬Õ¼Áì³ÇÊÐ¡£
+²»¹ý°ï»áÖÐÃ»ÓÐÌìÔÖ¡¢¸£ÔË£¬Ò²Ã»ÓÐË°ÂÊ¡£ËùÒÔ°ï»áÖÐÅàÑøµÄÊ¿±ø²»»á
+³öÏÖ¼õÉÙµÄÇé¿ö¡£Òò´ËÔÚ°ï»áÖÐÅàÑøÊ¿±øÒª±È³ÇÊÐÖÐÄÑÒ»Ð©£¬»¨·ÑµÄ½ð
+Ç®Òª¶àÒ»Ð©¡£
+°ï»á×öÎªÓÀ¾ÃµÄ±øÁ¦·¢Ô´µØ£¬¼´Ê¹Õ¼ÓÐÉÙÁ¿µÄ³ÇÊÐ£¬Ò²ÓÐ»ú»áÈ¥¹¥´ò±ð
+ÈË¡£
+×¤±ø£¬³ö±ø£¬³·±ø£¬Á·±ø£¬Îä×°£¬ÊÕ±ø  ÕâÐ©ÐÐÎª±ØÐë´ïµ½Ò»¶¨¾­Ñé²Å
+¿ÉÒÔ£¬ÔÚÄãÊ¹ÓÃÕâÐ©ÃüÁîÊ±£¬»á¸ø³öÌáÊ¾¡£
+°ï»áµÄÈË¿ÚÉÏÏÞ£º
+ÒòÎª Ìì²ß¸® ºÍ ¶À×ð±¤ ´¦ÓÚ³ÇÊÐ¸½½ü£¬ÓÐÏÈÌìµÄÓÅÊÆ£¬ËùÒÔÕâÁ½¸ö°ï
+»áµÄÈË¿ÚÉÏÏÞÎª 8 ÍòÈË¡£¶øÆäËû°ï»áÎª 10 ÍòÈË¡£
+ 
+
+                                               [1;33m-- DtSl.Wiz --[2;37;0m

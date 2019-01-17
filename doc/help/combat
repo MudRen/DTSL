@@ -1,0 +1,100 @@
+
+
+
+[1;31m¡¼[1;33mÆË»÷¸ñ¶·[1;31m¡½[2;37;0m
+
+    Èç¹ûÏëÕæÕýµØ³ÉÎªÎäÁÖ¸ßÊÖ£¬²»¹ÜÄãÊÇ·ñÔø¾­ÊÇÒ»Î»ÄàÌ¶¸ßÊÖ£¬»¹
+ÊÇÇë¿´¿´ÏÂÃæµÄÎÄ×Ö£º
+
+    ´óÌÆµÄÕ½¶·Ïà¶ÔÄ¿Ç°µÄMUD×öÁËºÜ´óµÄ¸Ä¶¯£ºÈ¡ÏûÁË enable(jifa)
+ÃüÁî¡£ÄÇÃ´ÒÔºóÔÚÕ½¶·Ê±¾Í²»ÓÃÏÈenable£¬¶øÄãËùÑ§µÄÎä¹¦Ò²¾Í»áËæÊ±
+Ê¹ÓÃÁË¡£
+    ÀýÈç£ºÄãÑ§ÁËÁ½ÖÖ½£·¨--ÌìÄ§½£·¨ºÍÆ®ÃÎ½£·¨£¬ÄÇÃ´µ±ÄãÊÖ³Ö½£Àà
+µÄÎäÆ÷Õ½¶·Ê±£¬ÄãËùÊ¹ÓÃµÄÎä¹¦¾ÍÊÇÌìÄ§½£·¨ºÍÆ®ÃÎ½£·¨£¬ÕâÁ½ÖÖ½£·¨
+»áËæ»úÊ¹ÓÃ¡£Í¬Àí£¬Èç¹ûÄãÃ»ÄÃÎäÆ÷£¬ÄÇÃ´ÄãËùÓÐµÄ¿ÕÊÖ¹¦·ò¶¼»áËæ»ú
+ÉÏÕó¡£
+    ÂíÉÏ»áÓÐÈËÌáÒé£ºÈç¹ûÎÒÒ»ÖÖ½£·¨ 100¼¶£¬ÁíÒ»ÖÖ½£·¨10¼¶£¬ÄÇÎÒ
+Æñ²»ÊÇºÜ¿÷£¿£¡±ð¼±£¬ÏÂÃæ¾ÍÊÇ½â¾öµÄ°ì·¨£¡
+    ´óÌÆÖÐÐÂÔö¼ÓÁËÒ»¸öÕ½¶·ÖÐµÄÃüÁî£ºapply(yong) £¬¹ËÃûË¼Òå£¬¿É
+ÒÔÈÃÄãÔÚÕ½¶·ÖÐÖ¸¶¨ÕÐÊý¡£ÓÃ·¨ÈçÏÂ£º
+    ÓÃ·¨Ò»:
+    apply Ä³Ä³¼¼ÄÜ Ä³ÕÐ ¼¼ÄÜÀàÐÍ¡£
+    ÓÃ·¨¶þ:
+    apply(yong) Ä³Ä³Îä¹¦ y
+
+    ÏÂÃæÏêÏ¸µØ½âÊÍÒ»ÏÂapply(yong)(¼ÙÉèÄãÑ§ÁËtianmo-jianfa)¡£
+   £¨Ò»)
+    ÓÃ·¨Ò»:
+    apply Ä³Ä³¼¼ÄÜ Ä³ÕÐ ¼¼ÄÜÀàÐÍ
+
+	¼¼ÄÜÀàÐÍ·ÖÎª ÉËº¦(damage)¡¢ÕÐ¼Ü(parry)¡¢ºÍÃô½Ý(dodge)¡£
+ÀýÈç£º
+	yong tianmo-jianfa 4 damage
+	ÄÇÃ´Äã½«»á°´ÕÕÌìÄ§½£·¨µÚËÄÕÐµÄÍþÁ¦À´Ôö¼ÓÄãÔÚÕ½¶·ÖÐµÄÉËº¦£¬
+²»¹ýÍ¬Ê±£¬Äã»áÏàÓ¦µÄ½µµÍÕÐ¼ÜºÍÃô½Ý¡£Í¬Àí£¬Èç¹ûÄãÔö¼ÓÁËÕÐ¼Ü£¬ÄÇ
+Ã´ÉËº¦ºÍÃô½Ý»á½µµÍ£»ÄãÔö¼ÓÁËÃô½Ý£¬ÄÇÃ´ÉËº¦ºÍÕÐ¼Ü»á½µµÍ¡£
+    ÍþÁ¦µÄÊýÖµÔ½´ó£¬Ôö¼ÓµÄÔ½¶à£¬ÏàÓ¦µÄ£¬¼õÉÙµÄÒ²Ô½¶à£»Í¬Ê±£¬Äã
+µÄ¼¼ÄÜÔ½¸ß£¬ÊýÖµÒ²»á±ä´ó¡£
+    Ã¿Ò»Ì×Îä¹¦µÄÕÐÊýµÄÍþÁ¦¶¼²»ÏàÍ¬£¬¿ÉÒÔÓÃ action ÃüÁî²é¿´£¬
+Èç£ºaction tianmo-jianfa£¬²»¹ýactionÃüÁîÖ»ÄÜ²é¿´ÄãËùÑ§µÄÎä¹¦¡£
+Èç£º action tianmo-jianfa
+©³©¥tianmo-jianfa ÕÐÊý©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©·
+©§µÚÒ»ÕÐ       ¡¸÷ÈÓ°ÇëÃü¡¹             ÍþÁ¦£º2                 ©§
+©§µÚ¶þÕÐ       ¡¸ÌìÄ§·ÉÎè¡¹             ÍþÁ¦£º3                 ©§
+©§µÚÈýÕÐ       ¡¸¹íÓ°Ô²Îè¡¹             ÍþÁ¦£º4                 ©§
+©§µÚËÄÕÐ       ¡¸ÌìÄ§÷ÈÓ°¡¹             ÍþÁ¦£º5                 ©§
+©»©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¿
+
+    ×¢Òâ£º²»¹ÜÄãµÄ¼¼ÄÜ¶à¸ß£¬ÕâÖÖÐ§¹ûÖ»»á³ÖÐø 10 ÃëÖÓ¡£ÔÚÈ«²¿Ê©
+Õ¹Íê±Ïºó£¬»á¸ù¾ÝËùÊ©Õ¹ÕÐÊýµÄÍþÁ¦À´ÔÝÍ£¼¸¸ö»ØºÏµÄÕ½¶·¡£Õâ¾ÍÒâÎ¶
+×ÅÈç¹ûÄãÓÃÁË¹¥»÷Á¦×îÇ¿µÄµÚËÄÕÐ£¬ÄÇÃ´ÔÚ½áÊøÊ±£¬Äã¾ÍÓÐ¿ÉÄÜÔÚ½ÓÏÂ
+À´µÄ¼¸¸ö»ØºÏÀïÖ»ÄÜ´¦ÓÚ·ÀÊØµÄ×´Ì¬ÁË¡£ÒòÎªÊÇËæ»úµÄ£¬ËùÒÔÈç¹ûÔËÆø
+ºÃ£¬Ò²¿ÉÄÜ²»»áÓÐÔÝÍ£µÄÊ±ºò¡£
+
+    (¶þ)
+    ÓÃ·¨¶þ:
+    apply(yong) Ä³Ä³Îä¹¦ y
+
+    Õâ¸öÃüÁî¿ÉÒÔÖ¸¶¨ÄãÔÚÕ½¶·ÖÐÓÀÔ¶Ê¹ÓÃÄ³ÖÖÎä¹¦¡£
+    Èç:yong tianmo-jianfa y
+    ÔòÕ½¶·ÖÐ¿ÉÒÔÓÀÔ¶Ê¹ÓÃtianmo-jianfa,µ±È»£¬ÄãÒ²¿ÉÒÔÖ¸¶¨Ê¹ÓÃÆä
+ËûÎä¹¦¡£
+
+ÏÂÃæ½éÉÜÒ»ÏÂ´óÌÆÖÐÓëÎä¹¦ÓÐ¹ØµÄÃüÁî(apply(yong)¾Í²»ÖØ¸´ÁË)£º
+1)perform
+Îä¹¦ÖÐ×î¾ß÷ÈÁ¦µÄÃüÁî¡£Èç¹ûÊÇ±ØÐëÕ½¶·Ê±²ÅÄÜÊ¹ÓÃµÄpfm£¬ÓÃperform xx
+¾Í¿ÉÒÔÁË¡£Èç¹û²»Õ½¶·Ò²¿ÉÒÔÊ¹ÓÃµÄperform£¬»òÕßÖ¸¶¨perform¹¥»÷Ä³
+¸öÈË£¬ÔòÒªperform ¾ø¼¼Ãû³Æ on ÈËÎï »òÕß perform ¾ø¼¼Ãû³Æ ÈËÎï¡£
+²é¿´Îä¹¦µÄpfm£¬ÓÃ action ÃüÁî»ò¿´ÃÅÅÉµÄ°ïÖúÎÄ¼þ¡£
+
+2) exert(yun)
+ÄÚ¹¦µÄÌØÊâÓÃ·¨ÃüÁî¡£¿ÉÒÔÊ¹ÓÃÄÚ¹¦µÄÌØÊâÓÃ·¨¡£ÓÃ·¨£ºyun xxx ¡£Èç
+¹ûÊÇÓÐÊ¹ÓÃ¶ÔÏóµÄexert£¬ÔòÒª
+yun ¾ø¼¼Ãû³Æ ÈËÎï »òÕß yun ¾ø¼¼Ãû³Æ on ÈËÎï
+
+3) execute(shizhan)
+ÐÄ·¨µÄÌØÊâÃüÁîÓÃ·¨¡£¿ÉÒÔÊ¹ÓÃÐÄ·¨µÄÌØÊâÓÃ·¨¡£ÓÃ·¨£ºshizhan xxx¡£
+Èç¹ûÊÇÓÐÊ¹ÓÃ¶ÔÏóµÄshizhan£¬ÔòÒª
+shizhan ¾ø¼¼Ãû³Æ ÈËÎï »òÕß shizhan ¾ø¼¼Ãû³Æ on ÈËÎï
+
+3) dazuo£¬tuna
+Ôö¼ÓÄÚÁ¦ºÍ¾«ÉñµÄ·½·¨¡£
+
+4) halt
+Í£Ö¹Õ½¶·µÄÒ»ÖÖ·½·¨¡£Èç¹ûÁ½¸öÈËÔÚfight£¬Ôò halt»áÍ£Ö¹Õ½¶·£¬Èç¹û
+ÊÇkill£¬¾Í²»ºÃËµÁË... ...
+
+5) practice(lian)
+Á·Ï°Îä¹¦µÄÃüÁî¡£
+ÓÃ·¨£ºlian ÌØÊâ¼¼ÄÜ
+Èç lian tianmo-jianfa. Ìõ¼þ£º¾«ÉñÒª´óÓÚ10.
+
+6) ÉèÖÃ»·¾³±äÁ¿ yield£¬ÔòÕ½¶·Ê±²»»¹ÊÖ¡£
+
+7) enforce(jiali)£¬ÔÚÕ½¶·Ê±Ê¹ÓÃÄÚÁ¦ÉËº¦µÐÈË¡£ enforce(jiali)µÄ
+ÉÏÏÞÊÇÄãµÄ»ù±¾ÄÚ¹¦µÄ¼¶Êý£¬ÈçÄãµÄ»ù±¾ÄÚ¹¦Îª 100¼¶£¬ÔòÄã×î´ó¼ÓÁ¦
+Îª 100¡£ÁíÍâ£¬ÔÚÄã¼ÓÁ¦ºó£¬²»½ö»áËæ×ÅÕ½¶·¶øÏûºÄÄÚÁ¦£¬Ëæ×ÅÊ±¼äµÄ
+±ä»¯Ò²»áÏûºÄÄÚÁ¦£¬ËùÒÔÔÚ²»Õ½¶·Ê±×îºÃÊÇenforce(jiali) ÁãµÄ¡£
+
+
+                                               [1;33m-- DtSl.Wiz --[2;37;0m
