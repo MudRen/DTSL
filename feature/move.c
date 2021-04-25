@@ -8,8 +8,8 @@
 
 #define TIME_TICK1 ((time()-900000000)*60)
 #define MAX_LIGHT_TIME 1200
-static int weight = 0;
-static int encumb = 0, max_encumb = 0;
+nosave int weight = 0;
+nosave int encumb = 0, max_encumb = 0;
 void dest_obj(object obj);
 void get_cloth(object user);//add by yanyan
 
@@ -17,7 +17,7 @@ nomask int query_encumbrance() { return encumb; }
 nomask int over_encumbranced() { return encumb > max_encumb; }
 
 //added by mudadm
-static int max_items=10; // default max_items.
+nosave int max_items=10; // default max_items.
 nomask void set_max_items(int e) {max_items=e;}
 nomask int query_max_items() {return max_items;}
 
@@ -72,7 +72,7 @@ object ride()
  string ridemsg = "";
  object ridee;
 
- if (ridee = me->query_temp("ridee")) { 
+ if (ridee = me->query_temp("ridee")) {
   if ((environment(ridee) != environment(me) &&
      environment(ridee) != me) ||
     (ridee->is_character() && ! living(ridee))) {
@@ -148,8 +148,8 @@ varargs int move(mixed dest, int silently)
                       //    return notify_fail( this_object()->name() + "对" + ob->name() + "而言太重了。\n");
                 }
         }
-        
-        if( userp(ob)&& 
+
+        if( userp(ob)&&
            (int)ob->query_encumbrance() + weight()
                 > (int)ob->query_max_encumbrance() ){
           tell_object(ob,"你的负荷过重了！\n");
@@ -159,7 +159,7 @@ varargs int move(mixed dest, int silently)
           tell_object(ob,"你身上的东西太多了！\n");
           return 0;
         }
-          
+
         // Move the object and update encumbrance
         if( environment() )     environment()->add_encumbrance( - weight());
         //----: Puff add these for fix the big bug which can cause crash
@@ -208,7 +208,7 @@ varargs int move(mixed dest, int silently)
         &&      living(this_object())                   // are we still concious?
         &&      !silently ) {
                 if( query("env/brief") ){
-                	
+
                 env = environment();
 			str = env->query("short");
             if (!stringp(str)) str = "";
@@ -225,7 +225,7 @@ varargs int move(mixed dest, int silently)
 		      if (NATURE_D->is_look_night(this_object(),env))
 			for(i=0; i<sizeof(inv); i++) {
 				if( inv[i]==this_object() ) continue;
-				if( this_object()->visible(inv[i])&&inv[i]->is_character() ) 
+				if( this_object()->visible(inv[i])&&inv[i]->is_character() )
 				        str += "一个朦胧的身影，看不清楚是谁\n";
 				else str += "一团模模糊糊的东西\n";
 			}
@@ -236,7 +236,7 @@ varargs int move(mixed dest, int silently)
 			tell_object(this_object(), str);}
                 else
                         command("look");
-        }   
+        }
 
    if (!silently && query("rumor") && userp(ob)) {
    	        set("no_sell",1);
@@ -256,7 +256,7 @@ varargs int move(mixed dest, int silently)
 		}
 		CHANNEL_D->do_channel(this_object(), "rumor", str + "。");
 	}
-	
+
 	//如果默认NPC没有衣服和鞋子，则自动加上。 add by yanyan
 	if(this_object()->is_character()&&
 		this_object()->query("race")=="人类"&&
@@ -306,7 +306,7 @@ int move_or_destruct( object dest )
 void get_cloth(object user)
 {
 	object cloth,shoe;
-   reset_eval_cost(); 
+   reset_eval_cost();
 
 	if (user->query("class")=="bonze")
 	{
@@ -364,7 +364,7 @@ void get_cloth(object user)
 			}
 		}
 	}
-	
+
 	if(objectp(shoe)&&shoe->move(user)){
 		if(!shoe->wear())
 			destruct(shoe);

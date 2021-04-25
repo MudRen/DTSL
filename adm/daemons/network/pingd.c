@@ -1,4 +1,4 @@
- 
+
  //   File   :  /adm/daemons/pingd.c
 //   Creator   :  Zazz@WizMud  (4/93)
 //   Updated   :  Watcher@TMI  (4/9/93)  for TMI-2 mudlib and call_out
@@ -13,14 +13,14 @@
 #include <net/daemons.h>
 
 inherit DAEMON;
- 
+
 #define TIME_OUT_TIME  15
 #define LOG_FILE       "PS"
 #define log(xx)        log_file( LOG_FILE, xx )
 #define addr(xx)       (string)DNS_MASTER->get_host_name( xx ) + " " + \
                        (int)DNS_MASTER->get_mudresource( xx , "inetd" )
 
-static int strip_callout(int num);
+protected int strip_callout(int num);
 int notify_player( int s, string msg );
 int time_data( int s );
 void close_socket( int s );
@@ -40,7 +40,7 @@ int ping_request(string mud)
 
    if (!mud || mud=="") return 0;
    address = addr( mud );
-   if (!address || address=="" || address == " 0") return 0; 
+   if (!address || address=="" || address == " 0") return 0;
 
    s = socket_create( STREAM, "read_callback", "close_callback" );
 
@@ -77,7 +77,7 @@ void read_callback( int fd, string mess )
 void time_out( int fd )
 {
    if(pings[fd]["fd"]) {
-     notify_player(fd, "Ping connection with " + 
+     notify_player(fd, "Ping connection with " +
      capitalize(pings[fd]["mudname"]) + " timed out. Remote host never responded.\n");
      close_socket( fd );
    }
@@ -86,7 +86,7 @@ void time_out( int fd )
 
 void close_callback( int fd )
 {    // this means *premature* closure
-   if(!pings[fd]["fd"]) return;    // Hmm...why would this happen? 
+   if(!pings[fd]["fd"]) return;    // Hmm...why would this happen?
 
    notify_player(fd, "No ping response from " +
      capitalize(pings[fd]["mudname"]) + ".\n");
@@ -123,7 +123,7 @@ void close_socket( int fd )
    return;
 }
 
-static int strip_callout(int num)
+protected int strip_callout(int num)
 {
    mixed *info;
    int loop;
@@ -135,9 +135,8 @@ static int strip_callout(int num)
    for(loop=0; loop<sizeof(loop); loop++) {
      if(info[loop][0] != this_object())  continue;
 
-     if(info[loop][3] != num)  
+     if(info[loop][3] != num)
      call_out("time_out", info[loop][2], info[loop][3]);
    }
    return 1;
 }
- 

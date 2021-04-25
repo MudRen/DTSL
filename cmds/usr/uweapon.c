@@ -16,7 +16,7 @@ private void confirm_save(string yn, object me, object wp);
 private void confirm_name(string yn, object me, object wp, string name);
 private void confirm_name_again(string yn, object me, object wp, string name);
 
-static string *banned_name = ({
+nosave string *banned_name = ({
 // Mud 保留名字
 "自己","杀手","闪电","雪人","逍遥","我们","你们","他们","咱们","大家","某人","尸体",
 "天神","总管","龙神","仙人","巫师","门客","玩家","书","书剑","名字待定","中神通","蒙面",
@@ -77,9 +77,9 @@ confirm_delete("y", me , wp);
 write(USER_WEAPOND->show_rank(me, 0));
 else if (sscanf(arg, "list %d", i))
 me->start_more(USER_WEAPOND->show_rank(me, i));
-else if(  arg=="login" ){ 
-        wp = USER_WEAPOND->check_user_weapon(me);   
-        write("武器已经找回。\n"); 
+else if(  arg=="login" ){
+        wp = USER_WEAPOND->check_user_weapon(me);
+        write("武器已经找回。\n");
 }
 else if (sscanf(arg, "save %s", arg)) {
 if (me->query("user_weapon"))

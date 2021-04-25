@@ -1,0 +1,3 @@
+#/obj/user.c
+dbase (["eff_gin":100,"int":20,"per":24,"race":"人类","eff_sen":100,"max_kee":100,"mud_age":0,"name":"小泥巴","dex":20,"potential":100,"max_pot":100,"food":1000,"channels":({"chat","rumor","dt","party","banghui","sale",}),"actions":(["force":10,"action":"$N往$n的$l狠狠地踢了一脚","damage_type":"瘀伤","dodge":10,"parry":10,]),"kee":100,"id":"mudren","str":20,"default_actions":,"max_gin":100,"title":"普通百姓","gender":"男性","deposit":10,"old_age":10,"gin":100,"kar":28,"max_apply_points":0,"max_sen":100,"startroom":"/d/newbie/door","eff_kee":100,"con":20,"water":1000,"birthday":1619358429,"sen":100,"age":10,])
+autoload ({})

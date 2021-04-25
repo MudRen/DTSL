@@ -32,7 +32,7 @@ inherit F_SKILL;
 inherit F_TEAM;
 
 // Use a tick with longer period than heart beat to save cpu's work
-static int tick;
+nosave int tick;
 void create()
 {
         seteuid(0); // so LOGIN_D can export uid to us
@@ -59,12 +59,12 @@ void heart_beat()
         int wimpy_ratio, cnd_flag;
         mapping my;
         object ob;
-        
-        
+
+
         if(!objectp(this_object())) return;
 
         my = query_entire_dbase();
-       
+
         // If we are dying because of mortal wounds?
         if( my["eff_kee"] < 0 || my["eff_gin"] < 0|| my["eff_sen"] < 0) {
                 remove_all_enemy();
@@ -73,7 +73,7 @@ void heart_beat()
         }
         //通缉犯消息 add by yanyan
         if( interactive(this_object())&&query("pker") )
-        	this_object()->show_pk_msg(this_object());	
+        	this_object()->show_pk_msg(this_object());
 
         // If we're dying or falling unconcious?
         if( my["kee"] < 0 || my["gin"]<0|| my["sen"] < 0) {
@@ -82,39 +82,39 @@ void heart_beat()
                 else unconcious();
                 return;
         }
-		
+
         // Do attack if we are fighting.
-        
+
         //缓慢的增加气势：add by Yanyan
-        
+
         if(query_temp("add_apply_points_times")>=0){
          if(query_temp("add_apply_points_times")==0){
            add("force",-query_temp("reduce_force_yushu"));
            add("apply_points",query_temp("add_apply_points_yushu"));
          }
-         else{  
+         else{
            add("force",-query_temp("reduce_force"));
            add("apply_points",query_temp("add_apply_points"));
          }
            add_temp("add_apply_points_times",-1);
-           
+
         }
-        
+
         //心法使用时间： add by Yanyan
-        
+
         if(query("full_points_last")
            &&query_temp("add_apply_points_times")<0)
          add("full_points_last",-1);
-        
+
         if(query("apply_points_last")>0
            &&query_temp("add_apply_points_times")<0
            &&!query("full_points_last")){
           add("apply_points_last",-1);
           if(query("apply_points_last")<=0){
-           set("apply_points_last",query("apply_points_last_times"));          
+           set("apply_points_last",query("apply_points_last_times"));
            add("apply_points",-query("apply_points_reduce"));
           }
-          
+
          if(query("apply_points")<=5){
           set("apply_points",0);
           delete("apply_points_last");
@@ -122,27 +122,27 @@ void heart_beat()
           delete("apply_points_last_times");
           delete("full_points_last");
          }
-        
+
       	}
         //告诉玩家已经气势满了或者开始降低
         if(query("max_apply_points")>0&&query("apply_points")==query("max_apply_points")
         	&&!query_temp("tell_max_point")){
         	tell_object(this_object(),"\n\n"+BCYN+HIG"你的气势已经达到顶峰了！"NOR+"\n\n");
         	set_temp("tell_max_point",1);
-        		
+
         }
         if(query("apply_points")<query("max_apply_points")
         	&&query_temp("tell_max_point")){
         	tell_object(this_object(),"\n\n"+BCYN+HIG"你的气势开始下降了！"NOR+"\n\n");
         	set_temp("tell_max_point",0);
-        		
+
         }
-        if(query_temp("apply_pause_fight")>0){		
+        if(query_temp("apply_pause_fight")>0){
 			add_temp("apply_pause_fight",-1);
 			if(query_temp("apply_pause_fight")<=0)
 				delete_temp("apply_pause_fight");
 		}
-        
+
         if( is_busy() ) {
                 continue_action();
                 // We don't want heart beat be halt eventually, so return here.
@@ -163,7 +163,7 @@ void heart_beat()
         if(this_object()&& !userp(this_object()) ) {
                 this_object()->chat();
                 // chat() may do anything -- include destruct(this_object())
-                if( !this_object() ) return;    
+                if( !this_object() ) return;
         }
 
         if( tick--  ) return;
@@ -175,7 +175,7 @@ void heart_beat()
         // heal_up() must be called prior to other two to make sure it is called
         // because the && operator is lazy :P
         if( ((cnd_flag & CND_NO_HEAL_UP) || !heal_up())
-        &&      !is_fighting() 
+        &&      !is_fighting()
         &&      !interactive(this_object())) {
                 if( environment() ) {
                         ob = first_inventory(environment());
@@ -205,10 +205,10 @@ int visible(object ob)
         if( lvl > wiz_level(ob) ) return 1;
         invis = ob->query("env/invisibility");
         if( intp(invis) && (invis > lvl) ) return 0;
-        
+
         if(ob->query_temp("killer_hide"))
         return 0;
-        
+
         if( ob->is_ghost() ) {
                 if( is_ghost() ) return 1;
                 if( query_temp("apply/astral_vision") ) return 1;
@@ -221,4 +221,3 @@ int do_command(string com)
 {
         return command(com);
 }
-

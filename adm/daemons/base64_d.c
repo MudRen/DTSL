@@ -10,7 +10,7 @@
 
 #define IN_TEST
 
-protected string base64 = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/";
+nosave string base64 = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/";
 protected string four_to_three(string base);
 protected string three_to_four(string asc);
 

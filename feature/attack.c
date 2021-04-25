@@ -6,8 +6,8 @@
 #include <skill.h>
 #define MAX_OPPONENT    4
 
-static object *enemy = ({});
-static string *killer = ({});
+nosave object *enemy = ({});
+nosave string *killer = ({});
 int do_ride_none(object who);
 
 
@@ -36,7 +36,7 @@ varargs int is_killing(string id)
 void fight_ob(object ob)
 {
         if(!ob || ob==this_object()) return;
-        
+
         if(stringp(ob->query("target_id"))&&ob->query("target_id")!=query("id")
           &&is_killing(ob->query("id")))
         return;
@@ -46,7 +46,7 @@ void fight_ob(object ob)
         return;
         set_heart_beat(1);
 
-        if( member_array(ob, enemy)==-1 ) 
+        if( member_array(ob, enemy)==-1 )
                 enemy += ({ ob });
 }
 
@@ -81,15 +81,15 @@ void kill_ob(object ob)
             &&    !is_fighting($1)
             && !$1->query("pker")
             &&    $1->visible(this_object()) :));
-        
+
         if(arrayp(guards)&&stringp(query("target_id")))
          guards = filter_array(guards, (:
           $1->query("id")==query("target_id") :));
-        
+
         if(arrayp(guards)&&arrayp(query("target_id")))
          guards = filter_array(guards, (:
           member_array($1->query("id"),query("target_id"))!=-1 :));
-          
+
     	if ( sizeof(guards) > 0 )
         {
             enemy += guards;
@@ -114,7 +114,7 @@ int do_ride_none(object who)
    message_vision("$N急忙从$n上跳下迎战。\n", who, ob);
    ob->set_temp("no_return",0);
    ob->set_temp("rider",0);
-   who->set_temp("ridee",0);          
+   who->set_temp("ridee",0);
    who->add_temp("apply/dodge",-who->query_temp("ride/dodge"));
    who->set_temp("ride/dodge",0);
    return 1;
@@ -203,8 +203,8 @@ string reset_action(object weapon)
 {
 	string w,weapon_type,*respond_skill,skill_name;
 	int i;
-	if(weapon)          
-   {   
+	if(weapon)
+   {
        w=(string)weapon->query("name");
 	   weapon_type=(string)weapon->query("skill_type");
 	   if(query("prepare/"+weapon_type))
@@ -213,45 +213,45 @@ string reset_action(object weapon)
 	      }
        else{
 	   respond_skill=query(weapon_type);
-	   if(respond_skill)                                 
+	   if(respond_skill)
 	   {
 		   i=random(sizeof(respond_skill));
-	       
+
 	       if(query_skill(respond_skill[i],1))
 		   {
 			   set("actions",SKILL_D(respond_skill[i])->query_action(this_object(),weapon));
 			   skill_name=respond_skill[i];
 	       }
-		   
+
 	   }
 	   else
 	   {
           set("actions",WEAPON_D->query_action(weapon));
 		  skill_name=weapon_type;
-		
+
 	   }
-	 }                                                       
+	 }
     }
-   else                                                      
+   else
    {
-	   
+
 	   if(query("prepare/hand"))
 	   {skill_name=query("prepare/hand");
 	   set("actions",SKILL_D(skill_name)->query_action(this_object()));
 	   }
 	  else{
-	   respond_skill=query("hand");           
-	   if(respond_skill)                                     
+	   respond_skill=query("hand");
+	   if(respond_skill)
 	   {
 		   i=random(sizeof(respond_skill));
-		   if(query_skill(respond_skill[i],1))          
+		   if(query_skill(respond_skill[i],1))
 		   {
 			   set("actions",SKILL_D(respond_skill[i])->query_action(this_object()));
 			   skill_name=respond_skill[i];
 		   }
-		   	
+
 	   }
-	      else                                           
+	      else
 		  {
 set("actions",query("default_actions"));
 			  skill_name="unarmed";
@@ -292,7 +292,7 @@ void init()
         // launched by auto_fight() and saves some overhead.
         if(     is_fighting()
         ||      !living(this_object())
-        ||      !(ob = this_player()) 
+        ||      !(ob = this_player())
         ||      environment(ob)!=environment()
         ||      !living(ob)
         ||      ob->query("linkdead")
@@ -300,7 +300,7 @@ void init()
                 return;
 
         // Now start check the auto fight cases.
-        if(userp(ob) && is_killing(ob->query("id"))) 
+        if(userp(ob) && is_killing(ob->query("id")))
         {
                 COMBAT_D->auto_fight(this_object(), ob, "hatred");
                 return;

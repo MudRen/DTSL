@@ -17,8 +17,8 @@ string *maps;
 
 mapping *jobs;
 
-static int busy_time=0;
-static int tasks=0;
+nosave int busy_time=0;
+nosave int tasks=0;
 
 int start_job();
 
@@ -32,7 +32,7 @@ void create()
 
 void control_job()
 {
-   
+
    remove_call_out("reset_job");
    call_out("reset_job",30);
    return;
@@ -40,7 +40,7 @@ void control_job()
 
 void reset_job()
 {
-   
+
   if(!start_job())
   return;
   call_out("reset_job",30);
@@ -53,26 +53,26 @@ void set_job()
   object where;
   mapping job;
   string map;
-  
+
 
   for(j=0;j<TOTAL_TASK;j++){
-   
- for(count=0;count<20;count++){ 
+
+ for(count=0;count<20;count++){
   map=get_random_place(dirs);
-  
+
   if(!maps) maps=({map});
   else{
-  
+
   if(member_array(map,maps)!=-1)
-   continue;  
+   continue;
   maps +=({map});
-  
+
   }
     where=load_object(map);
     if(!where) continue;
     break;
   }
-    
+
     job=allocate_mapping(4);
    i=random(sizeof(maps));
     job["local"]=map;
@@ -89,7 +89,7 @@ void set_job()
 int start_job()
 {
   object where;
-  
+
   if(time()-busy_time<0){
   busy_time=time();
   }
@@ -100,9 +100,9 @@ int start_job()
   set_job();
   message("vision",HIG"\n\n【江湖宝藏】飞云子:据说最近江湖出现了很多宝物，如果想找宝物的，到\n"+
                    "扬州的关帝庙来领任务，找到宝物后交给我来领赏(lingshang)!\n\n"NOR,users());
-  
+
   control_job();
-  
+
   return 1;
 }
 
@@ -118,7 +118,7 @@ string do_list()
    if(jobs[i]["over"]==1)
     job_msg +=HIY" 已完成.\n"NOR;
    else job_msg +="\n";}
-   
+
     return job_msg;
 }
 

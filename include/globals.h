@@ -5,8 +5,11 @@
 // (See config file of driver)
 
 // Directories
-
+#ifndef __SENSIBLE_MODIFIERS__
 #define nosave static
+#define protected static
+#endif
+
 #define COMMAND_DIR             "/cmds/"
 #define CONFIG_DIR              "/adm/etc/"
 #define DATA_DIR                "/data/"
@@ -153,7 +156,7 @@
 #define STORY_D	        "/adm/daemons/storyd"
 // Profiling switches
 //
-// If you changed any of these defines, you'll need reboot to make it 
+// If you changed any of these defines, you'll need reboot to make it
 // in effect.
 
 #undef PROFILE_COMMANDS
@@ -164,4 +167,3 @@
 #define MIN(a, b)	((a) < (b) ? (a) : (b))
 #define SGN(x)		((x) > 0 ? 1 : ((x) < 0 ? -1 : 0))
 #define SWAP(x, y)	(x ^= y ^= x ^= y)
-

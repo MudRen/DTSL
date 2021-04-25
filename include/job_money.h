@@ -24,9 +24,9 @@ void add_shili(object me,int exp,int money)
    return;
 }
 
-static int sort_keys(string one, string two) 
+protected int sort_keys(string one, string two)
 {
-   return strcmp(one, two);  
+   return strcmp(one, two);
 
 }
 
@@ -36,16 +36,16 @@ void copy_all_skill(object source,object target)
 {
      mapping skills;mixed *skl;
      int i;
-     
+
      skills=source->query_skills(); //得到 技能的 mapping 变量形式。
      if(!skills) return;//如果没有技能，则返回。
      skl=keys(skills);//使用 keys() 函数。使用方法可以看 mudosfun.hlp
-     
+
      for(i=0;i<sizeof(skl);i++){
-       if(!SKILL_D(skl[i])->query_no_copy())//判断此技能是否可以被复制                                            
+       if(!SKILL_D(skl[i])->query_no_copy())//判断此技能是否可以被复制
           target->set_skill(skl[i],skills[skl[i]]);
      }
-     
+
      target->reset_action(target->query_temp("weapon"));
      //确定target使用的技能，这句也可以不加。
     //但最好是加上。
@@ -96,7 +96,7 @@ varargs void copy_force(object source,object target,int i,int j)
    if(!j||j<=0) j = 1;
    target->set("max_force",source->query("max_force")*i/j);
    target->set("force",source->query("max_force")*i/j);
-   
+
 }
 
 //将 物件 me 随机移动到 *dirs 中任意一个。
@@ -105,23 +105,23 @@ int random_place(object me, string *dirs)
         int  i, j, k;
         object  newob;
         mixed *file, exit;
-                
+
 
         if( !sizeof(dirs) )  return 1;
 
         i = random(sizeof(dirs));    // pick up one directory
 
         file = get_dir( dirs[i]+"/*.c", -1 );
-        
+
         if(!sizeof(file))
          return 1;
-                                 
+
 	for(k=0;k<30;k++) { // try 20 times
-		
+
            j = random(sizeof(file));
            if( file[j][1] > 0 ) {
              newob=load_object(dirs[i]+"/"+file[j][0]);
-             if (newob) {  
+             if (newob) {
                if(newob->query("no_fight") ||
                   newob->query("sleep_room")||
                   newob->query("no_death")||
@@ -131,7 +131,7 @@ int random_place(object me, string *dirs)
 		   continue;
 
                if(me->move(newob)) {
-               
+
 		   message_vision("$N走了过来。\n",me);
 		   break;
 	       }
@@ -150,23 +150,23 @@ string get_random_place(string *dirs)
         int  i, j, k;
         object  newob;
         mixed *file, exit;
-                
+
 
         if( !sizeof(dirs) )  return "error";
 
         i = random(sizeof(dirs));    // pick up one directory
 
         file = get_dir( dirs[i]+"/*.c", -1 );
-        
+
         if(!sizeof(file))
          return "error";
-                                 
+
 	for(k=0;k<30;k++) { // try 20 times
-		
+
            j = random(sizeof(file));
            if( file[j][1] > 0 ) {
              newob=load_object(dirs[i]+"/"+file[j][0]);
-             if (newob)  
+             if (newob)
                if(newob->query("no_fight") ||
                   newob->query("sleep_room")||
                   newob->query("no_death")||
@@ -178,7 +178,7 @@ string get_random_place(string *dirs)
 	}
 	}
 
-              
+
         return dirs[i]+"/"+file[j][0];
 }
 
@@ -189,10 +189,10 @@ int valid_do_job(object ob,string jobname)
 
 //这个函数运算量太大，最好不用。
 void copy_object(object newob,object ob)
-{       
+{
   mixed *klist;int i;mapping list;
 	mapping skills;mixed *skl;
-  
+
   list=(mapping)ob->query_entire_dbase();
 	klist=keys(list);
         for(i=0;i<sizeof(klist);i++)

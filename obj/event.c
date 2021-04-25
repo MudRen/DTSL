@@ -7,7 +7,7 @@
 inherit F_CLEAN_UP;
 
 
-static int trade_value=0;
+nosave int trade_value=0;
 
 string trade_type="";
 
@@ -43,10 +43,10 @@ int get_trade_value(object ob,int i)
         get_type()=="skill")
         i=i+i*get_value()/100;
      else return i;
-    
+
      return i;
 }
-        
+
 int if_event_goods(object ob)
 {
     if(ob->query("skill_type")&&
@@ -69,7 +69,7 @@ int if_event_goods(object ob)
         get_type()=="skill")
         return 1;
      else return 0;
-    
+
 }
 
 void time_report() {
@@ -95,20 +95,20 @@ mapping types=([
 
 void trade_system()
 {
-   
+
    string *all_type;
    string type;
    int i;
-   
+
    all_type=keys(types);
    i=random(sizeof(all_type));
-   
-   type=all_type[i];   
+
+   type=all_type[i];
    trade_type=type;
-   
+
    switch(random(2)){
-   
-   case 0:	
+
+   case 0:
    trade_value=100+random(500);
    if(trade_value==0)
    trade_value=1;
@@ -119,7 +119,7 @@ void trade_system()
    if(trade_value==0)
    trade_value=-1;
    message("vision",HIM"【商会消息】:近期官府减免赋税，"+types[type]+"的价格都有所降低。\n"NOR,users());
-   
+
    break;}
   return;
 }

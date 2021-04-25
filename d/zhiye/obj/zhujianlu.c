@@ -39,7 +39,7 @@ string long()
 {
 	string str;
 	object me;
-			
+
 str = HIR"这是一座日夜炉火通明的火炉，和普通打铁铺的火炉并不相同。
 此炉以特殊材料制成，能耐无法想像的高温，是专门用来锻造兵器的！\n\n"NOR+
 "你可以用这个火炉来：
@@ -73,7 +73,7 @@ void init()
        // add_action("do_rename","gaiming");
         //add_action("do_rename","rename");
         //add_action("do_recover","restore");
-        
+
         if(inherits(ROOM,environment(this_object()))!=0	) environment(this_object())->set("no_fight",1);
 }
 
@@ -95,30 +95,30 @@ int duanzao_it(object me,string arg)
         string jade;//hehe
         mapping myskill;
         mapping shuxing = ([]);
-        
+
 	level = (int)me->query_skill("duanzao",1);
         if (!check(me) && me->is_busy()) return notify_fail("你正忙着呢！\n");
         if (!check(me) && me->is_fight()) return notify_fail("你正忙着呢！\n");
         if (!arg) return notify_fail("你要锻造什么？\n");
         if ( sscanf(arg,"%s %s",type,kuangcai)<2 )
                 return notify_fail("你要用什么锻造什么？\n");
-	
+
 	if(check(me)) level=999;
-	
+
         if(sscanf(kuangcai,"%s with %s",kuangcai,jade)==2)
         {
         	if ( !objectp(fujia = present(jade, me)) )
                 return notify_fail("你身上没有这样东西。\n");
                 if ( !objectp(obj = present(kuangcai, me)) )
                 return notify_fail("你身上没有这样东西。\n");
-                
+
                 if(fujia->query("material_for")!="weapon") return notify_fail("你左看右看总觉得"+fujia->name()+"与"+obj->name()+"不合适。\n");
                 switch( (int)fujia->query("material_level") ) {
                 case 1: break;
                 case 2: if(level<120) return notify_fail("你的锻造技能不够！\n"); break;
                 case 4: if(level<220) return notify_fail("你的锻造技能不够！\n"); break;
-                case 6: if(level<330) return notify_fail("你的锻造技能不够！\n"); break;                
-                case 8: if(level<390) return notify_fail("你的锻造技能不够！\n"); break;                
+                case 6: if(level<330) return notify_fail("你的锻造技能不够！\n"); break;
+                case 8: if(level<390) return notify_fail("你的锻造技能不够！\n"); break;
                 case 10: if(level<400) return notify_fail("你的锻造技能不够！\n"); break;
         	}
 	}
@@ -138,8 +138,8 @@ int duanzao_it(object me,string arg)
 
         time = time()- me->query("pk_time");
         if (!check(me) && time < 432000)
-                return notify_fail("你目前的状态无法锻造。\n");	
-	                       
+                return notify_fail("你目前的状态无法锻造。\n");
+
         if (!check(me) && level<1 )
                 return notify_fail("你根本就不会打造兵器！是不是先学习一些锻造技能(duanzao)再来打造武器啊？！\n");
 
@@ -161,7 +161,7 @@ int duanzao_it(object me,string arg)
                 default:
                         return notify_fail("这里不能锻造这种武器。\n");
         }
-        
+
         switch( (int)obj->query_level() ) {
                 case 1: break;
                 case 2: if(level<40)  return notify_fail("你的锻造技能不够！\n"); break;
@@ -174,14 +174,14 @@ int duanzao_it(object me,string arg)
                 case 9: if(level<390) return notify_fail("你的锻造技能不够！\n"); break;
                 case 10: if(level<400) return notify_fail("你的锻造技能不够！\n"); break;
         }
-        
+
         myskill = me->query("forging");//当它Quest了
-        
+
 //        if (!check(me) && !mapp(myskill)) return notify_fail("你还不会任何工匠技能！\n");
-        
+
 //    if (!check(me) && member_array(type,keys(myskill)) == -1)
 //        return notify_fail("对于这种武器，您了解不多，还不会锻造！\n");
-	
+
 	if(level>220) k = 10000*level*(int)obj->query_level()/15;
 	else k = 10000*level*(int)obj->query_level()/20;
 	if(me->query("registered")==3) k = k*2/3;
@@ -197,7 +197,7 @@ int duanzao_it(object me,string arg)
 		write("你为此次锻造支付了"+MONEY_D->money_str(k)+"。\n");
 		*/
 	}
-	        
+
         shuxing = WORKER_D->map_add(shuxing,obj->query("material_prop"));
         shuxing = WORKER_D->map_add(shuxing,obj2->query("material_prop"));
         if(objectp(fujia))
@@ -205,10 +205,10 @@ int duanzao_it(object me,string arg)
         	temp = fujia->query("material_props");
         	if(mapp(temp)) status = copy(values(temp));
         	shuxing = WORKER_D->map_add(shuxing,fujia->query("material_prop"));
-        } 
-        
+        }
+
         me->delete("imbue_weapon");
-        
+
         message_vision(HIY"$N开始从各个角度锤击"+obj->query("name")+HIY"，一点点把原始的材料变成无双的兵器......\n"NOR, me);
         me->set_temp("pending/duanzao",1);
 	level = (int)me->query_skill("duanzao",1);
@@ -236,10 +236,10 @@ int duanzao_it(object me,string arg)
         if(wizardp(me) && me->query("env/test") && i>500) i=500;
 
         delay = 10 + random(20);
-        k = random(level+i);        
-        
+        k = random(level+i);
+
         updown = WORKER_D->updown(me,type);
-        //if( objectp(fujia) || ( k>=((level+i)/2-level/2) && k<=((level+i)/2+level/2) ) )  
+        //if( objectp(fujia) || ( k>=((level+i)/2-level/2) && k<=((level+i)/2+level/2) ) )
         if( objectp(fujia) || ( k>=to_int(((level+i)/2-level/4)/updown) && k<=to_int(((level+i)/2+level/4)*updown)  ) ) {
                 if(wizardp(me) && (int)me->query("env/test")) delay = 6;
                 if (j>=3) {
@@ -282,7 +282,7 @@ void duanzao_makeweapon(object me,string type,int qua,object obj,int delay,mappi
                 qua = 2;
                 delay = 10;
         }
-  */      
+  */
         wp = WORKER_D->make_weapon(me,type,qua,obj->query("material"),shuxing,status);
         //wp->set("value" , (obj->query("value")*4)/100 * (wp->query("value")/30)/100 );
         wp->set("value" , obj->query("value") * (25+random(40)) / 10 );
@@ -311,7 +311,7 @@ void duanzao_makeweapon(object me,string type,int qua,object obj,int delay,mappi
                 //WORKER_D->update_UniqueValues("addweapon",str,wp->query("weapon_mp/save_id"));
         }
         call_out("duanzao_finish",delay,qua,me,obj,1);
-	
+
 }
 
 void duanzao_finish(int j,object me,object obj,int win)
@@ -377,7 +377,7 @@ void duanzao_finish(int j,object me,object obj,int win)
                         wp->move(environment(me));
                         tell_object(me , "但是你拿不动了！\n");
                 }
-                
+
                 message_vision(HIC"$N从水缸中取出一"+wp->query("unit")+wp->name()+"。\n"NOR, me);
                 if(check(me)) me->back_player(wp);
         }
@@ -415,7 +415,7 @@ int do_xiu(string arg)
         if (me->is_fight()) return notify_fail("你正忙着呢！\n");
         if (!arg) return notify_fail("你要修什么？\n");
         if ( !objectp(obj = present(arg, me)) )
-                return notify_fail("你身上没有这样东西。\n");        
+                return notify_fail("你身上没有这样东西。\n");
         if ( !objectp(weapon=me->query_temp("weapon")) || weapon->query("id")!="tiechui" )
                 return notify_fail("你必须装备铁锤才能来维修兵器。\n");
 	//if(!obj->query("broken"))
@@ -428,9 +428,9 @@ int do_xiu(string arg)
                 //return notify_fail("在这里只能维修由玩家制造的兵器。\n");
         //if ( obj->query("weapon_mp/dur") <= 0  )
                 //return notify_fail("这件兵器已经彻底损坏了，无法修理。\n");
-		
+
 	flag = strsrch(obj->query("save_id"),"weilan tiejiang")==0;
-	
+
         switch( (string)obj->query("material") ){
                 case "xuantie":   str = WHT"玄铁"NOR; break;
                 case "shentie":   str = RED"万年神铁"NOR; break;
@@ -498,18 +498,18 @@ void xiu_finish(object me,object obj)
         int i;
 
         if(!objectp(me) || !userp(me) || !objectp(obj) ) return;
-        
-        
+
+
 	obj->delete("broken");
 	obj->delete("treasure");
-			        
+
         if(obj->query_temp("apply/weapon_mp_old")) obj->set("weapon_mp",obj->query_temp("apply/weapon_mp_old") );
 	if(obj->query_temp("apply/name_old")) obj->set("name",obj->query_temp("apply/name_old"));
 	if(obj->query_temp("apply/weapon_prop_old")) obj->set("weapon_prop",obj->query_temp("apply/weapon_prop_old"));
 	if(obj->query_temp("apply/long_old")) obj->set("long",obj->query_temp("apply/long_old"));
-	
+
 	obj->delete_temp("apply");
-	
+
         message_vision(HIY"$N仔细的维修"+obj->query("name")+HIY+"，总算大致恢复了它的原貌。\n"NOR, me);
         WORKER_D->check_impove(me,"duanzao",me->query_int()/2,2);
         //me->improve_skill("duanzao", me->query_int()/2);
@@ -534,7 +534,7 @@ void xiu_finish(object me,object obj)
         obj->set("sharpness",i);
         i = decvar(obj,"weapon_mp/value",6,10,1);
         obj->set("value",i);
-        
+
         obj->set("weapon_mp/weapon_prop",copy(obj->query("weapon_prop")));
 
         obj->save_weapon(me);
@@ -543,7 +543,7 @@ void xiu_finish(object me,object obj)
         if ( objectp(tools) && tools->query("id")=="tiechui" ) tools->use();
 }
 
-static string *banned_name = ({
+nosave string *banned_name = ({
 // Mud 保留名字
 "杀手","闪电","雪人","我们","天神","总管","龙神","仙人","巫师","玩家","书剑","杀人犯","祈雨","迎风",
 // Mud 地名，门派名
@@ -564,7 +564,7 @@ static string *banned_name = ({
 "太监","宦官","阉割","阉人","鸡", "奸淫", "淫荡", "轮奸", "奸", "三级", "政治",
 });
 
-static string *banned_name2 = ({
+nosave string *banned_name2 = ({
 // 兵器名
 "打狗棒",
 "哭丧棒",

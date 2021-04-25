@@ -31,7 +31,7 @@
               command[ 0 ]) ); \
         break; \
     }
-   
+
 /*
  * check_access determines who is allowed to use ftp (assuming the correct
  * password is known).  if check_access() returns 0 then the user is
@@ -143,7 +143,7 @@ int check_password(string name, string plaintext)
  * dotted quad) with an ip number pattern (ie containing wildcard(s))
  * - returns 1 if a match, 0 otherwise
  */
-static int dot_match(string *site, string *pattern, int flag) {
+protected int dot_match(string *site, string *pattern, int flag) {
     int i, j;
 
     j = sizeof(pattern);
@@ -200,7 +200,7 @@ int check_site(string who, int fd) {
             sites = regexp(sites, "^sitecheck ");
             if (sites && sizeof(sites)) {
                 arg = sites[0][10..<1];
-                
+
                 /*
                  * parse command line args
                  */

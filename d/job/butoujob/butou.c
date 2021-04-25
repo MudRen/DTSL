@@ -21,7 +21,7 @@ int give_job();
 int do_ok(string arg);
 void start_job();
 
-static int job_flag=0;
+nosave int job_flag=0;
 
 
 void create()
@@ -30,7 +30,7 @@ void create()
         set("gender", "男性" );
         set("age", 32);
    set("long", "这是长安的捕头，管理长安城的治安。\n");
-       
+
    set("combat_exp", 200000);
    set("str", 28);
 set("target_id","####");
@@ -46,8 +46,8 @@ set("target_id","####");
 	   "盗贼":(:give_job:),
 	   ]));
    setup();
-   
-   
+
+
 }
 
 
@@ -74,18 +74,18 @@ int give_job()
 	object ob;
 	int i;
 	string msg;
-        
+
         start_job();
-   		
+
 	ob=this_player();
 	msg="";
-	
+
 	if(sizeof(killers)<=0){
 	tell_object(ob,"目前治安良好，没有盗贼。\n");
 	return 1;}
-	
+
         for(i=0;i<sizeof(killers);i++){
-         
+
          if(!objectp(killers[i])) continue;
          if(!environment(killers[i])) continue;
          if(!living(killers[i])) continue;
@@ -98,7 +98,7 @@ int give_job()
         if(msg==""){
         tell_object(ob,"目前治安良好，没有盗贼。\n");
 	return 1;}
-         
+
         msg=HIG"\n\n目前捕头通缉以下要犯：\n\n"NOR+
             HIB"━━━━━━━━━━━━━━━━━━━━━━━\n\n"NOR+msg+"\n";
         msg +=HIB"━━━━━━━━━━━━━━━━━━━━━━━\n"NOR;
@@ -108,20 +108,20 @@ int give_job()
         command("addoil "+ob->query("id"));
         return 1;
 	//return "对不起，这个任务还在修改中。\n";
-	
+
 }
 
 void clean_killers()
 {
    object *ob;
    int i,j;
-   
+
    ob=children(__DIR__"killer");
    for(i=0,j=0;i<sizeof(ob);i++){
          if(ob[i]){
          destruct(ob[i]);
          j++;}
-         
+
         }
    CHANNEL_D->do_channel(this_object(),"sys","长安捕头任务清除"+j+"个盗贼变量。\n");
 }
@@ -131,7 +131,7 @@ void check_job()
   if(job_flag>=INTER){
    job_flag=0;
    start_job();
-   
+
    return;
    }
    remove_call_out("check_job");
@@ -143,18 +143,18 @@ void check_job()
 void start_job()
 {
    object killer;
-   
+
    int i;
-   
+
    if(job_flag>0)
     return;
-   
+
    remove_call_out("start_job");
    call_out("check_job",300);
    job_flag++;
-    
+
    clean_killers();
-   
+
    for(i=0;i<COUNT;i++){
      killer=new(__DIR__"killer");
      killer->set_status();
@@ -170,10 +170,6 @@ void start_job()
      	killers +=({killer});
         }
      CHANNEL_D->do_channel(this_object(),"sys","长安捕头任务更新。\n");
-     
+
      return;
 }
-     	
-     
-    
-        
