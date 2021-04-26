@@ -1,7 +1,7 @@
 // examined.c
 
-#pragma optimize
-#pragma save_binary
+// #pragma optimize
+// #pragma save_binary
 
 #include <localtime.h>
 #include <message.h>
@@ -101,7 +101,7 @@ int end_log_player(string id, string euid)
 
         if (euid == ROOT_UID || wizhood(euid) == "(admin)" ||
             stringp(by) && (by == euid || wiz_level(by) <= wiz_level(euid)))
-        {                
+        {
                 delete("log_by/" + id);
                 log_file("static/log_user", sprintf("%s stop log %s on %s\n",
                                                     euid, id, ctime(time())));
@@ -124,4 +124,3 @@ mixed set(string idx, mixed data)
 
         return ::set(idx, data);
 }
-

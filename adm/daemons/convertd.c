@@ -1,6 +1,6 @@
 //DATANG SHUANGLONG.
 //Copied from Free Software.
-#pragma optimize
+// #pragma optimize
 
 inherit F_DBASE;
 
@@ -24,4 +24,3 @@ void create()
    set("name", "GB BIG5 converter");
    set("id", "GB BIG5 converter");
 }
-

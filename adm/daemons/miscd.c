@@ -1,6 +1,6 @@
 // miscd.c
 
-#pragma optimize
+// #pragma optimize
 
 inherit F_DBASE;
 
@@ -10,7 +10,7 @@ inherit F_DBASE;
 
 void create()
 {
-   
+
    seteuid(getuid());
    set("name", "监控精灵");
    set("id", "miscd");
@@ -43,7 +43,7 @@ string find_place(object where)
 	  answer=where->query("name")+"身上";
         } else if(sscanf(filename,"/obj/home#%*s")==1) {
           answer="住家里";
-        } else { 
+        } else {
           answer=undefinedp(where->query("short"))?
 		  where->short():
 		  where->query("short");
@@ -58,9 +58,9 @@ string find_some_place(object where)
 	string answer;
 	string *here;
 	int i;
-	
+
 	here=keys(maps);
-	
+
 	for(i=0;i<sizeof(here);i++)
 	  if(strsrch(base_name(where),here[i])!=-1)
 	    break;
@@ -70,8 +70,8 @@ string find_some_place(object where)
 	  else
 	    return "未知的地方";
 	}
-	  
+
 	answer=maps[here[i]];
-	
+
 	return answer;
 }

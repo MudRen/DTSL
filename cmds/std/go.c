@@ -1,5 +1,5 @@
 // go.c
-// #pragma optimize all
+// // #pragma optimize all
 //last modify by mudadm
 //last modify by yanyan, 2001/,for guanchai_yunyan job.
 #include <ansi.h>
@@ -52,11 +52,11 @@ int drop_things(object me)
 			tell_object(env,"在慌乱中，");
 			me->ccommand("drop "+inv[i]->query("id"));
 		}
-		
-	}				
+
+	}
 
 }
-int check_flee(object me, string arg) 
+int check_flee(object me, string arg)
 {
    mapping 	my, your;
    object 	*enemy;object track;
@@ -66,7 +66,7 @@ int check_flee(object me, string arg)
    if ( (random(i) < 300) && userp(me) ) return 1;
    enemy = me->query_enemy();
    for(i=0; i<sizeof(enemy); i++) {
-      if( objectp(enemy[i]) && environment(enemy[i])== environment(me) && living(enemy[i])) { 
+      if( objectp(enemy[i]) && environment(enemy[i])== environment(me) && living(enemy[i])) {
          fp = me->query_dex();
          if(fp<1) fp = 1;
          bp = enemy[i]->query_dex();
@@ -85,7 +85,7 @@ int is_night(object me,object env)
 {
 
 	return NATURE_D->is_night(me,env);
-	
+
 }
 
 
@@ -107,7 +107,7 @@ int main(object me, string arg)
 
 	if( me->over_encumbranced() )
 		return notify_fail("你的负荷过重，动弹不得。\n");
-	
+
 	if(me->query_temp("no_move")){
 	   if(stringp(me->query_temp("no_move")))
 	    return notify_fail(me->query_temp("no_move"));
@@ -119,7 +119,7 @@ int main(object me, string arg)
 
         if( me->query("sen") < 3 && !me->is_ghost())
                 return notify_fail("你现在累得根本就走不动路了。\n");
-                
+
         if(me->query("food")<=0||me->query("water")<=0)
            if(time()-me->query_temp("no_food_busy")>40)
              if(userp(me)){
@@ -138,10 +138,10 @@ int main(object me, string arg)
 	}
 
 /*      if( mapp(block = env->query("blocks"))&& blk=block[arg]) {
-        if( objectp(blocker = present(blk, env)) &&  living(blocker)) 
+        if( objectp(blocker = present(blk, env)) &&  living(blocker))
                 return notify_fail("这个方向的路被"+ blocker->name() + "挡住了 。\n");
 */
-       
+
     if ( old_target = me->query_temp("guardfor") )
     {
     	if(objectp(old_target))
@@ -180,7 +180,7 @@ int main(object me, string arg)
 
         if (ridee = me->ride())
           ridemsg = ridee->query("ride/msg")+"着"+ridee->name();
-        else  
+        else
           ridemsg = "";
 
 	n=NATURE_D->night();
@@ -188,7 +188,7 @@ int main(object me, string arg)
 	i_obj=(int)obj->query("outdoors");
 
 	if( me->is_fighting() )
-	{ 
+	{
         if(check_flee(me, dir) == 0) {
         return notify_fail("你被挡了回来。\n");
 		}
@@ -211,13 +211,13 @@ int main(object me, string arg)
 		str=ridemsg+"赶着"+track->name()+"走了过来。\n";
 	}else if(me->query("pker")){
 		str  = "慌慌张张地从"+env->query("short")+"走了过来。\n";
-		str1 ="往" + dir + "慌慌张张地离开了。\n";	
-	}  
+		str1 ="往" + dir + "慌慌张张地离开了。\n";
+	}
 	else{
 		str  = "从"+env->query("short")+"走了过来。\n";
 		str1 ="往" + dir + "离开了。\n";
 	}
-	   
+
 	if(is_night(me,env)){
 
 		if(me->query("gender") == "女性"){
@@ -248,17 +248,17 @@ int main(object me, string arg)
 			return notify_fail("你不可去那里。\n");
 	else if(obj->valid_enter(me))
 			return notify_fail("你不可去别人的私宅。\n");
-	
+
 	if(!is_night(me,env))
     	message( "vision", me->name() + mout, environment(me), ({me}) );
-    else 
+    else
     	message( "vision", mout, environment(me), ({me}) );
-	
+
 	if(me->move(obj) ) {
 		me->remove_all_enemy();
 		if(!is_night(me,obj))
 			message( "vision", me->name() + min, environment(me), ({me}) );
-		else 
+		else
 			message( "vision", min, environment(me), ({me}) );
 		me->set_temp("pending", 0);
 		if(env != obj)
@@ -292,9 +292,9 @@ int help(object me)
 {
 	write(@HELP
 指令格式 : go <方向>
- 
+
 让你往指定的方向移动。
- 
+
 HELP
     );
     return 1;

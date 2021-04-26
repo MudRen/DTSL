@@ -1,4 +1,4 @@
-#pragma save_binary
+// #pragma save_binary
 
 #define FTPD_VERSION "5.8.1"
 
