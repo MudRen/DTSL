@@ -8,7 +8,7 @@ void create()
         set("gender", "男性" );
         set("age", 42);
    set("long", "他就是王世充的主要军师人物。\n");
-       
+
    set("combat_exp", 200000);
    set("str", 20);
    set("per", 20);
@@ -22,7 +22,7 @@ void create()
 	   ]));
    setup();
    carry_object(__DIR__"obj/guanfu")->wear();
-  
+
 }
 
 string give_job()
@@ -64,7 +64,7 @@ int accept_object(object me,object ob)
 	if(ob->query("killed_by")!=me->query("id")) return 0;
 	pot=me->query("max_pot")/3;
 	exp=200+random(20);
-	sil=KILL_PANTU_JOB;
+	sil = 200 + random(200);
 	me->add("combat_exp",exp);
 	me->add("potential",pot);
 	me->add("deposit",sil);

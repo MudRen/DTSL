@@ -27,7 +27,7 @@ void create()
         set("con", 30);
         set("dex", 26);
 	set("per", 28);
-	
+
 	set("jiali",50);
 	set_skill("force", 200);
 	set_skill("huntian-qigong", 200);
@@ -102,14 +102,14 @@ int ask_ggs()
 	int this_week = time()/86400/7;
 	ob = this_object();
 	me = this_player();
-	
-	
+
+
 	if (me->query("registered")!=3)
 	{
 		tell_object(me, "对不起啊，目前鬼谷算术只对贵宾VIP用户开放强化学习功能。\n");
 		return 1;
-	} 
-	
+	}
+
 	if(!me->query("ggs/last_week") || me->query("ggs/last_week")=="" || me->query("ggs/last_week")!=this_week)
 	{
 		me->set("ggs/last_week", this_week);
@@ -141,13 +141,13 @@ int ask_ggs()
 		}
 		return 1;
 	}
-	
+
 	me->set("ggs/started",1); //使用状态标记
 	me->set_temp("ggs/started",1); //使用状态标记
 	me->set("ggs/start_time",time()); //使用状态标记
-	
+
 	me->apply_condition("guigushu",1); //这个condition 不会自动减少
-	
+
 	command("say 鬼谷算术，是我这些年精心研究的修心妙法，若能参悟，可以加倍提高学习领悟的能力。");
 	command("say 不过鬼谷算术博大渊深，甚劳心神，每周最多也就应用十个小时吧。");
 	command("look " + me->query("id"));
@@ -159,7 +159,7 @@ int ask_ggs()
 			this_week,
 			CHINESE_D->chinese_time(me->query("ggs/left_time"))
 			));
-	
+
 return 1;
 }
 
@@ -171,7 +171,7 @@ int ask_ggso()
 	int this_week = time()/86400/7;
 	ob = this_object();
 	me = this_player();
-	
+
 	if (me->query("registered")!=3)
 	{
 		tell_object(me, "对不起啊，目前鬼谷算术只对贵宾VIP用户开放强化学习功能。\n");
@@ -186,17 +186,17 @@ int ask_ggso()
 	if(me->query_temp("ggs/started")!=1)
 	{
 		command("say 你是不是没问休息就下线了？结束时间就按照你上次下线时间算吧。");
-		me->set("ggs/over_time",FINGER_D->get_last_on(me->query("id")));		
+		me->set("ggs/over_time",FINGER_D->get_last_on(me->query("id")));
 	}
 	else
-	{	
-		me->set("ggs/over_time",time());	
+	{
+		me->set("ggs/over_time",time());
 	}
-	
+
 	user_time=(int)me->query("ggs/over_time")-(int)me->query("ggs/start_time");
 	command("say 是啊，劳逸结合，读书领悟久了，是该休息休息。");
 	command("look " + me->query("id"));
-	
+
 	command("say 你的鬼谷算术开始时间是：" + CHINESE_D->chinese_date((int)me->query("ggs/start_time"),1) + "。");
 	command("say             结束时间是：" + CHINESE_D->chinese_date((int)me->query("ggs/over_time"),1) + "。");
 	command("say 这次你一共修炼了：" + CHINESE_D->chinese_time(user_time)+"。");
@@ -214,21 +214,21 @@ int ask_ggso()
 
 	if (me->query("ggs/left_time") < 0 ) //防止bug
 		me->set("ggs/left_time",0);
-		
-	if (me->query("ggs/left_time")) 	
+
+	if (me->query("ggs/left_time"))
 		command("say 你本周还可以使用鬼谷算术"+CHINESE_D->chinese_time(me->query("ggs/left_time"))+"。");
 	else
 		command("say 你的鬼谷算术时间用完了，下周再来吧。");
-	
+
 	me->set_temp("ggs/started",0);
 	me->set("ggs/started",0);
 	me->set("ggs/start_time","");
-	me->set("ggs/over_time","");	
-	
+	me->set("ggs/over_time","");
+
 	me->clear_condition("guigushu"); //清除了
 
 
-return 1;	
+return 1;
 }
 
 //不死
@@ -258,7 +258,7 @@ void unconcious()
         set("eff_jing", query("max_jing"));
         set("jing", query("max_jing"));
         set("jingli", query("eff_jingli"));
-        clear_conditions_by_type("poison");
+        // clear_conditions_by_type("poison");
 }
 
 void die()

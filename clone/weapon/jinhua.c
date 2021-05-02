@@ -1,6 +1,6 @@
 #include <ansi.h>
 #include <weapon.h>
-inherit COMBINED_ITEM;
+// inherit COMBINED_ITEM;
 inherit THROWING;
 
 void create()
@@ -9,7 +9,7 @@ void create()
        if( clonep() )
                set_default_object(__FILE__);
        else {
-		set("long", "一串金光灿烂，闪闪发光的，黄金铸成的梅花。\n");               
+		set("long", "一串金光灿烂，闪闪发光的，黄金铸成的梅花。\n");
                set("unit", "串");
                set("base_value", 10000);
                set("base_unit", "颗");
@@ -18,4 +18,3 @@ void create()
        set_amount(81);
        init_throwing(20);
 }
-

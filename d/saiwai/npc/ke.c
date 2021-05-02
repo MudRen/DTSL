@@ -5,7 +5,7 @@ void create()
 {
    set_name("可志达",({ "ke zhida","ke" }) );
         set("gender", "男性" );
-		
+
         set("age", 42);
    set("combat_exp",1000000);
    set("str", 25);
@@ -19,13 +19,13 @@ void create()
    set_skill("strike",200);
    set_skill("cuff",200);
    set_skill("yanyang-dafa",200);
-   
-   set_skill("pojun-quan",200);
+
+  //  set_skill("pojun-quan",200);
    set_skill("kuangsha-daofa",200);
    set("dodge",({"tianmo-huanzong"}));
    set("force_skill",({"yanyang-dafa"}));
    set("blade",({"juangsha-daofa"}));
-   set("hand",({"pojun-quan"}));
+  //  set("hand",({"pojun-quan"}));
    set("gin",1000);
    set("max_gin",1000);
    set("kee",1000);
@@ -37,11 +37,11 @@ void create()
    create_family("突厥",2,"武士");
    set("class","yin1");
    setup();
-   carry_object(__DIR__"obj/cloth")->wear();  
-   carry_object(__DIR__"obj/kuangsha-dao")->wear();  
+   carry_object(__DIR__"obj/cloth")->wear();
+   carry_object(__DIR__"obj/kuangsha-dao")->wear();
 }
 void attempt_apprentice(object ob)
-{   
+{
 	if (present("shuxin",ob))
          {  destruct(present("shuxin",ob));
 
@@ -58,4 +58,3 @@ int recruit_apprentice(object ob)
    if( ::recruit_apprentice(ob) )
      ob->set("class", "tujue");
 }
-

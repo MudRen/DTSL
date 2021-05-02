@@ -2,9 +2,13 @@
 
 Last Update By Yanyan@dt 2003.9.9
 */
-#define JOBSYS_D "/adm/daemons/jobsysd.c"
-#define JOBNPC_D "/adm/daemons/jobnpcd.c"
 
+#define R_JOB 1000
+#define BUTOU_JOB 1000
+#define QIANGJIE_JOB 1000
+#define LI_DEFENCE_JOB 100
+#define JIANGJING 1000
+#define FEIMA_JOB 1000
 
 //此函数为奖励帮会的储备。
 void add_shili(object me,int exp,int money)

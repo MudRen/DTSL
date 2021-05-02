@@ -4,7 +4,7 @@ inherit NPC;
 #include <job_money.h>
 void create()
 {
-  
+
    set_name("候希白",({ "hou xi bai","hou"}) );
         set("gender", "男性" );
         set("age", 26);
@@ -26,9 +26,9 @@ void create()
    set_skill("tianyi-xuangong",270);
    set_skill("huanmo-shenfa",270);
    set_skill("zhehua-baishi",270);
-   set_skill("sanhua-zhi",270);
+   // set_skill("sanhua-zhi",270);
    set_skill("baihua-zhang",270);
-   
+
    set("max_gin",4000);
    set("max_sen",4000);
    set("max_kee",4000);
@@ -36,12 +36,12 @@ void create()
    set("force",4000);
    set("jiali",200);
    create_family("花间派",6,"传人");
-  
+
     setup();
- 
+
    carry_object(__DIR__"obj/tieshan")->wield();
 }
 
 
-   
+
 #include "job_npc.c"

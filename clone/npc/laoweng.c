@@ -1,9 +1,9 @@
 // /u/dubei/wudang/npc/laoweng
- 
+
 inherit NPC;
 int ask_me();
 int ask_me1();
-  
+
 
 void create()
 {
@@ -12,7 +12,7 @@ void create()
     set("gender", "男性");
     set("age", 70);
 
-    set_skill("medicine", 200);
+//     set_skill("medicine", 200);
 
     set_temp("apply/attack", 1000);
     set_temp("apply/defense", 1000);
@@ -23,11 +23,11 @@ void create()
     set("inquiry", ([
                 "采药道长" : (: ask_me :),
                 "搭救" : (: ask_me1 :),
-              
+
         ]));
     setup();
 
-     carry_object("/clone/misc/cloth")->wear();
+//      carry_object("/clone/misc/cloth")->wear();
 }
 
 int ask_me()
@@ -42,7 +42,7 @@ int ask_me1()
 
         ob = this_player();
         me = this_object();
-       
+
         command("say 昔年一位武当采药道长失足坠落后山悬崖，我正好采药路过，略加\n"
 "医治。举手之劳，况陈年往事，提它干吗？");
         ob->set_temp("marks/jieguo",1);

@@ -8,7 +8,7 @@ void create()
         set("gender", "男性" );
         set("age", 40);
    set("long", "这是洛阳的铁匠，他打造的兵器都是很好。\n");
-       
+
    set("combat_exp",300000);
    set("str",26);
    set("per", 22);
@@ -28,8 +28,8 @@ void create()
 	  __DIR__"obj/axe"
 	  }));
    setup();
-   carry_object(__DIR__"obj/cloth")->wear();
-  
+   // carry_object(__DIR__"obj/cloth")->wear();
+
 }
 
 void init()
@@ -37,6 +37,5 @@ void init()
 	add_action("do_list","list");
 	add_action("do_buy","buy");
 	add_action("do_repair",({"repair","xiu"}));
-	
-}
 
+}

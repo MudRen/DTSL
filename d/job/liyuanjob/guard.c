@@ -7,7 +7,7 @@ void create()
         set("gender", "男性" );
         set("age", 32);
    set("long", "这是一个效力于李阀的武士。\n");
-       
+
    set("combat_exp", 200000);
    set("str", 28);
    set_skill("finger",70);
@@ -20,11 +20,11 @@ void create()
    set_skill("bencao-shuli",70);
    set_skill("huanmo-shenfa",70);
    set_skill("dujie-zhi",70);
-   set_skill("sanhua-zhi",70);
+   // set_skill("sanhua-zhi",70);
    set_skill("xiuluo-zhi",70);
-   set_skill("pojun-quan",70);
+   // set_skill("pojun-quan",70);
    set_skill("linglong-yuquan",70);
-   set_skill("xukong-zhang",70);    
+   // set_skill("xukong-zhang",70);
    set("max_force",200);
    set("force",200);
    set("chat_chance_combat",70);
@@ -35,9 +35,9 @@ void create()
     (:apply_action,"pojun-quan",3,8:),
     (:apply_action,"linglong-yuquan",3,8:),
     (:apply_action,"xukong-zhang",3,8:),
-    }));  
+    }));
    setup();
-  
+
 }
 
 void init()
@@ -53,6 +53,3 @@ int clean_up()
    return 0;
   return 1;
 }
-
-
-  

@@ -1,4 +1,4 @@
- 
+
 // weapon.h
 
 #ifndef __WEAPON__
@@ -16,6 +16,8 @@
 #define AXE        "/std/weapon/axe"
 #define BLADE        "/std/weapon/blade"
 #define BOW        "/std/weapon/bow"
+#define CLUB        "/std/weapon/club"
+#define HOOK        "/std/weapon/hook"
 #define DAGGER        "/std/weapon/dagger"
 #define FORK        "/std/weapon/fork"
 #define HAMMER         "/std/weapon/hammer"

@@ -1,6 +1,7 @@
 
 inherit F_MASTER;
 inherit NPC;
+#include <ansi.h>
 #include <job_money.h>
 string give_job();
 string do_quest();
@@ -9,10 +10,10 @@ void create()
 {
    set_name("祝玉妍",({ "zhu yuyan","zhu","yu","yan" }) );
         set("gender", "女性" );
-		
+
         set("age", 42);
    set("long", "他是阴癸派的教主,她的武功在武林可是数一数二的。她的魔功更是独步天下!\n");
-       
+
    set("combat_exp",2000000);
    set("str", 25);
    set("per", 28);
@@ -56,13 +57,13 @@ void create()
 	   (:apply_action,"tianmo-jianfa",4,10:),
    }));
    setup();
-   carry_object(__DIR__"caiyi")->wear();
-   carry_object(__DIR__"changjian")->wield();
-  
+   carry_object(__DIR__"obj/caiyi")->wear();
+   carry_object(__DIR__"obj/changjian")->wield();
+
 }
 void attempt_apprentice(object ob)
 {
-	
+
 	if(ob->query("bellicosity")<200)
 	{
 		tell_object(ob,"祝玉妍冷笑道:像你这种正派人士,休想拜我为师!\n");
@@ -115,7 +116,7 @@ string give_job()
 	 case 3: me->set_temp("zhu_sx/4",1);return "好吧,你去把这封信送到洛阳的荣姣姣手中,她可是我们在洛阳的耳目!\n"+str;
 	 case 4: me->set_temp("zhu_sx/5",1);return "好吧,你去把这封信送到巴陵的季亦农手中,他可是我们在巴陵的耳目!\n"+str;
 	}
-	 
+
 }
 
 void killer_come1(object me)
@@ -172,7 +173,7 @@ void killer_come2(object me)
 	killer->set_leader(me);
 	call_out("killer_go",120,killer);
 	remove_call_out("killer_come2");
-	
+
 	return;
 }
 
@@ -203,7 +204,7 @@ int surrender(object killer,object victim)
    if(!killer->query_temp("gage_zhu"))
    return 1;
    message_vision(HIR"$N仰天长笑道：我魔界终于后继有人了！\n"NOR,victim);
-   message_vision(HIR"$N突然脸色一变，既然能打得过我，你就去我的密室学习吧！\n"NOR,victim); 
+   message_vision(HIR"$N突然脸色一变，既然能打得过我，你就去我的密室学习吧！\n"NOR,victim);
    killer->set("family_lingwu","yingui");
    killer->set("title",HIR"阴癸尊者"NOR);
    killer->move(__DIR__"mishi");

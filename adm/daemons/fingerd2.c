@@ -67,7 +67,7 @@ string age_string(int time)
         time /= 24;
         day = time % 30;
         month = time / 30;
-        return (month?month + "m":"") + (day?day + "d":"") + 
+        return (month?month + "m":"") + (day?day + "d":"") +
         (hour?hour + "h":"") + min + "m";
 }
 
@@ -98,7 +98,7 @@ string user_list(object *ob, int flag)
                 msg = sprintf("%s%s%-" + (14 + color_len(ob[i]->name(flag)))+ "s%s%-14s%-14s%s%-7s" NOR "%s\n",
                         msg, (ob[i]->name() != ob[i]->name(flag) ? HIM : NOR),
                         ob[i]->name(flag), NOR, ob[i]->query("id"),
-                        age_string( (int)ob[i]->query("mud_age")), 
+                        age_string( (int)ob[i]->query("mud_age")),
                         (interactive(ob[i]) ? ((query_idle(ob[i]) >= 120) ? HIG : NOR) : ob[i]->query("doing") == "closed" ? HIY : HIR),
                         (interactive(ob[i]) ? (query_idle(ob[i]) + "s") : ob[i]->query("doing") == "closed" ? "闭关" : "断线"), ipname);
         }
@@ -238,7 +238,7 @@ varargs string finger_user(string name, mixed me)
                         cname,
                         level,
                         (public_flag) ? email : "不告诉你",
-                        (wizardp(name) > 0) ? "不告诉你" : ctime(ob->query("last_on")));
+                        (wizardp(find_player(name)) > 0) ? "不告诉你" : ctime(ob->query("last_on")));
 
                 if (objectp(body = find_player(name)) &&
                     getuid(body) == name &&
@@ -295,7 +295,7 @@ varargs string finger_user(string name, mixed me)
                                 msg += sprintf("该玩家目前以%s身份行动。\n", body->name());
                         msg += long;
                 }
-        }       
+        }
         destruct(ob);
         return msg;
 

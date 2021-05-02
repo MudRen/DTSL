@@ -12,7 +12,7 @@ void create()
         set("gender", "女性" );
         set("age", 22);
    set("long", "这是慈航静斋的师妃喧。\n");
-       
+
    set("combat_exp",4000000);
    set("str", 25);
    set("per", 30);
@@ -31,8 +31,8 @@ void create()
    set_skill("literate",300);
    set_skill("force",300);
    set_skill("sekong-jianfa",300);
-   set_skill("piaokong-zhang",300);
-   set_skill("jingxin-quan",300);
+  //  set_skill("piaokong-zhang",300);
+  //  set_skill("jingxin-quan",300);
    set_skill("xiuluo-zhi",300);
    set_skill("wuwang-jing",300);
    set_skill("qingxin-force",300);
@@ -51,24 +51,24 @@ void create()
       "鸠摩罗":(:do_jzzy_quest3:),
       ]));
    setup();
-   //carry_object(__DIR__"obj/baiyi")->wear();
-   //carry_object(__DIR__"obj/changjian")->wield();
-  
+   carry_object(__DIR__"obj/baiyi")->wear();
+   carry_object(__DIR__"obj/changjian")->wield();
+
 }
 
 void attempt_apprentice(object ob)
-{   
-	
+{
+
 	if(ob->query("gender")=="男性")
 	{
 	  command("say 我们慈航静斋不收男弟子的。\n");
 	  return;
 	}
-	
+
 	if(ob->query("family_lingwu")=="jingzhai"){
 	  command("say 你是本门玄女，我可不敢收你为徒！\n");
 	  return;}
-	
+
 	if(ob->query("family")&&ob->query("family/family_name")!="慈航静斋")
 	{
 	  command("say 我们慈航静斋不收其他门派的叛徒的。\n");
@@ -167,7 +167,7 @@ string do_jzzy_quest2()
    ob->delete_temp("dtsl_quest_jzzy/step6");
    return "这些罗汉均是依后秦圣僧鸠摩罗什亲绘的手本敬制。\n";
 }
-  
+
 string do_jzzy_quest3()
 {
 object ob;

@@ -8,7 +8,7 @@
 inherit NPC;
 
 #include <ansi.h>
-#include <guanfu.h>
+// #include <guanfu.h>
 #include "change_name.h"
 #include "gtitle.h"
 
@@ -144,9 +144,9 @@ int accept_object(object me, object obj)
 		message_vision("\n只见几名衙役过来，拖起$N，入内去了。\n",obj);
 		command("say 本府代表千万民众多谢这位"+RANK_D->query_respect(me)+"了");
 		GF_WANTED->do_give_reward(id, target, me, 0);
-		
+
 		GIFT_D->check_count(me,this_object(),"官府");
-		
+
 		if( userp(obj) )
 			arrest_him(obj);
 		else 	destruct(obj);

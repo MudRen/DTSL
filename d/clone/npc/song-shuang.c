@@ -29,7 +29,7 @@ set("combat_exp", 300000);
    set_skill("force",110);
    set_skill("tiangang-sanjue",100);
    set_skill("poyu-quan",100);
-   set_skill("yinlong-guaifa",150);
+   // set_skill("yinlong-guaifa",150);
    set_skill("staff",200);
    create_family("ËÎ¼Ò±¤",3,"ÃÅÈË");
 set("shili",([
@@ -38,5 +38,5 @@ set("shili",([
    setup();
    carry_object(__DIR__"obj/cloth2")->wear();
    carry_object(__DIR__"obj/blade")->wield();
-  
+
 }

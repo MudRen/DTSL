@@ -53,3 +53,8 @@ string base_name(object ob)
 	else
 		return file_name(ob);
 }
+
+int file_exists(string file)
+{
+	return (file_size(file) >= 0);
+}

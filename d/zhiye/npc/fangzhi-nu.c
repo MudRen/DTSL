@@ -1,7 +1,7 @@
 // fangzhi-nu
 // by augx@sj  10/9/2001
 
-// Modified by mxzhao 2004/03/06 
+// Modified by mxzhao 2004/03/06
 // delete bianzhi skill
 
 #include <ansi.h>
@@ -62,8 +62,8 @@ void create()
 	}));
 
 	setup();
-	carry_object(ARMOR_D("cloth"))->wear();
-	carry_object(__DIR__"../obj/fangsuo")->wield();
+	// carry_object(ARMOR_D("cloth"))->wear();
+	// carry_object("/d/zhiye/obj/fangsuo")->wield();
 	add_money("coin",99);
 }
 

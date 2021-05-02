@@ -7,12 +7,12 @@ void create()
         set("gender", "男性" );
         set("age", 22);
    set("long", "这是这家小客栈的店小二，每天忙来忙去。\n");
-       
+
    set("combat_exp", 200);
    set("attitude", "friendly");
    setup();
-   carry_object(__DIR__"obj/cloth")->wear();
-  
+   carry_object("/clone/armor/cloth")->wear();
+
 }
 
 void init()
@@ -23,7 +23,7 @@ void init()
 	::init();
 	if(!ob||!present(ob,environment())||ob2->is_fighting()) return;
 	call_out("welcome",1,ob,ob2);
-	
+
 }
 
 void welcome(object ob,object ob2)

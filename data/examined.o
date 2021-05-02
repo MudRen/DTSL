@@ -1,2 +1,2 @@
 #/adm/daemons/examined.c
-dbase (["log_by":(["ldhz":"kouzhong","diqi":"kouzhong","avril":"kouzhong",]),"channel_id":"检查精灵",])
+dbase (["channel_id":"检查精灵","log_by":(["diqi":"kouzhong","avril":"kouzhong","ldhz":"kouzhong",]),])

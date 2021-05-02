@@ -19,6 +19,6 @@ void create()
 
 	setup();
 
-        carry_object("/u/smokes/junying/obj/blade")->wield();
-        carry_object("/u/smokes/junying/obj/cloth")->wear();
+        carry_object("/d/junying/obj/blade")->wield();
+        carry_object("/d/junying/obj/cloth")->wear();
 }

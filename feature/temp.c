@@ -1,5 +1,103 @@
 
 #define MAX_PAWN 79
+
+string value_string(int value)
+{
+	if (value < 1)
+		value = 1;
+	else if (value < 100)
+		return chinese_number(value) + "文钱";
+	else
+		return chinese_number(value / 100) + "两" + (value % 100 ? "又" + chinese_number(value % 100) + "文钱" : "");
+}
+
+void pay_him(object who, int amount)
+{
+	object ob;
+	object cash, tencash, gold, silver, coin;
+	tencash = present("tenthousand-cash_money", who);
+	cash = present("thousand-cash_money", who);
+	gold = present("gold_money", who);
+	silver = present("silver_money", who);
+	coin = present("coin_money", who);
+	if (tencash)
+		destruct(tencash);
+	if (cash)
+		destruct(cash);
+	if (gold)
+		destruct(gold);
+	if (silver)
+		destruct(silver);
+	if (coin)
+		destruct(coin);
+
+	if (amount < 1)
+		amount = 1;
+	if (amount / 1000000)
+	{
+		ob = new (TECASH_OB);
+		ob->set_amount(amount / 1000000);
+		ob->move(who);
+		amount %= 1000000;
+	}
+	if (amount / 100000)
+	{
+		ob = new (THCASH_OB);
+		ob->set_amount(amount / 100000);
+		ob->move(who);
+		amount %= 100000;
+	}
+	if (amount / 10000)
+	{
+		ob = new (GOLD_OB);
+		ob->set_amount(amount / 10000);
+		ob->move(who);
+		amount %= 10000;
+	}
+	if (amount / 100)
+	{
+		ob = new (SILVER_OB);
+		ob->set_amount(amount / 100);
+		ob->move(who);
+		amount %= 100;
+	}
+	if (amount)
+	{
+		ob = new (COIN_OB);
+		ob->set_amount(amount);
+		ob->move(who);
+	}
+}
+
+int affordable(object me, int amount)
+{
+	int total;
+	object cash, tencash, gold, silver, coin;
+
+	tencash = present("tenthousand-cash_money", me);
+	cash = present("thousand-cash_money", me);
+	gold = present("gold_money", me);
+	silver = present("silver_money", me);
+	coin = present("coin_money", me);
+
+	total = 0;
+	if (tencash)
+		total += tencash->value();
+	if (cash)
+		total += cash->value();
+	if (gold)
+		total += gold->value();
+	if (silver)
+		total += silver->value();
+	if (coin)
+		total += coin->value();
+
+	if (total < amount)
+		return 0;
+
+	return total;
+}
+
 int do_pawn(string arg)
 {
 	object ob;
@@ -50,7 +148,7 @@ int do_pawn(string arg)
 	message_vision("$N把身上的" + ob->query("name") + "拿出来典当了"
 		+ value_string(value * 25 / 100) + "。\n", this_player());
 
-	pay_player(this_player(), value * 25 / 100 );
+	MONEY_D->pay_player(this_player(), value * 25 / 100 );
 	destruct(ob);
 
 	return 1;
@@ -93,4 +191,3 @@ int do_redeem(string arg)
                 return notify_fail("你的钱不够。\n");
 
 }
-

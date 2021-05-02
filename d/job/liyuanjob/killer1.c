@@ -7,7 +7,7 @@ void create()
         set("gender", "男性" );
         set("age", 32);
    set("long", "这是一个杀手，据说最近打算去行刺李渊。\n");
-       
+
    set("combat_exp", 200000);
    set("str", 28);
    set_skill("finger",70);
@@ -20,16 +20,16 @@ void create()
    set_skill("bencao-shuli",70);
    set_skill("huanmo-shenfa",70);
    set_skill("dujie-zhi",70);
-   set_skill("sanhua-zhi",70);
+  //  set_skill("sanhua-zhi",70);
    set_skill("xiuluo-zhi",70);
-   set_skill("pojun-quan",70);
+  //  set_skill("pojun-quan",70);
    set_skill("linglong-yuquan",70);
-   set_skill("xukong-zhang",70);    
+  //  set_skill("xukong-zhang",70);
    set("max_force",200);
    set("force",200);
-   
+
    setup();
-  
+
 }
 
 int clear()
@@ -53,7 +53,7 @@ void dispear()
 int chat()
 {
   int i;
-  
+
   if(clear())
    return 1;
   i=random(10);

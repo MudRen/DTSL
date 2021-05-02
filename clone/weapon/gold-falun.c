@@ -17,9 +17,9 @@ void create()
                 set("unique", 1);
                 set("rigidity", 8);
                 set("sharpness", 5);
-                set("treasure",1);  
+                set("treasure",1);
                 set("weapon_prop/dodge", -8);
-                set("weapon_prop/parry", 10);     
+                set("weapon_prop/parry", 10);
                 set("material", "gold");
                 set("wield_neili", 500);
                 set("wield_maxneili", 1500);
@@ -50,13 +50,13 @@ int do_add()
      if( !objectp(ob2) || !objectp(ob3)
       || !objectp(ob4) || !objectp(ob5))
            return notify_fail("你手中的法轮不足以组合成风火轮。\n");
-     falun = unew(BINGQI_D("bestfalun"));
+     falun = new(BINGQI_D("bestfalun"));
      if(!clonep(falun)) return notify_fail("你突然发现手中的法轮卡住了，看来不能组合了。\n");
      message_vision(HIY"金、银、铜、铁、铅五只法轮烁然生光，互相吸引，咔咔几声合在一起，组成一只更庞大的法轮。\n"NOR, me);
      destruct(ob2);
      destruct(ob3);
      destruct(ob4);
-     destruct(ob5);   
+     destruct(ob5);
      falun->move(me);
      destruct(ob);
      return 1;

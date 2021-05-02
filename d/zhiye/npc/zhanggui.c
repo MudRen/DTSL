@@ -4,8 +4,8 @@
 #ifndef NPCDATA
 #define NPCDATA		"/data/npc/"
 #endif
-#define SAVE_DIR	NPCDATA + "zhanggui1"
-  
+#define SAVE_DIR	NPCDATA + "zhanggui"
+
 #include "ansi.h"
 inherit NPC;
 inherit F_UNIQUE;
@@ -16,10 +16,10 @@ inherit F_SAVE;
 string ask_money();
 
 void create()
-{	
+{
 	seteuid(getuid());
 	restore();
-		
+
 	set_name("掌柜",({ "zhang gui","zhanggui" }) );
 	set("gender", "男性" );
 	set("age", 45);
@@ -34,20 +34,20 @@ void create()
 	set("shen", 100);
 	set("attitude", "peaceful");
 	set("combat_exp", 1000000);
-	
+
 	set_skill("dodge", 300);
 	set_skill("force", 300);
 	set_skill("parry", 300);
 	set_skill("unarmed", 300);
 	set_skill("literate", 150);
 	set_skill("duanzao", 150);
-	
+
 	set("max_qi", 99999);
 	set("max_neili", 99999);
 	set("max_jing", 99999);
 	set("max_jingli", 99999);
 	set("eff_jingli", 99999);
-	
+
 	set_temp("apply/dodge",888);
 	set_temp("apply/force",888);
 	set_temp("apply/attack",888);
@@ -59,16 +59,16 @@ void create()
  		"掌柜骄傲的说道：“本店卖的兵器可都是最好的兵器！”\n",
  		"掌柜说道：“那些工匠们可都是靠我才发了大财。”\n",
  	}) );
- 	
+
 	set("inquiry", ([
 		"货款"		: (: ask_money :),
 		"money"		: (: ask_money :),
 	]));
-		
+
 	setup();
 	carry_object(ARMOR_D("cloth"))->wear();
 	add_money("coin",99);
-	
+
 	call_out("check_var",CHECK_TIME*60);
 }
 
@@ -96,7 +96,7 @@ int accept_fight(object ob)
 void init()
 {
 	::init();
-	
+
 	add_action("do_buy", "buy");
 	add_action("do_list", "list");
 	add_action("do_sell", "sell");
@@ -122,17 +122,17 @@ int do_sell(string arg)
 
 	if (query_temp("busy"))
 		return notify_fail("掌柜说道：哟，抱歉啊，我这儿正忙着呢……您请稍候。\n");
-	
+
 	if ( !(int)ob->query("imbued") )
 		return notify_fail("掌柜说道：本店只寄卖玩家制造的物品。\n");
-		
+
 	rank = WORKER_D->weapon_rank(ob);
 	if ( (int)ob->query("imbued")<3 || rank<=125 )
 		return notify_fail("掌柜说道：这件物品的质量太差，放在本店贩卖会降低我们的声誉的。\n");
 
 	ob->save_weapon(obj);
 	ob->set_temp("quit_dest",1);
-	
+
 	saveid = "goods/" + ob->query("weapon_mp/save_id") + "/";
 	obj->set(saveid+"time",time());
 	obj->set(saveid+"value",value);
@@ -141,11 +141,11 @@ int do_sell(string arg)
 	obj->set(saveid+"seller",me->query("id"));
 	obj->set(saveid+"seller2",me->query("name"));
 	WORKER_D->save_zhanggui(obj);
-	
+
 	message_vision("$N以"+CHINESE_D->chinese_number(value)+"锭"+HIY"黄金"NOR+"的价格寄卖了一"+ob->query("unit")+ob->name() + "给$n。\n", me, obj);
 	ob->delete_weapon(me);
 	destruct(ob);
-	
+
 	set_temp("busy", 1);
 	call_out("delete_temp", 1, "busy");
 
@@ -159,30 +159,30 @@ int do_list(string arg)
 	string * gkeys;
 	mixed * gvalues;
 	int i,j;
-	
+
 	if (!living(obj))
 		return notify_fail("还是等对方醒来再说吧。\n");
 
 	if (me->is_busy() || me->is_fighting())
 		return notify_fail("掌柜说道：你正忙着呢。\n");
-		
+
 	if (!arg)
 		return notify_fail("掌柜说道：你要看那一类商品？（weapon,armor,drug）\n");
-		
+
 	switch (arg) {
 		case "weapon": break;
 		case "armor":
 		case "drug": return notify_fail("掌柜说道：此类别商品还没有开放！\n");
 		default: return notify_fail("掌柜说道：你要看那一类商品？（weapon,armor,drug）\n");
 	}
-	
+
 	if(!mapp(obj->query("goods"))) return notify_fail("掌柜说道：目前没有此类别的商品卖。\n");
-	
+
 	write(query("name") + "目前寄售的货物有：\n");
 	write("┏━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┓\n");
 	write("┃  货  物                    价  格         等级  评价    卖主          日期       ┃\n");
 	write("┣━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┫\n");
-		
+
 	j = sizeof(obj->query("goods"));
 	gkeys = keys(obj->query("goods"));
 	gvalues = values(obj->query("goods"));
@@ -201,10 +201,10 @@ int do_list(string arg)
 			CHINESE_D->chinese_date(mp["time"])
 		));
 	}
-	
+
 	write("┗━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┛\n");
-		
-	me->start_busy(1);		
+
+	me->start_busy(1);
 	return 1;
 }
 

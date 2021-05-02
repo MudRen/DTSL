@@ -19,7 +19,7 @@ void create()
 		set("value", 1);
 		set("unique", 1);
 		set("weapon_prop/parry", 9);
-		set("material", "steel"); 
+		set("material", "steel");
 		set("wield_neili", 1500);
 		set("wield_maxneili", 2000);
 		set("wield_str", 30);
@@ -29,5 +29,4 @@ void create()
 	}
 	init_blade(200);
 	setup();
-	use_flag = 16;
 }

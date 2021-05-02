@@ -9,7 +9,7 @@ void create()
         set("gender", "男性" );
         set("age", 32);
    set("long", "这是静念禅院的得道高僧,他的佛经水平可是相当高的。\n");
-   set("class","bonze"); 
+   set("class","bonze");
    set("combat_exp", 400000);
    set("str", 28);
    set("per", 22);
@@ -21,8 +21,8 @@ void create()
    set_skill("blade",150);
    set_skill("chanzong-fofa",150);
    set_skill("chanzong-fofa",100);
-   set_skill("jinguang-daofa",150);
-   set_skill("wuxiang-zhangfa",90);
+//    set_skill("jinguang-daofa",150);
+//    set_skill("wuxiang-zhangfa",90);
    set("staff",({"wuxiang-zhangfa"}));
    set_skill("liuyun",150);
    set("dodge",({"liuyun"}));
@@ -36,7 +36,7 @@ void create()
    setup();
    carry_object(__DIR__"obj/sengyi")->wear();
    carry_object(__DIR__"obj/staff")->wield();
-  
+
 }
 
 void init()
@@ -46,9 +46,9 @@ void init()
 	ob2=this_object();
 	::init();
 	if(!ob||!present(ob,environment())) return;
-	
+
 	call_out("welcome",1,ob,ob2);
-	
+
 }
 
 void welcome(object ob,object ob2)
@@ -67,7 +67,7 @@ string give_job()
 {
 	object ob,me;string str;
 	ob=this_object();me=this_player();
-	
+
 	if(me->query("class")!="bonze") return "不是佛家弟子,如何去讲经传法?\n";
 	if((int)me->query_skill("chanzong-fofa",1)<=30)
 		return "你的[禅宗佛法]修为太低了,还是先学习吧!\n";

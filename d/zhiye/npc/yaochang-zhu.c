@@ -47,7 +47,7 @@ void create()
     set_skill("parry", 300);
     set_skill("unarmed", 300);
     set_skill("literate", 150);
-    set_skill("tilian", 60);
+    // set_skill("tilian", 60);
 
     set("max_qi", 99999);
     set("max_neili", 99999);
@@ -143,7 +143,7 @@ void create()
 
     setup();
     carry_object(ARMOR_D("cloth"))->wear();
-    carry_object(__DIR__"../obj/yaochui")->wield();
+    carry_object("/d/zhiye/obj/yaochui")->wield();
 }
 
 void kill_ob(object ob)

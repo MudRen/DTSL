@@ -24,10 +24,10 @@ int query_level()
 }
 
 int set_level(int i)
-{       
+{
         set("level",i);
         set("buliao",0);
-        set("bu",1);        
+        set("bu",1);
         switch (i) {
                 case 1:
                         set_name(HIW"棉花"NOR, ({"mian hua","mianhua","hua"}));
@@ -102,13 +102,18 @@ int set_level(int i)
                         set_weight(1000+random(2000));
                         break;
                 default:call_out("destroying", 1, this_object());
-                 	return 0;     
+                 	return 0;
         }
         set("value",query("value") * 40/10);
         WORKER_D->get_status(this_object(),1,query_level(),random(5)?1:0);
         //msg = WORKER_D->get_msg(query("material_prop"));
         //if(stringp(msg) && msg!="") set_temp("apply/long",({short()+"\n"+query("long")+msg}));
         return 1;
+}
+
+void change_state()
+{
+        //todo 这里具体是什么？
 }
 
 void change_state2(string type)
@@ -205,7 +210,7 @@ void change_name()
                 case 10:
                 	set_name(HIY"龙茧丝绸"NOR,({"longjian sichou","longjiancansi","sichou"}));
                 	set("long",HIY"一种形如盘龙的毒蚕所产之丝所制丝绸。\n"NOR);
-                	break;                
+                	break;
                 case 11:
                         set_name(MAG"波斯彩绸"NOR, ({"bosi caichou","caichou","bosicansi","chou"}));
                         set("long",MAG"这是一匹从西域波斯运来的波斯彩绸。\n"NOR);

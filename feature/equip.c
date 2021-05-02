@@ -23,7 +23,7 @@ int wear()
         type = query("armor_type");
         if( owner->query_temp("armor/" + type) )
                 return notify_fail("你已经穿戴了同类型的护具了。\n");
-                
+
 	      if( query("broken") ) return notify_fail("这件防具已经损坏了。\n");
 
         owner->set_temp("armor/" + type, this_object());
@@ -73,7 +73,7 @@ int wield()
                 if( !(old_weapon = owner->query_temp("weapon")) )
                         owner->set_temp("weapon", this_object());
 
-                else // If we still have a free hand? 
+                else // If we still have a free hand?
                 if( !owner->query_temp("secondary_weapon")
                 &&      !owner->query_temp("armor/shield") ) {
 
@@ -110,13 +110,14 @@ int unequip()
         object owner;
         mapping prop, applied_prop;
         string *apply, equipped;
-
-        if(!(owner = environment())->is_character()) return 0;
+        owner = environment();
+        if (owner && owner->is_character())
+                return 0;
 
         if(!stringp(equipped = query("equipped")))
                 return notify_fail("你目前并没有装备这样东西。\n");
 
-        if(equipped == "wielded") 
+        if(equipped == "wielded")
         {
                 if((object)owner->query_temp("weapon") == this_object())
                         owner->delete_temp("weapon");
@@ -145,26 +146,26 @@ int broken(string str)
 
 	if( query("no_broken") ) return 0;
 	if( !mapp(query("weapon_prop")) && !mapp(query("armor_prop")) ) return 0;
-	
+
 	unequip();
-        
+
 	if( victim->is_character() ) {
 		this_object()->move(environment(victim));
 		if( mapp(query("weapon_prop")) ) victim->reset_action();
 	}
-        
+
 	if(victim)
 	{
 		this_object()->delete_weapon2(victim);
 		this_object()->delete_armor2(victim);
 	}
-		
+
 	if( (int)query("imbued")>3 ) {
 		delete("owner");
 		destruct(this_object());
 		return 1;
 	}
-		
+
 	if( !str ) str = "损坏的";
 
 	delete_temp("apply");
@@ -177,7 +178,7 @@ int broken(string str)
 	set_temp("apply/value", query("value"));
 	set_temp("apply/weapon_mp_old",query("weapon_mp"));
 	set_temp("apply/armor_mp_old",query("armor_mp"));
-			
+
 	set("name", str + query("name"));
 	set("value", 49);
 	set("broken", 1);
@@ -185,10 +186,10 @@ int broken(string str)
 	set("armor_prop", 0);
 	set("treasure", 0);
 	set("long", (string)query("long")+"\n但是它已经损坏，再也无法使用了。\n");
-	
+
 	delete("owner");
 	delete("weapon_mp");
 	delete("armor_mp");
-	
+
 	return 1;
 }

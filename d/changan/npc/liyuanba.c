@@ -16,8 +16,8 @@ void create()
    set_skill("dodge",230);
    set_skill("force",230);
    set_skill("hammer",230);
-   set_skill("hongtian-chuifa",230);
-   set("hammer",({"hongtian-chuifa"}));
+   // set_skill("hongtian-chuifa",230);
+   // set("hammer",({"hongtian-chuifa"}));
    set("max_gin",2000);
    set("max_sen",2000);
    set("max_kee",2000);
@@ -30,4 +30,3 @@ void create()
    carry_object(__DIR__"obj/cloth")->wear();
    carry_object(__DIR__"obj/jinchui")->wield();
 }
-

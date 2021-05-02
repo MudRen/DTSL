@@ -1,5 +1,6 @@
 //// #pragma optimize all
 
+#include "/adm/simul_efun/ansi.c"
 #include "/adm/simul_efun/atoi.c"
 #include "/adm/simul_efun/chinese.c"
 #include "/adm/simul_efun/file.c"
@@ -8,6 +9,7 @@
 #include "/adm/simul_efun/path.c"
 #include "/adm/simul_efun/wizard.c"
 #include "/adm/simul_efun/math.c"
+#include "/adm/simul_efun/util.c"
 
 // This must be after gender.c
 #include "/adm/simul_efun/message.c"

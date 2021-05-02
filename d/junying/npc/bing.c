@@ -15,8 +15,8 @@ void create()
 	set("combat_exp", 10000);
 	set("shen_type", 1);
 	setup();
-        carry_object("/u/smokes/junying/obj/blade")->wield();
-        carry_object("/u/smokes/junying/obj/junfu")->wear();
+        carry_object("/d/junying/obj/blade")->wield();
+        carry_object("/d/junying/obj/junfu")->wear();
 }
 
 

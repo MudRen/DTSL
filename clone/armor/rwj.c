@@ -1,6 +1,6 @@
 #include <ansi.h>
 #include <armor.h>
-inherit CLOTH; 
+inherit CLOTH;
 void create()
 {
 	set_name(YEL"Èíâ¬¼×"NOR, ({ "ruanwei jia","ruanwei", "jia" }) );
@@ -13,7 +13,7 @@ void create()
                 set("unique", 1);
                 set("treasure",1);
 		set("value", 1000000);
-		set("material", "softsteel");                 
+		set("material", "softsteel");
         set("armor_prop/armor", 100);
 	}
 	setup();
@@ -25,7 +25,7 @@ int ob_hit(object ob, object me, int damage)
         int p;
         string msg;
 
-	::ob_hit();
+	// ::ob_hit();
         if(!weapon&&(random(10)<5)) {
             msg = "Ö»Ìý¡°°¡Ó´¡±Ò»Éù¾ªºô£¬$NÎåÖ¸È«²åÔÚÈíâ¬¼×µÄ´ÌÉÏ£¬¶ÙÊ±´ÌµÃÏÊÑªÁÜÀì£¡\n";
             ob->receive_damage("qi", damage/8);
@@ -34,5 +34,5 @@ int ob_hit(object ob, object me, int damage)
             msg += "( $N"+COMBAT_D->eff_status_msg(p)+" )\n";
             message_vision(msg, ob);
             return -damage/3;
-         }        
+         }
 }

@@ -1,7 +1,7 @@
 // yangcan popo
 // by augx@sj  10/9/2001
 
-// Modified by mxzhao 2004/03/06 
+// Modified by mxzhao 2004/03/06
 // caiji => nongsang
 // delete /d/zhiye/obj/fangsuo
 
@@ -13,7 +13,7 @@ void create()
 	set_name("养蚕婆婆",({ "yangcan popo", "popo" }) );
 	set("gender", "女性" );
 	set("age", 62);
-	set("long", 
+	set("long",
 "这是位满脸皱纹的老婆婆，一生都在种棉养蚕。
 现在老了就卖些工具，教教年轻人过活。\n");
 
@@ -34,7 +34,7 @@ void create()
 	set_skill("parry", 200);
 	set_skill("unarmed", 200);
 	set_skill("literate", 150);
-	set_skill("nongsang", 70);
+	// set_skill("nongsang", 70);
 
 	set("max_qi", 39999);
 	set("max_neili", 49999);
@@ -46,7 +46,7 @@ void create()
 	set_temp("apply/attack",288);
 	set_temp("apply/damage",233);
 	set_temp("apply/armor",288);
-	
+
 	set("unique",1);
 	set("no_ansuan",1);
 
@@ -72,7 +72,7 @@ void create()
 		(["name":"/d/zhiye/obj/zhongzi8","number":50]),
 		(["name":"/d/zhiye/obj/zhongzi9","number":50]),
 	}));
-		
+
 	set("chat_chance", 10);
 	set("chat_msg", ({
 		(: random_move :)
@@ -80,7 +80,7 @@ void create()
 
 	setup();
 	carry_object(ARMOR_D("cloth"))->wear();
-	carry_object(__DIR__"../obj/jiandao")->wield();
+	carry_object("/d/zhiye/obj/jiandao")->wield();
 	add_money("coin",99);
 }
 
@@ -121,13 +121,13 @@ int is_apprentice_of(object me)
 int recognize_apprentice(object ob)
 {
 	int money = 100, level = ob->query_skill("nongsang", 1);
-	
+
 	if (level > 9) money = 150;
 	if (level > 19) money = 300;
 	if (level > 39) money = 500;
 	if (level > 59) money = 1000;
 	if (level > 50) return 0;
-	
+
 	switch (MONEY_D->player_pay(ob, money)) {
 		case 0:
 		case 2: tell_object(ob,"你现在的学费是每次"+MONEY_D->money_str(money)+"。你的钱不够！\n" ); return 0;

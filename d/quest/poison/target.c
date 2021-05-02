@@ -5,7 +5,7 @@
 #include <job_money.h>
 
 inherit NPC;
-inherit __DIR__"killer_reward.c";
+// inherit __DIR__"killer_reward.c";
 
 string _invocation(object who, int level);
 int expeward, pot_reward;
@@ -20,7 +20,7 @@ string *dirs2 = ({
 });
 
 string *dirs3 = ({
-"/d/chanyuan",  
+"/d/chanyuan",
 });
 
 string *names1 = ({
@@ -151,7 +151,7 @@ void setname2()
     j=random(2);
  name=names4[i]+(j?YEL"一"NOR:YEL"二"NOR);
     id=({names4[i+1]+" "+(j?"yi":"er"),
-	    (j?"jing":"guai")});    
+	    (j?"jing":"guai")});
 // name=names4[i]+(j?YEL"龙"NOR:YEL"真吾"NOR:YEL"京"NOR:YEL"苍月"NOR:YEL"小次郎"NOR:YEL"幸二"NOR:YEL"柴舟"NOR:YEL"光宪"NOR:YEL"雷"NOR:YEL"化及"NOR:YEL"无敌"NOR:YEL"光一"NOR:YEL"千邹"NOR:YEL"却达"NOR:YEL"仁"NOR:YEL"千鹤"NOR:YEL"炎"NOR:YEL"耀"NOR);
 // id=({names4[i+1]+" "+(j?"long":"zhenwu":"jing":"cangyue":"xiaocilang":"xinger":"chaizhou":"guanxian":"lei":"huaji":"wudi":"guangyi":"qianzhou":"queda":"ren":"qianhe":"yan":"yao"),
 //	    (j?"long":"zhenwu":"jing":"cangyue":"xiaocilang":"xinger":"chaizhou":"guanxian":"lei":"huaji":"wudi":"guangyi":"qianzhou":"queda":"ren":"qianhe":"yan":"yao")});
@@ -162,7 +162,7 @@ void setname2()
     killer_type=2;
 }
 
-int cast_chance(int level) 
+int cast_chance(int level)
 {
     return 5+level/2;
 }
@@ -186,41 +186,41 @@ void create()
 	set_skill("unarmed", 10);
 	set_skill("dodge", 10);
 	set_temp("apply/armor", 25);
-	
+
         setup();
 }
 
 
-
+/*
 int random_place(object me, string *dirs)
 {
         int  i, j, k;
         object  newob;
         mixed *file, exit;
-                
+
 
         if( !sizeof(dirs) )  return 1;
 
         i = random(sizeof(dirs));    // pick up one directory
 
         file = get_dir( dirs[i]+"/*.c", -1 );
-        
+
         if(!sizeof(file))
          return 1;
-                                 
+
 	for(k=0;k<30;k++) { // try 20 times
-		
+
            j = random(sizeof(file));
            if( file[j][1] > 0 ) {
              newob=load_object(dirs[i]+"/"+file[j][0]);
-             if (newob) {  
+             if (newob) {
                if(newob->query("no_fight") ||
 		       !(exit=newob->query("exits")) ||
 		       sizeof(exit)<1)
 		   continue;
 
                if(me->move(newob)) {
-               
+
 		   message_vision("$N走了过来。\n",me);
 		   break;
 	       }
@@ -230,11 +230,11 @@ int random_place(object me, string *dirs)
 
         return 1;
 }
-
+*/
 void _leave()
 {
     object me=this_object();
-    
+
     // if in fighting, then don't disappear.
     if(me->is_fighting() || me->is_busy())
 	return;
@@ -243,9 +243,9 @@ void _leave()
 
 void leave()
 {
-      if(this_object()) { 
+      if(this_object()) {
         if(environment())
-          message("vision",HIB + name() + 
+          message("vision",HIB + name() +
 		  "身形一闪，踪迹不见。\n" NOR,environment());
         destruct(this_object());
       }
@@ -255,31 +255,31 @@ void leave()
 string invocation(object who, int level)
 {
         object me=this_object();
-        
-        
+
+
         set_all_skill(me,level*4+who->query("max_pot")-100);  //设定全部技能
         copy_hp_item(who,me,"kee"); //copy 气血
         copy_hp_item(who,me,"gin"); //copy 精血
         copy_hp_item(who,me,"sen"); //copy 精神
         me->set("max_force",who->query("max_force")+level*500);//杀手内力随着做的次数增加
         me->set("force",who->query("max_force")+level*500);
-        
+
         me->set("target_id",who->query("id"));//只允许做任务的人杀，其他人杀不了。
-	
+
 	return _invocation(who, level);
 }
 
 string _invocation(object who, int level)
-{       
-	
+{
+
 	object me=this_object(), env;
-        string *dirs; 
+        string *dirs;
         int exp, i, lvl;
 	string where, long, killer_name;
-	
+
 	dirs=dirs1;
-         
-       
+
+
         set("owner", who->query("id"));
         set("owner_ob", who);
 
@@ -302,7 +302,7 @@ string _invocation(object who, int level)
 	        "躲藏了"+({"很长","一段","一段长"})[random(3)]+
 		    "时间，今日终于被人发现。\n";
             set("long",long);
-	    
+
 	    if(dx>=10000000)
 		long=HBYEL HIW" 魔 头 "NOR;
 	    else if(dx>=1000000)
@@ -313,12 +313,12 @@ string _invocation(object who, int level)
 		long=HIR"武 士"NOR;
 	    else
 		long=HIY"流 氓"NOR;
-	    
+
 	    set("title",long);
 	}
 
 	lvl=level;
-	
+
 	// choose npc type.
 	i=random(1000);
 	if(i<10) {
@@ -327,9 +327,9 @@ string _invocation(object who, int level)
 	    set("type","blocker");
 	} else if(i<220) {
 	    set("type","aggressive_on_owner");
-	} else 
+	} else
 	    set("type","normal");
-	
+
 	if(random(10)==0) {
 	    set("env/wimpy",40);
 	    if(lvl<9) lvl=lvl+1; // as more difficult to kill.
@@ -338,7 +338,7 @@ string _invocation(object who, int level)
 	}
 
 	// determine reward
-	
+
 	exp=who->query("combat_exp");
 	if(exp<30000) {
 	    expeward=500+exp/60;
@@ -361,12 +361,12 @@ string _invocation(object who, int level)
 	expeward=expeward*(lvl+1)/10;
 
 	me->set("stay_time", time()+1800);
-		
+
 	if(!random_place(me, dirs)) {
 	    leave();
 	    return 0;
 	}
-	
+
 	env=environment(me);
 	killer_name=me->query("name")+"("+me->query("id")+")";
 	where=killer_name;
@@ -396,7 +396,7 @@ void check_room()
 {
     object me=this_object();
     object env=environment(me);
-    
+
     if(!living(me)) return;
     if(env && (env->query("no_fight") ||
                env->query("sleep_room")||
@@ -413,15 +413,15 @@ void init()
     int t=query("stay_time");
 
     ::init();
-    
+
     if(t && time()>t) {
 	remove_call_out("_leave");
 	call_out("_leave",300);
     }
-    
+
     if(!userp(this_player())) return;
     if(!living(this_object())) return;
-    
+
     type=query("type");
     switch (type) {
 	case "aggressive": {
@@ -466,7 +466,7 @@ int do_block(string arg)
     object who=this_player();
     string verb=query_verb();
     int t;
-    
+
     if(wizardp(who) && !visible(who)) return 0;
     if(me->is_fighting()) return 0;
 
@@ -491,8 +491,8 @@ int do_block(string arg)
 	message_vision("$N猛地跳过来拦在$n面前，高声叫道：\n"+
 		"          此山是我开，此树是我栽！\n"+
 		"          要打此路过，留下买路财！\n\n",me,who);
-    } 
-    
+    }
+
     tell_object(who,me->name()+"一把抓住了你！\n");
     return 1;
 }
@@ -507,38 +507,39 @@ void die()
 	int exp,pot,lev;
 
         killer=query_temp("last_damage_from");//得到当前杀死他的人的物件。
-        
+
         if(!killer) return ::die();
-        
+
         if(killer->query("id")!=query("target_id"))//看是否是做任务的人
          return ::die();
 
-           
+
              message_vision("$N「啪」的一声倒在地上，挣扎着抽动了几下就死了。\n",this_object());
-	       
+
 		    lev=killer->query_temp("cisha_job/level");
-		    
+
 		    exp=170+lev*5;
 		    pot=100+lev*3;
-		    
+
 		    killer->add("combat_exp",exp);
 		    killer->add("potential",pot);
-		    
-		   
+
+
 		    killer->add_temp("cisha_job/level",1);//累计增加一次任务次数。
        if (killer->query_temp("cisha_job/level")==10) {
-          skill=give_reward(killer);
-          killer->delete_temp("cisha_job/level");
-     	if (skill != "none"){
-    message("shout",HIY"〖"HIW"买凶杀人"HIY"〗"HIY"杨虚延(yang xuyan):" HIR+ killer->query("name")+HIM"助我刺杀要人有功，故传授"HIY+ to_chinese(skill)+HIM"一级！\n"NOR,users()); 
-// CHANNEL_D->do_channel(me,"rumor",msg);
+		   skill = JOBSYS_D->give_reward(killer);
+		   killer->delete_temp("cisha_job/level");
+		   if (skill != "none")
+		   {
+			   message("shout", HIY "〖" HIW "买凶杀人" HIY "〗" HIY "杨虚延(yang xuyan):" HIR + killer->query("name") + HIM "助我刺杀要人有功，故传授" HIY + to_chinese(skill) + HIM "一级！\n" NOR, users());
+			   // CHANNEL_D->do_channel(me,"rumor",msg);
     }
 
 
 
    }
 
-		
+
 		   tell_object(killer, HIY"你得到了"HIR+chinese_number(exp)
 			    +"点"HIY"经验和"HIR+chinese_number(pot)+
 			    "点"HIY"潜能！\n"NOR);
@@ -546,8 +547,7 @@ void die()
         killer->delete_temp("cisha/name");
         killer->delete_temp("cisha/ob");
         killer->delete_temp("dtsl_job");
-      
+
 	destruct(this_object());
 
 }
-

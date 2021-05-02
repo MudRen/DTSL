@@ -10,7 +10,7 @@ void create()
         set("gender", "Å®ÐÔ" );
         set("age", 22);
    set("long", "ÕâÊÇ´Èº½¾²Õ«µÄÇØËª¡£\n");
-       
+
    set("combat_exp",300000);
    set("str", 25);
    set("per", 26);
@@ -27,33 +27,33 @@ void create()
    set_skill("literate",120);
    set_skill("force",120);
    set_skill("sekong-jianfa",120);
-   set_skill("piaokong-zhang",120);
-   set_skill("jingxin-quan",120);
+   // set_skill("piaokong-zhang",120);
+   // set_skill("jingxin-quan",120);
    set_skill("xiuluo-zhi",120);
    set_skill("wuwang-jing",120);
    set_skill("qingxin-force",120);
    set_skill("lingyun-shenfa",120);
-  
+
    create_family("´Èº½¾²Õ«",8,"µÜ×Ó");
    setup();
    carry_object(__DIR__"obj/changjian")->wield();
-  
+
 }
 
 void die()
 {
    object ob;
    int exp,pot,silver;
-   
+
    ob=query_temp("last_damage_from");
    if(!ob) return ::die();
    if(ob->query("id")!=query("target_id"))
    return ::die();
-   
+
    exp=R_JOB+40+random(50);
    pot=ob->query("max_pot")/3;
    silver=ob->query("max_pot");
-   
+
    ob->add("combat_exp",exp);
    ob->add("potential",pot);
    if(ob->query("potential")>ob->query("max_pot"))
@@ -65,5 +65,5 @@ void die()
                   MONEY_D->money_str(silver)+"¡£\n");
    return ::die();
 }
-   
-#include "job_npc.c"
+
+// #include "job_npc.c"

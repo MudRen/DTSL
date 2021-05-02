@@ -10,7 +10,7 @@ void create()
         set("gender", "男性" );
         set("age", 52);
    set("long", "他就是净念禅院的主持了空大师。\n");
-   set("class","bonze"); 
+   set("class","bonze");
    set("combat_exp",4000000);
    set("str", 28);
    set("per", 22);
@@ -28,10 +28,10 @@ void create()
    set_skill("force",300);
    set_skill("liuyun",300);
    set_skill("bikouchan",300);
-   set_skill("wuxiang-zhangfa",300);
+  //  set_skill("wuxiang-zhangfa",300);
    set_skill("blade",300);
-   set_skill("jinguang-daofa",300);
-   set("staff",({"wuxiang-zhangfa"}));
+  //  set_skill("jinguang-daofa",300);
+  //  set("staff",({"wuxiang-zhangfa"}));
    set("dodge",({"liuyun"}));
    set("hand",({"tiangang-quan","dujie-zhi"}));
    set("jiali",30);
@@ -61,7 +61,7 @@ void create()
    setup();
    carry_object(__DIR__"obj/sengyi")->wear();
    carry_object(__DIR__"obj/staff")->wield();
-  
+
 }
 
 void init()
@@ -74,7 +74,7 @@ void init()
 	if(!wizardp(ob)&&ob->query("family/family_name")!="静念禅院")
 		call_out("kill_thief",1,ob,ob2);
 	else call_out("welcome",1,ob,ob2);
-	
+
 }
 
 void welcome(object ob,object ob2)
@@ -98,7 +98,7 @@ void kill_thief(object ob,object ob2)
 }
 
 void attempt_apprentice(object ob)
-{   
+{
 	string name,new_name;
 	if(ob->query("family"))
 		if(ob->query("family/family_name")!="静念禅院")

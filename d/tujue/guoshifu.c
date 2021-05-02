@@ -2,7 +2,7 @@
 // Room in —¿’ 
 // laowuwu 99/05/05
 inherit ROOM;
-void create()	
+void create()
 {
 	set("short", "π˙ ¶∏Æ");
 	set("long", @LONG
@@ -13,11 +13,11 @@ LONG
 	);
 set("outdoors", "/d/yazhang");
 set("exits", ([
-                   "south" : __DIR__"xidajie2",  
+                   "south" : __DIR__"xidajie2",
 	]));
 	set("objects",([
-	__DIR__"npc/bi":1,
+	__DIR__"bi":1,
 	]));
        setup();
 	replace_program(ROOM);
-}	
+}

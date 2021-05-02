@@ -118,14 +118,14 @@ int do_read(string arg)
                 ctime(notes[num]["time"])[0..15])
                 + notes[num]["msg"] );
         */
-        this_player()->start_more(sprintf(HIW"\n编号："NOR"%-3d\n"HIW"作者："NOR"%-54s"HIW"时间："NOR"%s\n"HIW"标题："NOR"%s\n%s\n%s", 
+        this_player()->start_more(sprintf(HIW"\n编号："NOR"%-3d\n"HIW"作者："NOR"%-54s"HIW"时间："NOR"%s\n"HIW"标题："NOR"%s\n%s\n%s",
         num + 1, notes[num]["author"], ctime(notes[num]["time"])[0..15],
         notes[num]["title"], TEXT_LINE +"──────", notes[num]["msg"] + TEXT_LINE + "[ 本 篇 完 ]\n"));
-        
+
         // Keep track which post we were reading last time.
         if( !mapp(last_read_time) )
                 this_player()->set("board_last_read", ([ myid: notes[num]["time"] ]) );
-        else 
+        else
                 if( undefinedp(last_read_time[myid]) || notes[num]["time"] > last_read_time[myid] )
                         last_read_time[myid] = notes[num]["time"];
 
@@ -145,7 +145,7 @@ int do_discard(string arg)
                 return notify_fail("没有这张留言。\n");
         num--;
         if( notes[num]["author"] != (string) this_player()->query("name") + "("+this_player()->query("id")+")"
-        && (string)SECURITY_D->get_status(this_player(1)) != "(admin)" 
+        && (string)SECURITY_D->get_status(this_player(1)) != "(admin)"
         && (string)SECURITY_D->get_status(this_player(1)) != "(arch)")
                 return notify_fail("这个留言不是你写的。\n");
 
@@ -198,7 +198,7 @@ int do_list(string arg)
 void create()
 {
         set("board_id", "post_b");
-        set("location", "/u/baimo/workroom");
+        set("location", "/u/mudren/workroom");
         setup();
         set_name(MUD_NAME+"留言板总汇", ({ "board" }) );
         set("long", "这是汇集本泥巴中所有留言的留言板。\n" );

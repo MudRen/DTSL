@@ -9,11 +9,11 @@ void create()
         set("gender", "男性" );
         set("age", 32);
    set("long", "他就是[老君观]的道人可风道人,他也是王世充的手下。\n");
-       
+
    set("combat_exp", 400000);
    set("str", 26);
-   set_skill("fuchen-skill",100);
-   set_skill("tianmo-huanzong",100);
+  //  set_skill("fuchen-skill",100);
+  //  set_skill("tianmo-huanzong",100);
    set_skill("parry",100);
    set_skill("force",100);
    set_skill("whip",100);
@@ -24,7 +24,7 @@ void create()
    setup();
    carry_object(__DIR__"daopao")->wear();
    carry_object(__DIR__"fuchen")->wield();
-  
+
 }
 
 int kill_object(object killer,object victim)
@@ -61,7 +61,7 @@ void dispear()
 int chat()
 {
    object ob;
-   
+
    if(clear())
    return 1;
    ob=query_temp("last_damage_from");
@@ -90,7 +90,7 @@ string do_zhaoxiang()
 {
    object ob;
    object thing;
-   
+
    ob=this_player();
    if(!ob->query_temp("yang_kill_pantu_zx"))
    return "你说什么呢？贫道一点也不懂啊！\n";
@@ -104,7 +104,7 @@ string do_zhaoxiang()
    set("no_fight",1);
    if(time()-query("busy_time")<30)
    return "你容我再想一想！\n";
-   
+
    ob->delete_temp("yang_kill_pantu_zx");
    ob->set_temp("zhaoxiang_killer",1);
    if(random(2)==1){
@@ -113,8 +113,7 @@ string do_zhaoxiang()
     thing=new("/d/job/funjob/thing");
     thing->move(ob);
     tell_object(ob,"可风给了你一个"+thing->query("name")+"。\n");
-    
-   return "看在宝物的份上，能不能放过在下呢？";
-  
-}
 
+   return "看在宝物的份上，能不能放过在下呢？";
+
+}

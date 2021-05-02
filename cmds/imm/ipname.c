@@ -1,10 +1,11 @@
-// write by huarong 
+// write by huarong
 // 查询在线player的ip地名
 #include <ansi.h>
+#define IP_D "/adm/daemons/ipd.c"
 int help(object me);
 int main(object me, string name)
-{       
-        object ob; 
+{
+        object ob;
         string ip;
         if( !name) return help(me);
         seteuid(getuid());
@@ -26,4 +27,3 @@ HELP
         );
     return 1;
 }
-

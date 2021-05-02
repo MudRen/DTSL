@@ -10,12 +10,12 @@ void create ()
 看出所有宝物的实际价值。
 LONG);
 
-  set("exits", ([ 
+  set("exits", ([
  "out":"/d/yangzhou/guangchang",
         ]));
   set("objects",([
 	  __DIR__"paimaishi":1,
-	  "/u/chris/dtangel":1,
+	  // "/u/chris/dtangel":1,
 	  ]));
   set("no_fight",1);
   set("no_exert",1);

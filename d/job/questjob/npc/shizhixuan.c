@@ -24,9 +24,9 @@ void create()
    set_skill("tianyi-xuangong",350);
    set_skill("huanmo-shenfa",350);
    set_skill("zhehua-baishi",350);
-   set_skill("sanhua-zhi",350);
+   // set_skill("sanhua-zhi",350);
    set_skill("baihua-zhang",350);
-  
+
    set("max_gin",6000);
    set("max_sen",6000);
    set("max_kee",6000);
@@ -34,7 +34,7 @@ void create()
    set("force",6000);
    set("jiali",100);
    create_family("»¨¼äÅÉ",5,"ÕÆÃÅ");
- 
+
     setup();
    carry_object(__DIR__"obj/blade")->wield();
 }

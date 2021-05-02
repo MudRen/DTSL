@@ -74,7 +74,7 @@ mapping trusted_read = ([
 	"adm/etc/welcome":({"(player)"}),
 	"adm/etc/job":	({"(player)"}),
 		//因为每次update这个文件时，自己的权限被设为(player),所以设置为player可读。
-	"data/npc/boss":({ "(player)","Domain" }),//设置读权限
+	"data/npc":({ "(player)","Domain" }),//设置读权限
 	"data/orgroom" : ({ "(player)","Domain" }),
 	//"data/games" : ({ "(player)","Domain" }),
 	"adm":		({"(admin)"}),
@@ -108,7 +108,7 @@ void create()
 	wizlist = explode(read_file(WIZLIST), "\n");
 	wiz_status = allocate_mapping(sizeof(wizlist));
 	for(i=0; i<sizeof(wizlist); i++) {
-		if( wizlist[i][0]=='#' 
+		if( wizlist[i][0]=='#'
 		|| sscanf(wizlist[i], "%s %s", wiz_name, wiz_level)!=2 ) continue;
 		wiz_status[wiz_name] = wiz_level;
 	}
@@ -120,7 +120,7 @@ string *query_wizlist() { return keys(wiz_status); }
 string get_status(mixed ob)
 {
 	string euid;
-	
+
 	if( objectp(ob) ) {
 		euid = geteuid(ob);
 		if( !euid ) euid = getuid(ob);
@@ -165,7 +165,7 @@ int set_status(mixed ob,string status,object who)
 	if( userp(ob) )			uid = getuid(ob);
 	else if(stringp(ob))	uid = ob;
 	else return 0;
-	
+
 	if( status == "(player)" )
 		map_delete(wiz_status, uid);
 	else

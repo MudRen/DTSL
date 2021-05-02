@@ -36,7 +36,7 @@ void create()
 	set_skill("blade", 300);
 	set_skill("hammer", 300);
 	set_skill("stick", 300);
-	set_skill("club", 300);
+	// set_skill("club", 300);
 	set_skill("staff", 300);
 	set_skill("whip", 300);
 	set_skill("dagger", 300);
@@ -218,7 +218,7 @@ void set_master_player(object ob)
  			(: exert_function, "taxue" :),
 		}));
 	}
-	
+
 // copy skills
 
         if( mapp(skill_status = ob->query_skills()) ) {
@@ -318,8 +318,12 @@ void heart_beat()
 	object *ob;
 
 	me = query("master_user/user");
+	if (!objectp(me))
+	{
+		return;
+	}
 
-	if( !objectp(me) || !me->is_fighting()
+	if(!me->is_fighting()
 	 || !living(me)  || environment(me) != environment(this_object()) ) {
 		die();
 		return;
@@ -343,5 +347,5 @@ void heart_beat()
 		die();
 		return;
 	}
-	::heart_beat();	
+	::heart_beat();
 }

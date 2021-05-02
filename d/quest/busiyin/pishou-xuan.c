@@ -11,7 +11,7 @@ void create()
         set("title",HIY"云雨双修"NOR);
         set("long","这是邪教的一大高手，平时的身份是荣凤翔。\n");
         set("combat_exp",600000);
-        
+
         set("max_kee",3000);
         set("max_sen",3000);
         set("max_gin",3000);
@@ -21,13 +21,13 @@ void create()
         set_skill("parry",170);
         set_skill("dodge",170);
         set_skill("force",170);
-        
+
         set_skill("whip",170);
-        set_skill("fengyu-fuchen",170);
+      //   set_skill("fengyu-fuchen",170);
         set_skill("babu-ganchan",170);
     setup();
    carry_object(__DIR__"obj/fuchen")->wield();
-  
+
 }
 
 void noway(object ob)
@@ -46,7 +46,7 @@ void clear(object ob)
    ob->delete_temp("kill_man4");
    return;
 }
-   
+
 void die()
 {
   object ob;
@@ -60,7 +60,7 @@ void die()
   else if(!ob->query_temp("kill_man3"))
    ob->set_temp("kill_man3","辟守玄");
   else if(!ob->query_temp("kill_man4")){
-   
+
    ob->set_temp("kill_man4","辟守玄");
    if(ob->query("kar")<=15){
    	if(ob->query_temp("kill_man1")!="安隆"||

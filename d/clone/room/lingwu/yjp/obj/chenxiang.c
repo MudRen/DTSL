@@ -1,0 +1,11 @@
+
+inherit ITEM;
+
+void create()
+{
+   set_name("≥¡œ„", ({ "chen xiang","xiang","bai_fucailin_quest_obj" }));
+   set_weight(200);
+   set("unit", "øÈ");
+   set("long","’‚ «“ªøÈ≥¡œ„°£\n");
+   set("nogive_player",1);
+}

@@ -46,7 +46,7 @@ int do_give(string arg)
   if(ob->query("combat_exp")<1000000)
   pot=ob->query("max_pot")/4;
   else pot=120+random(10);
-  coin=RONG_JOB;
+  coin=1000;
   ob->add("combat_exp",exp);
   ob->add("potential",pot);
   ob->add("deposit",coin);

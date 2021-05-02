@@ -9,7 +9,7 @@ void create()
 	set_name("采矿师傅",({ "caikuang shifu", "shifu" }) );
 	set("gender", "男性" );
 	set("age", 56);
-	set("long", 
+	set("long",
 "这是位饱经风霜的老采矿工人，现在老了，不能去采矿了，
 只能靠卖些采矿工具，教年轻的工人一些初步的采矿知识过活。\n");
 
@@ -30,31 +30,31 @@ void create()
 	set_skill("unarmed", 200);
 	set_skill("literate", 150);
 	set_skill("caikuang", 70);
-	
+
 	set("max_qi", 39999);
 	set("max_neili", 49999);
 	set("max_jing", 29999);
 	set("eff_jingli", 29999);
-	
+
 	set_temp("apply/dodge",288);
 	set_temp("apply/force",288);
 	set_temp("apply/attack",288);
 	set_temp("apply/damage",233);
 	set_temp("apply/armor",288);
-	
+
 	set("unique",1);
-	
+
 	set("chat_chance", 5);
  	set("chat_msg", ({
  		"采矿师傅说道：“有人要买采矿打铁工具吗？”\n",
  		"采矿师傅说道：“谁救济我一下啊，我可以教他采矿技术。”\n",
  	}) );
-	
+
 	set("vendor_goods", ({
 		(["name":"/d/zhiye/obj/tieqiao","number":15]),
 		(["name":"/d/zhiye/obj/tiechui","number":15]),
 	}));
-	
+
 	set("chat_chance", 10);
 	set("chat_msg", ({
 		(: random_move :)
@@ -62,7 +62,7 @@ void create()
 
 	setup();
 	carry_object(ARMOR_D("cloth"))->wear();
-	carry_object(__DIR__"../obj/tieqiao")->wield();
+	carry_object("/d/zhiye/obj/tieqiao")->wield();
 	add_money("coin",99);
 }
 
@@ -104,13 +104,13 @@ int is_apprentice_of(object ob)
 int recognize_apprentice(object ob)
 {
 	int money = 100, level = ob->query_skill("caikuang", 1);
-		
+
 	if (level > 9) money = 250;
 	if (level > 19) money = 500;
 	if (level > 29) money = 1000;
 	if (level > 49) money = 2000;
-	if (level > 50) return 0;//实习结束了 
-	
+	if (level > 50) return 0;//实习结束了
+
 	switch (MONEY_D->player_pay(ob, money)) {
 		case 0:
 		case 2: tell_object(ob,"你现在的学费是每次"+MONEY_D->money_str(money)+"。你的钱不够！\n" ); return 0;

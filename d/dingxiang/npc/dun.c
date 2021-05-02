@@ -5,10 +5,10 @@ void create()
 {
    set_name("墩欲谷",({ "dun yugu","dun" }) );
         set("gender", "男性" );
-		
+
         set("age", 42);
    set("long", "他就是毕玄的弟弟，深得突厥大汗的信任．\n");
-       
+
    set("combat_exp",1000000);
    set("str", 25);
    set("per", 22);
@@ -21,8 +21,8 @@ void create()
    set_skill("strike",180);
    set_skill("cuff",180);
    set_skill("yanyang-dafa",180);
-   
-   set_skill("pojun-quan",180);
+
+   // set_skill("pojun-quan",180);
    set_skill("tianlang-dao",180);
    set("dodge",({"tianmo-huanzong"}));
    set("force_skill",({"yanyang-dafa"}));
@@ -40,10 +40,10 @@ void create()
    setup();
    carry_object(__DIR__"obj/cloth")->wear();
    carry_object(__DIR__"obj/gangdao")->wield();
-  
+
 }
 void attempt_apprentice(object ob)
-{   
+{
 	if(ob->query("family"))
 	if(ob->query("family/family_name")=="突厥")
 	if((int)ob->query("family/generation",1)<2)
@@ -67,4 +67,3 @@ int recruit_apprentice(object ob)
    if( ::recruit_apprentice(ob) )
      ob->set("class", "tujue2");
 }
-

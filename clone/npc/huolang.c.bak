@@ -32,9 +32,9 @@ void create()
 	}));
 
 	set("vendor_goods", ({
-		(["name": MISC_D("fengling"), "number": 5]),
-		(["name": MISC_D("fengche"),"number" : 5]),
-		(["name": MISC_D("paper"), "number" : 50]),
+		// (["name": MISC_D("fengling"), "number": 5]),
+		// (["name": MISC_D("fengche"),"number" : 5]),
+		// (["name": MISC_D("paper"), "number" : 50]),
 	}));
 
 	setup();
@@ -64,7 +64,7 @@ string ask_he()
 }
 
 int accept_object(object me, object obj)
-{            
+{
 	object he;
 	if(obj->query("money_id")){
 		if( me->query_temp("make_zhihe/ask")){

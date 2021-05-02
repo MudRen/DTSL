@@ -7,7 +7,7 @@ void create()
         set("gender", "男性" );
         set("age", 32);
    set("long", "这是一位武林人物，据说功夫很好。\n");
-       
+
    set("combat_exp", 200000);
    set("str", 28);
    set_skill("finger",70);
@@ -20,16 +20,16 @@ void create()
    set_skill("bencao-shuli",70);
    set_skill("huanmo-shenfa",70);
    set_skill("dujie-zhi",70);
-   set_skill("sanhua-zhi",70);
+  //  set_skill("sanhua-zhi",70);
    set_skill("xiuluo-zhi",70);
-   set_skill("pojun-quan",70);
+  //  set_skill("pojun-quan",70);
    set_skill("linglong-yuquan",70);
-   set_skill("xukong-zhang",70);     
+  //  set_skill("xukong-zhang",70);
    set("env/wimpy",30);
    set("max_force",200);
-   set("force",200);  
+   set("force",200);
    setup();
-  
+
 }
 
 int clear()
@@ -52,7 +52,7 @@ void dispear()
 int chat()
 {
   int i;
-  
+
   if(clear())
    return 1;
   i=random(10);
@@ -94,7 +94,7 @@ int surrender(object killer,object victim)
    	               "就可以看出李阀的实力，我这就动身去长安了！\n\n",
    	               victim,killer);
    	call_out("dispear",1);
-   	
+
         return 1;}
       else{
         killer->add_temp("liyuan_job/surrender",1);
@@ -109,7 +109,7 @@ int accept_fight(object ob)
 {
   if(query("target_id")!=ob->query("id"))
   return notify_fail("对方根本不理会你的战斗请求！\n");
-  
+
  // if(!ob->query_temp("liyuan_job/surrender"))
  //  return ::accept_fight(ob);
   if(this_object()->is_busy())
@@ -131,4 +131,3 @@ int accept_fight(object ob)
   message_vision("$N道：好吧，咱们再来打一次！！\n",this_object());}
   return 1;
 }
-   	

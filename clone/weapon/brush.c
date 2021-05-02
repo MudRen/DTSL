@@ -2,7 +2,7 @@
 #include <weapon.h>
 #include <ansi.h>
 
-inherit BRUSH;
+inherit DAGGER;
 inherit F_UNIQUE;
 
 void create()
@@ -17,9 +17,9 @@ void create()
                 set("material", "steel");
                 set("weapon_prop/parry", 5);
                 set("wield_msg", "$N从怀中掏出一只铁笔。\n");
-                set("long", "这是一只上好铁打制而成的铁笔。\n");                
-                set("unwield_msg", "$N把铁笔放入怀中。\n");                
+                set("long", "这是一只上好铁打制而成的铁笔。\n");
+                set("unwield_msg", "$N把铁笔放入怀中。\n");
         }
-        init_brush(25);
+        init_dagger(25);
         setup();
 }

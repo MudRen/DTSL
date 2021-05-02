@@ -4,10 +4,10 @@ inherit NPC;
 void create()
 {
    set_name("毕玄",({ "bi xuan","bi" }) );
-   set("gender", "男性" );		
+   set("gender", "男性" );
    set("age", 42);
    set("long", "他就是武尊毕玄，域内外三大宗师之一\n");
-       
+
    set("combat_exp",5000000);
    set("str", 30);
    set("per", 22);
@@ -20,15 +20,15 @@ void create()
    set_skill("strike",250);
    set_skill("cuff",250);
    set_skill("yanyang-dafa",250);
-   
-   set_skill("pojun-quan",250);
-   set_skill("yanyang-quan",250);
-   set_skill("yuehen-qiang",250);
+
+   // set_skill("pojun-quan",250);
+   // set_skill("yanyang-quan",250);
+   // set_skill("yuehen-qiang",250);
    set_skill("tianlang-dao",250);
    set("dodge",({"tianmo-huanzong"}));
    set("force_skill",({"yanyang-dafa"}));
    set("blade",({"tianlang-dao"}));
-   set("hand",({"pojun-quan","yanyang-quan"}));
+   // set("hand",({"pojun-quan","yanyang-quan"}));
    set("gin",4000);
    set("max_gin",4000);
    set("kee",4000);
@@ -41,10 +41,10 @@ void create()
    create_family("突厥",1,"武尊");
    set("class","yin1");
    setup();
-   carry_object(__DIR__"obj/cloth")->wear();  
+   carry_object(__DIR__"obj/cloth")->wear();
 }
 void attempt_apprentice(object ob)
-{   
+{
 	if (ob->query_skill("pojun-quan", 1) < 180)
 	{
 		tell_object(ob,"毕玄冷笑道:我们突厥以武称雄，你的武功，.........!\n");
@@ -60,4 +60,3 @@ int recruit_apprentice(object ob)
    if( ::recruit_apprentice(ob) )
      ob->set("class", "tujue3");
 }
-

@@ -2,8 +2,8 @@
 // cck 17/6/97
 
 #include <weapon.h>
+// inherit COMBINED_ITEM;
 inherit THROWING;
-inherit COMBINED_ITEM;
 #include "/inherit/item/embed.h"
 
 void create()

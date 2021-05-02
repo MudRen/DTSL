@@ -1,9 +1,10 @@
+#include <ansi.h>
 inherit ITEM;
 #include "/inherit/item/embed.h"
 void create()
 {
         set_name(HIW "冰魄银针" NOR, ({ "bingpo yinzhen", "zhen", "needle", "yinzhen" }));
-        //bingbo->bingpo 注音问题 caiji@SJ 
+        //bingbo->bingpo 注音问题 caiji@SJ
         set_weight(200);
         if (clonep())
                 set_default_object(__FILE__);
@@ -19,5 +20,3 @@ void create()
         }
         setup();
 }
-
-

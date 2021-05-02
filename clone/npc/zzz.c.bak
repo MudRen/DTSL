@@ -6,7 +6,7 @@ void create()
 {
        set_name("张昭重", ({ "zhang sanfeng", "zhang" }));
 	set("nickname", "铁捕");
-	set("long", 
+	set("long",
 		"他就是张昭重。\n");
 	set("gender", "男性");
 	set("age", 40);
@@ -16,7 +16,7 @@ void create()
 	set("int", 30);
 	set("con", 30);
 	set("dex", 30);
-	
+
 	set("max_qi", 5000);
 	set("max_jing", 3000);
 	set("neili", 5000);
@@ -30,7 +30,7 @@ void create()
 	}));
 
 	set_skill("force", 200);
-        set_skill("yinyun-ziqi", 200);
+        set_skill("bihai-force", 200);
 	set_skill("dodge", 150);
 	set_skill("tiyunzong", 180);
 	set_skill("cuff", 200);
@@ -41,7 +41,7 @@ void create()
 	set_skill("taoism", 150);
 	set_skill("literate", 100);
 
-        map_skill("force", "yinyun-ziqi");
+        map_skill("force", "bihai-force");
 	map_skill("dodge", "tiyunzong");
 	map_skill("cuff", "taiji-quan");
 	map_skill("parry", "taiji-jian");
@@ -55,5 +55,3 @@ void create()
             setup();
 
 }
-
- 

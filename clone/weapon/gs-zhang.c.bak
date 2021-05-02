@@ -3,7 +3,7 @@
 
 inherit STAFF;
 
-#include <combat_msg.h>
+// #include <combat_msg.h>
 void create()
 {
 	set_name("怪蛇杖" NOR, ({ "guaishe zhang", "shezhang", "zhang"}));
@@ -53,31 +53,31 @@ int do_zhua(string str)
 	object me, target;
         string msg, *limbs, limb;
 	int j, damage;
-	
+
         me = this_player();
 
-        if (str && !objectp(target = present(str, environment(me)))) 
+        if (str && !objectp(target = present(str, environment(me))))
                   return notify_fail("这里没有这个人。\n");
-        
+
         if( !target ) target = offensive_target(me);
-        
+
         if( !target
          || !target->is_character()
          || !living(target)
          || !me->is_fighting(target) )
                 return notify_fail("你只能在战斗中使用。\n");
 
-        if (me->is_busy()) 
+        if (me->is_busy())
                 return notify_fail("你现在正忙着呢。\n");
-	
+
         if( !this_object()->query("equipped") )
 		return notify_fail("你是想咬人？佩服！佩服！\n");
-		
+
         if (me->query_skill_prepared("strike") != "hamagong" ||
             me->query_skill_mapped("strike") != "hamagong" ||
             me->query_skill_mapped("force") != "hamagong")
-                return notify_fail("没有熟练蛤蟆功，你根本无法使用怪蛇杖！\n"); 
-       
+                return notify_fail("没有熟练蛤蟆功，你根本无法使用怪蛇杖！\n");
+
         if( (int)me->query_skill("hamagong",1) < 150 )
                 return notify_fail("你的蛤蟆功功力不够，使用不了怪蛇杖！\n");
         if( (int)me->query_skill("poison",1) < 150 )
@@ -88,12 +88,12 @@ int do_zhua(string str)
 
         if( (int)me->query("jingli") < 500 )
                 return notify_fail("你目前精力涣散，还是先注意注意自己吧！\n");
-       
+
         if( (int)me->query("neili") < 800 )
                 return notify_fail("你目前内力不凝，还是先注意注意自己吧！\n");
 
         if(me->query("combat_exp") < (int)target->query("combat_exp")/2 )
-                return notify_fail("哎呦，对方比你高明不知多少呢，你找死啊？\n"); 
+                return notify_fail("哎呦，对方比你高明不知多少呢，你找死啊？\n");
 
 	target->add_temp("hmg_bite", 1);
         message_vision(HIB "\n$N"HIB"突然纵上，双手一拧怪蛇杖尾，张牙咧爪对着$n一阵乱挥！\n" NOR, me, target);
@@ -104,7 +104,7 @@ int do_zhua(string str)
                 me->start_busy(1);
                 if(!target->is_busy())
                         target->start_busy(1);
-                } 
+                }
         else {
                 me->start_busy(2);
                 if(!target->is_busy())
@@ -124,22 +124,21 @@ int do_zhua(string str)
                 	target->receive_damage("qi", damage, me);
         		target->receive_wound("qi", damage/4, me);
         		j = (int)target->query("qi")*100/(int)target->query("max_qi");
-        		msg += damage_msg(damage, "抓伤")+"( $n"+eff_status_msg(j)+" )\n"; 
+        		msg += damage_msg(damage, "抓伤")+"( $n"+eff_status_msg(j)+" )\n";
         		msg = replace_string( msg, "$l", limb );
-                } 
+                }
                 else {
                 	msg += HIR"\n$n退避不及，"+ limb + "处被咬下了一大块血肉！\n"NOR;
                 	damage *= 2;
                 	damage += me->query_str() * 10;
-                	
+
                 	target->receive_damage("qi", damage, me);
         		target->receive_wound("qi", damage/2, me);
         		j = (int)target->query("qi")*100/(int)target->query("max_qi");
-        		msg += "( $n"+eff_status_msg(j)+" )\n"; 
-                } 
+        		msg += "( $n"+eff_status_msg(j)+" )\n";
+                }
         }
         message_vision(msg, me, target);
         me->add("neili", -200);
         return 1;
 }
-

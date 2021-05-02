@@ -10,6 +10,8 @@
 #define protected static
 #endif
 
+#define SAVE_EXTENSION __SAVE_EXTENSION__
+
 #define COMMAND_DIR             "/cmds/"
 #define CONFIG_DIR              "/adm/etc/"
 #define DATA_DIR                "/data/"
@@ -34,6 +36,7 @@
 #define INQUIRY_D               "/adm/daemons/inquiryd"
 #define LOGIN_D                 "/adm/daemons/logind"
 #define NATURE_D                "/adm/daemons/natured"
+#define NAME_D                  "/adm/daemons/named"
 #define PROFILE_D               "/adm/daemons/profiled"
 #define RANK_D                  "/adm/daemons/rankd"
 #define SECURITY_D              "/adm/daemons/securityd"
@@ -46,7 +49,9 @@
 #define MISC_D              "/adm/daemons/miscd.c"
 #define WORKER_D	           "/adm/daemons/workerd"
 #define BBS_D		             "/adm/daemons/bbsd"
-
+#define RNAME_D                 "/adm/daemons/rnamed"
+#define JOBSYS_D "/adm/daemons/jobsysd.c"
+#define JOBNPC_D "/adm/daemons/jobnpcd.c"
 
 // added by Tie for questing
 
@@ -100,7 +105,7 @@
 #define OBJECT          "/std/object/ob"
 #define JOIN        "/feature/join"//ADD BY YANYAN.
 //give_job add zpl
-#define JOB                        "/std/give_jobd.c"
+#define JOB                        "/adm/daemons/give_jobd.c"
 
 
 // User IDs
@@ -150,6 +155,7 @@
 #define F_REPAIR     "/feature/repair.c"//add by yanyan
 #define F_OFFICE     "/feature/office_vendor.c"//add by yanyan
 #define F_FIGHT_OWNER "/std/char/fightowner.c"//add by yanyan
+#define F_UNIQUE        "/feature/unique.c"
 
 //½²¹ÊÊÂ·¢½±Àø
 #define STORY_DIR	        "/clone/gift/"

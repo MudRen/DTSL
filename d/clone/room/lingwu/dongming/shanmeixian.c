@@ -9,7 +9,7 @@ void create()
 		set("title",HIR"东溟夫人"NOR);
         set("age", 32);
    set("long", "这是东溟派的派主东溟夫人.\n");
-       
+
    set("combat_exp",2000000);
    set("str", 25);
    set("per", 25);
@@ -24,15 +24,15 @@ void create()
    set_skill("literate",300);
    set_skill("youyue-zhangfa",300);
    set_skill("dongming-xinfa",300);
-   set_skill("bihai-jianfa",300);
+  //  set_skill("bihai-jianfa",300);
    set_skill("piaomeng-jianfa",300);
    set_skill("shuiyun-xiufa",300);
-   set_skill("yuxiao-quanfa",300);
+  //  set_skill("yuxiao-quanfa",300);
    set_skill("nishang-piaoming",300);
    set("dodge",({"nishang-piaoming"}));
    set("force_skill",({"dongming-xinfa"}));
-   set("sword",({"bihai-jianfa","piaomeng-jianfa"}));
-   set("hand",({"shuiyun-xiufa","yuxiao-quanfa","youyue-zhangfa"}));
+   set("sword",({"piaomeng-jianfa"}));
+   set("hand",({"shuiyun-xiufa","youyue-zhangfa"}));
    set("max_gin",5000);
    set("max_sen",5000);
    set("max_kee",5000);
@@ -51,10 +51,10 @@ void create()
    setup();
    carry_object(__DIR__"obj/caiyi")->wear();
    carry_object(__DIR__"obj/changjian")->wield();
-  
+
 }
 void attempt_apprentice(object ob)
-{   
+{
     object me;me=this_object();
 	if(ob->query("family"))
 		if(ob->query("family/family_name")=="阴癸派")
@@ -91,7 +91,7 @@ int surrender(object killer,object victim)
    if(!killer->query_temp("gage_shan"))
    return 1;
    message_vision(HIC"$N微微一笑：没想到我东溟派还有你这样的后起之秀！\n"NOR,victim);
-   message_vision(HIC"$N脸色突然严肃起来，轻声道：来，我告诉你一个本派的秘密！\n"NOR,victim); 
+   message_vision(HIC"$N脸色突然严肃起来，轻声道：来，我告诉你一个本派的秘密！\n"NOR,victim);
    tell_object(killer,"你来到东溟夫人身旁，东溟夫人道：本派有一个修炼东溟心法的地方，\n"+
                       "据说在海边的悬崖处。我一直没有找到，看你能不能找到，光大本派了！\n");
    killer->set("family_lingwu","dongming");

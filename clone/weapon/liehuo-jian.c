@@ -1,11 +1,12 @@
 #include <weapon.h>
 #include <ansi.h>
-inherit WEAPON_COMBO;
+// inherit WEAPON_COMBO;
+inherit SWORD;
 inherit F_UNIQUE;
 
 void create()
 {
-        set_name(RED"ÁÒ»ð½£"NOR, ({ "liehuo jian", "jian", "liehuo", "sword" }) );        
+        set_name(RED"ÁÒ»ð½£"NOR, ({ "liehuo jian", "jian", "liehuo", "sword" }) );
         set_weight(6500);
         if( clonep() )
                 set_default_object(__FILE__);

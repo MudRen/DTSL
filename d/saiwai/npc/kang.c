@@ -5,10 +5,10 @@ void create()
 {
    set_name("康鞘利",({ "kang qiaoli","kang" }) );
         set("gender", "男性" );
-		
+
         set("age", 42);
    set("long", "他就是突厥在中原的耳目．\n");
-       
+
    set("combat_exp",300000);
    set("str", 25);
    set("per", 22);
@@ -21,13 +21,13 @@ void create()
    set_skill("strike",120);
    set_skill("cuff",120);
    set_skill("yanyang-dafa",120);
-   
-   set_skill("pojun-quan",180);
+
+   // set_skill("pojun-quan",180);
    set_skill("tianlang-dao",180);
    set("dodge",({"tianmo-huanzong"}));
    set("force_skill",({"yanyang-dafa"}));
    set("blade",({"tianlang-dao"}));
-   set("hand",({"pojun-quan"}));
+   // set("hand",({"pojun-quan"}));
    set("gin",1000);
    set("max_gin",1000);
    set("kee",1000);
@@ -41,10 +41,10 @@ void create()
    setup();
    carry_object(__DIR__"obj/cloth")->wear();
    carry_object(__DIR__"obj/gangdao")->wield();
-  
+
 }
 void attempt_apprentice(object ob)
-{   
+{
 	if(ob->query("family"))
 	if(ob->query("family/family_name")=="突厥")
 	if((int)ob->query("family/generation",1)<5)
@@ -63,4 +63,3 @@ int recruit_apprentice(object ob)
    if( ::recruit_apprentice(ob) )
      ob->set("class", "tujue1");
 }
-

@@ -8,7 +8,7 @@ void create()
 	set("gender", "男性");
 	set("age", 30);
 	set("long",
-		"这家伙满脸横肉一付凶神恶煞的模样，令人望而生畏。\n");
+		"这家伙满脸横肉??一付凶神恶煞的模样，令人望而生畏。\n");
 	set("combat_exp", 10000);
         set("shen_type", -100);
 	set("attitude", "aggressive");
@@ -19,6 +19,6 @@ void create()
 
 	setup();
 
-        carry_object("/u/smokes/junying/obj/blade")->wield();
-        carry_object("/u/smokes/junying/obj/cloth")->wear();
+        carry_object("/d/junying/obj/blade")->wield();
+        carry_object("/d/junying/obj/cloth")->wear();
 }

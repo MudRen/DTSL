@@ -20,7 +20,7 @@ void create()
    set_skill("force",200);
    set_skill("tiangang-sanjue",200);
    set_skill("poyu-quan",200);
-   set_skill("xukong-zhang",200);
+  //  set_skill("xukong-zhang",200);
    set_skill("strike",200);
    set_skill("cuff",200);
    set_skill("dodge",200);
@@ -36,7 +36,7 @@ void create()
    set("accept_kill",1);
    setup();
    carry_object(__DIR__"cloth")->wear();
-  
+
 }
 int accept_kill(object killer,object me)
 {

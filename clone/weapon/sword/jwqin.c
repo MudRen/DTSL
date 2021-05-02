@@ -43,7 +43,7 @@ int do_ba(string arg)
 		return 0;
 	if (query("equipped"))
 		return notify_fail("你必须先把琴放下来。\n");
-	if (flag || !(ob  = unew(BINGQI_D("sword/qz-jian")))) {
+	if (flag || !(ob  = new(BINGQI_D("sword/qz-jian")))) {
 		flag = 1;
 		return notify_fail("琴中已空无一物。\n");
 	}

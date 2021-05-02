@@ -7,7 +7,7 @@ void create()
         set("gender", "男性" );
         set("age", 32);
    set("long", "这是一个经常暗杀官府军官的杀手。\n");
-       
+
    set("combat_exp", 200000);
    set("str", 28);
    set_skill("finger",70);
@@ -20,16 +20,16 @@ void create()
    set_skill("bencao-shuli",70);
    set_skill("huanmo-shenfa",70);
    set_skill("dujie-zhi",70);
-   set_skill("sanhua-zhi",70);
+  //  set_skill("sanhua-zhi",70);
    set_skill("xiuluo-zhi",70);
-   set_skill("pojun-quan",70);
+  //  set_skill("pojun-quan",70);
    set_skill("linglong-yuquan",70);
-   set_skill("xukong-zhang",70);    
+  //  set_skill("xukong-zhang",70);
    set("max_force",200);
    set("force",200);
-   
+
    setup();
-  
+
 }
 
 int clear()
@@ -79,7 +79,7 @@ int chat()
 
 void init()
 {
-   
+
     set("last",time());
 
 }
@@ -93,7 +93,7 @@ int clean_up()
 
 int kill_object(object killer,object victim)
 {
-  
+
   if(killer->query("target_id")!=victim->query("id"))
    return 1;
   message_vision("$N哈哈大笑几声：这种狗官，早就该杀了！\n",killer);
@@ -114,4 +114,3 @@ void die()
     ob->add_temp("killer_comes",1);
    return ::die();
 }
-

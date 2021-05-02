@@ -7,7 +7,7 @@ void create()
         set("gender", "男性" );
         set("age", 32);
    set("long", "这是净念禅院的四大护法金刚之一。\n");
-   set("class","bonze"); 
+   set("class","bonze");
    set("combat_exp", 400000);
    set("str", 28);
    set("per", 22);
@@ -18,8 +18,8 @@ void create()
    set_skill("blade",150);
    set_skill("force",150);
    set_skill("chanzong-fofa",150);
-   set_skill("jinguang-daofa",150);
-   set_skill("wuxiang-zhangfa",90);
+   // set_skill("jinguang-daofa",150);
+   // set_skill("wuxiang-zhangfa",90);
    set("staff",({"wuxiang-zhangfa"}));
    set_skill("liuyun",150);
    set("dodge",({"liuyun"}));
@@ -27,7 +27,7 @@ void create()
    setup();
    carry_object(__DIR__"obj/sengyi")->wear();
    carry_object(__DIR__"obj/staff")->wield();
-  
+
 }
 
 void init()
@@ -40,7 +40,7 @@ void init()
 	if(present("heshi bi",ob))
 		call_out("kill_thief",1,ob,ob2);
 	call_out("welcome",1,ob,ob2);
-	
+
 }
 
 void welcome(object ob,object ob2)

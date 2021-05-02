@@ -38,16 +38,16 @@ void create()
 	set_skill("dodge", 100);
 	set_skill("force", 100);
 	set_skill("stealing", 200);
-	set_skill("taizu-quan", 100);
-	set_skill("zuibaxian", 100);
-	set_skill("yinyun-ziqi", 100);
+	// set_skill("taizu-quan", 100);
+	// set_skill("zuibaxian", 100);
+	// set_skill("yinyun-ziqi", 100);
 	set_skill("parry", 100);
 
-	map_skill("force","yinyun-ziqi");
-	map_skill("dodge","zuibaxian");
-	map_skill("cuff","taizu-quan");
-	map_skill("parry","taizu-quan");
-	prepare_skill("cuff","taizu-quan"); 
+	// map_skill("force","yinyun-ziqi");
+	// map_skill("dodge","zuibaxian");
+	// map_skill("cuff","taizu-quan");
+	// map_skill("parry","taizu-quan");
+	// prepare_skill("cuff","taizu-quan");
 
 	set_temp("apply/armor", 50);
 

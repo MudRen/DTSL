@@ -10,7 +10,7 @@ void create()
         set("gender", "男性" );
         set("age", 32);
    set("long", "这是总管粮运的军官。\n");
-       
+
    set("combat_exp", 200000);
    set("str", 28);
    set_skill("finger",150);
@@ -21,13 +21,13 @@ void create()
    set_skill("force",150);
    set_skill("tiangang-sanjue",150);
    set_skill("bencao-shuli",150);
-   
+
    set_skill("dujie-zhi",150);
-   set_skill("sanhua-zhi",150);
+   // set_skill("sanhua-zhi",150);
    set_skill("xiuluo-zhi",150);
-   set_skill("pojun-quan",150);
+   // set_skill("pojun-quan",150);
    set_skill("linglong-yuquan",150);
-   set_skill("xukong-zhang",150);    
+   // set_skill("xukong-zhang",150);
    set("max_force",2000);
    set("force",2000);
    set("chat_chance_combat",70);
@@ -41,7 +41,7 @@ void create()
    }));
    set("task_ok",3);
    setup();
-  
+
 }
 
 #include "taskok.c"

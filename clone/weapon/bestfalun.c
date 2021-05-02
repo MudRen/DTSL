@@ -18,9 +18,9 @@ void create()
                 set("unique", 1);
                 set("rigidity", 10);
                 set("sharpness", 8);
-                set("treasure",1);  
+                set("treasure",1);
                 set("weapon_prop/dodge", 2);
-                set("weapon_prop/parry", 10);     
+                set("weapon_prop/parry", 10);
                 set("wield_neili", 800);
                 set("wield_maxneili", 1800);
                 set("wield_str", 40);
@@ -44,11 +44,11 @@ int do_sub()
      if((int)me->query_skill("longxiang-boruo",1)<200)
      return notify_fail("你的龙象般若功力修为尚未突破第十层天人绝境，无法分开此轮。\n");
      ob = this_object();
-     ob1 = unew(BINGQI_D("gold-falun"));
-     ob2 = unew(BINGQI_D("silver-falun"));
-     ob3 = unew(BINGQI_D("bronze-falun"));
-     ob4 = unew(BINGQI_D("iron-falun"));
-     ob5 = unew(BINGQI_D("leaden-falun"));
+     ob1 = new(BINGQI_D("gold-falun"));
+     ob2 = new(BINGQI_D("silver-falun"));
+     ob3 = new(BINGQI_D("bronze-falun"));
+     ob4 = new(BINGQI_D("iron-falun"));
+     ob5 = new(BINGQI_D("leaden-falun"));
      if (clonep(ob1) && clonep(ob2) && clonep(ob3) && clonep(ob4) && clonep(ob5)) {
              ob1->move(me);
              ob2->move(me);

@@ -1,7 +1,7 @@
 #include <ansi.h>
 #include <weapon.h>
 
-inherit COMBINED_ITEM;
+// inherit COMBINED_ITEM;
 inherit THROWING;
 
 void create()
@@ -10,7 +10,7 @@ void create()
 	if( clonep() )
 		set_default_object(__FILE__);
 	else {
-		set("long", "一堆普普通通的碎石子。\n");               
+		set("long", "一堆普普通通的碎石子。\n");
 		set("unit", "堆");
 		set("value", 1);
 		set("base_value", 0);
@@ -20,4 +20,3 @@ void create()
 	set_amount(random(70) + 81);
 	init_throwing(15);
 }
-

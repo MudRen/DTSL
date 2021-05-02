@@ -84,8 +84,8 @@ void create()
 	]) );
 
 	setup();
-	carry_object("d/city/obj/pink_cloth")->wear();
-	carry_object("d/city/obj/flower_shoe")->wear();
+	// carry_object("d/city/obj/pink_cloth")->wear();
+	// carry_object("d/city/obj/flower_shoe")->wear();
 }
 
 void init()
@@ -218,7 +218,7 @@ string ask_beauty()
 		{
 			count=20;
 			tmp_str=",这年头漂亮的大姑娘越来越多了，不晓得我家相公会不会变心。";
-				
+
 		}
 		for( i = 0; i < count; i++) {
 			if (obj1[i]->query_per() < per)
@@ -238,7 +238,7 @@ string ask_beauty()
 		{
 			count=20;
 			tmp_str=",这年头英俊的小伙子太多了，数都数不过来。";
-				
+
 		}
 		for( i = 0; i < count; i++) {
 			if (obj1[i]->query_per() < per)

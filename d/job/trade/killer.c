@@ -12,7 +12,7 @@ void create()
 		set("tilte","强盗");
         set("age", 22);
    set("long", "这是受雇的杀手.\n");
-       
+
    set("combat_exp",50000);
    set("str", 25);
    set("per", 25);
@@ -21,7 +21,7 @@ void create()
    set_skill("force",60);
    set_skill("sword",60);
    set_skill("yingzi-jianfa",60);
-   set_skill("sanhua-zhi",120);
+   // set_skill("sanhua-zhi",120);
    set_skill("finger",60);
    set_skill("huanmo-shenfa",60);
    set_skill("tianyi-xuangong",60);
@@ -33,9 +33,9 @@ void create()
    set("eff_sen",300);
    set("force",300);
    set("max_force",300);
-  
+
    setup();
-   carry_object(__DIR__"changjian")->wield(); 
+   carry_object(__DIR__"changjian")->wield();
 }
  int kill_object(object killer,object victim)
 {
@@ -78,10 +78,10 @@ void dispear()
 
 int chat()
 {
-  
+
    if(clear())
    return 1;
-   
+
    return ::chat();
 }
 
@@ -97,6 +97,6 @@ int set_status(object me)
 	set_temp("apply/armor",50+random(50));
 	set("last",time());
 	set("target_id",me->query("id"));
-	
+
 	return 1;
 }

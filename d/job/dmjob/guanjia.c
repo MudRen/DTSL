@@ -5,7 +5,7 @@
 inherit NPC;
 #include <job_money.h>
 #include <ansi.h>
-#include <map.h>
+#include "map.h"
 string give_job();
 void create()
 {
@@ -27,7 +27,7 @@ void create()
      "宝物":(:give_job:),
      ]));
    setup();
-  
+
 }
 
 string give_job()
@@ -36,9 +36,9 @@ string give_job()
   object ob;
   string *t;
   int i;
-  
+
   me=this_player();
-  
+
   if(me->query("combat_exp")<100000)
   return "你的功夫太低了，很难做这个任务的。\n";
   if(me->query_temp("dm_job_find"))
@@ -48,10 +48,10 @@ string give_job()
   if(me->query_temp("dtsl_job")&&
     me->query_temp("dtsl_job")!="东溟派寻宝任务")
   return "你正在做其他任务，还是先忙完其他的吧！\n";
-  
+
   me->set_temp("dm_job_find",1);
   me->set_temp("dtsl_job","东溟派寻宝任务");
-  
+
   i=random(sizeof(map));
   me->set_temp("dm_job_find_where",DM_JOB_PATH+map[i]);
   ob=new(__DIR__"ditu");
@@ -66,19 +66,19 @@ string give_job()
 int accept_object(object who,object ob)
 {
   int exp,pot,silver;
-  
+
   if(!who->query_temp("dm_job_find"))
   return 0;
   if(!ob->query("dm_find_job"))
   return 0;
   if(ob->query("owner")!=who)
   return 0;
-  
+
   who->delete_temp("dm_job_find");
   who->delete_temp("dm_job_find_where");
   who->delete_temp("have_killer");
   who->delete_temp("dtsl_job");
-  
+
   who->set("busy_time",time());
   if(who->query("combat_exp")<500000)
   exp=200+random(30);
@@ -86,7 +86,7 @@ int accept_object(object who,object ob)
   exp=220+random(30);
   pot=110+random(10);
   silver=who->query("max_pot");
-  
+
   who->add("combat_exp",exp);
   who->add("potential",pot);
   who->add("deposit",silver);

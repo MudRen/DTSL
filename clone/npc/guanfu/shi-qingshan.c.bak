@@ -53,7 +53,7 @@ void create()
 	setup();
 
 	if (clonep()) {
-		ob = unew(BINGQI_D("langya-bang"));
+		ob = new(BINGQI_D("langya-bang"));
 		if(!ob) ob= new(BINGQI_D("stick"));
 		ob->move(this_object());
 		ob->wield();

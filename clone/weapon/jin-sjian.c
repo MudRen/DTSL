@@ -1,7 +1,7 @@
 #include <weapon.h>
 #include <ansi.h>
 
-inherit COMBINED_ITEM;
+// inherit COMBINED_ITEM;
 inherit THROWING;
 inherit F_UNIQUE;
 void create()
@@ -15,7 +15,7 @@ void create()
 		set("base_value", 50000);
                 set("base_unit", "֧");
                 set("unique", 10);
-                set("base_weight", 50);		
+                set("base_weight", 50);
 	}
 	 set_amount(1);
        init_throwing(75);

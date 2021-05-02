@@ -13,6 +13,5 @@ void create()
         set_skill("unarmed", 30);
         set_skill("dodge", 30);
 	setup();
-	carry_object("/d/shanghaiguan/obj/yayifu")->wear();
+	carry_object(ARMOR_D("yayifu"))->wear();
 }
-	

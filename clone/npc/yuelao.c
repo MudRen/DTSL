@@ -96,13 +96,13 @@ int do_register()
                 command("say 快把媒人找到这儿来，我才能为你们完成登记手续。");
                 return 1;
         }
-        
+
         if(wiz && sizeof(filter_array(all_inventory(environment(me)) - ({ me,who }), (: interactive :))) ){
 		tell_object(who,"还是先等等吧 大家心照不宣。\n");
 		tell_object(me,"还是先等等吧 大家心照不宣。\n");
 		return 1;
 	}
-	
+
 	command("say 哈哈哈哈！好极了，一切齐备，我这就为你们登记！");
 	message_vision("月下老人低头把姻缘簿翻了翻，写下些什么。\n", me);
 	command("say 恭喜，恭喜！");
@@ -112,7 +112,7 @@ int do_register()
 		command("chat "+me->name()+"和"+who->name()+"由"+meiren->name()+"做媒，今日喜结良缘，各位泥友做个见证。");
 		command("chat 恭祝两位白头偕老，早生贵子。");
 	}
-	
+
 	who->delete_temp("marry");
 	who->delete_temp("meiren");
 	who->set("marry/id",me->query("id"));
@@ -180,7 +180,7 @@ int do_divorce(string arg)
 	me = this_player();
 	site_name = INTERMUD_MUD_NAME;
 	me->query("gender")=="男性"?darling = "妻子":darling = "丈夫";
-	
+
 	if (!me->query("marry")) {
 		command("say 你根本没结过婚！");
 		return 1;
@@ -198,14 +198,14 @@ int do_divorce(string arg)
 	wiz = wiz_level(me)||wiz_level(arg);
 // Modified by mxzhao 2004/02/18
 		{
-			mixed ret = dbquery("select U_Site from Users "
-				"where U_Username="+save_variable(arg));
+			// mixed ret = dbquery("select U_Site from Users "
+			// 	"where U_Username="+save_variable(arg));
 
-			if (sizeof(ret) == 1)
-			{
-				tmp = ret[0][0];
-			}
-			else
+			// if (sizeof(ret) == 1)
+			// {
+			// 	tmp = ret[0][0];
+			// }
+			// else
 			{
 				tmp = "已经自杀";
 			}
@@ -231,16 +231,16 @@ int do_divorce(string arg)
 		command("say 你的"+darling+"已经自杀了，看开点吧。");
 		return 1;
 	}
-	
+
 	if ( tmp != site_name){
 		command("shake");
 		command("say 你的"+darling+"不在这个站点，你去其他站点办理离婚手续吧。");
 		return 1;
 	}
-	
+
 	if (!who=find_player(arg)) {
-		
-		who = new(LOADUSER_OB, arg);
+
+		who = new(USER_OB, arg);
 		if (!who->restore()) {
 			destruct(who);
 			command("poor");
@@ -249,13 +249,13 @@ int do_divorce(string arg)
 		}
 		last_on = who->query("check_point");
 		destruct(who);
-		
+
 		lapse = time() - last_on;
 		tmp2 = CHINESE_D->chinese_time(lapse);
 
 		// 90天不来，离婚!
 		i = 60*60*24*LIHUN_TIME;
-		
+
 		// 调试信息
 		if (wizardp(me)){
 			write("配偶档案所在站点"+tmp+"\n");
@@ -265,7 +265,7 @@ int do_divorce(string arg)
 			write(i+"测试时间"+CHINESE_D->chinese_time(i)+"\n");
 			write("当前站点 = "+site_name+"\n");
 		}
-		
+
 		if ( lapse < i ) {
 			command("pat "+ me->query("id"));
 			command("say 对不起，你"+darling+"现在不在线上，不能办理离婚手续");
@@ -283,7 +283,7 @@ int do_divorce(string arg)
 		// 麻烦啊!
 		// 被抛弃的那小子的离婚状态，restore 出来然后再save 回去 ？怎么写？
 		// 不麻烦，这么写就行了
-		who = new(LOADUSER_OB, arg);
+		who = new(USER_OB, arg);
 		who->restore();
 		darling = who->query("name");
 		who->delete("marry");

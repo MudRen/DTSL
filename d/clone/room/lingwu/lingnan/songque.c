@@ -15,13 +15,13 @@ string query_save_file()
 string do_quest();
 void create()
 {
-   
+
    set_name("宋缺",({ "song que","song","que" }) );
         set("gender", "男性" );
 		set("title",HIG"天刀"NOR);
         set("age", 52);
    set("long", "他就是宋家堡的堡主，人称[天刀]。他的刀法据说为武林第一。\n");
-       
+
    set("combat_exp", 1500000);
    set("str", 28);
    set("per", 24);
@@ -45,7 +45,7 @@ void create()
    set_skill("tiangang-sanjue",300);
    set_skill("poyu-quan",300);
    set_skill("literate",300);
-   set_skill("xukong-zhang",300);
+  //  set_skill("xukong-zhang",300);
    set("dodge",({"anxiang-fuying"}));
    set("hand",({"poyu-quan","xukong-zhang"}));
    set("blade",({"tiandao-bajue"}));
@@ -74,12 +74,12 @@ void create()
 }
 
 void attempt_apprentice(object ob)
-{   
+{
 	if(ob->query("family"))
 		if(ob->query("family/family_name")!="宋家堡")
 		{ tell_object(ob,"宋缺皱皱眉头：我们宋家堡从来不收叛徒的！\n");
 	  return;
-		} 
+		}
 	if(ob->query("vocation")=="杀手")
 	{ tell_object(ob,"宋缺皱皱眉头：我们宋家堡从来不收杀手的！\n");
 	  return;
@@ -88,7 +88,7 @@ void attempt_apprentice(object ob)
 	{  tell_object(ob,"宋缺厌烦道：象你这种多个势力的叛徒，我可不要！\n");
 	   return;
 	}
-	  
+
 	if((int)ob->query_skill("tiangang-sanjue",1)<150)
 	{ tell_object(ob,"宋缺叹道：你的[天罡三诀]修为不够啊，再去好好学习吧！\n");
 	return;}

@@ -14,18 +14,18 @@ void create()
         set_skill("tianmo-dafa",100);
         set_skill("parry",100);
         set_skill("linglong-yuquan",100);
-        set_skill("pojun-quan",100);
+        // set_skill("pojun-quan",100);
         set_skill("dujie-zhi",100);
         set_skill("cuff",100);
         set_skill("finger",100);
         set_skill("dodge",100);
         set_temp("apply/armor",30);
-   set("long", "他就是飞马牧场的四大执事之三。\n"); 
+   set("long", "他就是飞马牧场的四大执事之三。\n");
    set("inquiry",([
        "招降":(:do_zhaoxiang:),
        ]));
    setup();
-  
+
 }
 
 int kill_object(object killer,object victim)
@@ -90,7 +90,7 @@ string do_zhaoxiang()
 {
    object ob;
    object thing;
-   
+
    ob=this_player();
    if(!ob->query_temp("shang_kill_pantu_zx"))
    return "你说什么呢？老子一点也不懂啊！\n";
@@ -104,7 +104,7 @@ string do_zhaoxiang()
    set("no_fight",1);
    if(time()-query("busy_time")<30)
    return "你容我再想一想！\n";
-  
+
    ob->delete_temp("shang_kill_pantu_zx");
    ob->set_temp("zhaoxiang_killer",1);
    if(random(2)==1){
@@ -113,8 +113,7 @@ string do_zhaoxiang()
     thing=new("/d/job/funjob/thing");
     thing->move(ob);
     tell_object(ob,query("name")+"给了你一个"+thing->query("name")+"。\n");
-   
-   return "看在宝物的份上，能不能放过在下？";
-  
-}
 
+   return "看在宝物的份上，能不能放过在下？";
+
+}

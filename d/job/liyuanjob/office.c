@@ -10,7 +10,7 @@ void create()
         set("gender", "男性" );
         set("age", 32);
    set("long", "这是一个巡捕犯人的官差。\n");
-       
+
    set("combat_exp", 200000);
    set("str", 28);
    set_skill("finger",70);
@@ -22,12 +22,12 @@ void create()
    set_skill("huanmo-shenfa",170);
    set_skill("tiangang-sanjue",70);
    set_skill("bencao-shuli",70);
-   set_skill("xukong-zhang",170);    
+   // set_skill("xukong-zhang",170);
    set("max_force",200);
-   set("force",200); 
+   set("force",200);
    set("max_sen",1000000000);
    setup();
-  
+
 }
 
 void init()
@@ -49,7 +49,7 @@ int do_task(string arg)
 {
    object ob;
    object target;
-   
+
    ob=this_player();
    if(sscanf(arg,"ok with %s",arg)!=1||!arg)
    return notify_fail("请使用 task ok with xxx 来复命。\n");

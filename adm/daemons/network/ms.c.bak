@@ -12,11 +12,11 @@
  * Grendel, 930904  Fixed a bug in mailing to remote groups
  */
 
-#include <config.h>
-#include <mailer.h>
-#include <daemons.h>
+// #include <config.h>
+// #include <mailer.h>
+// #include <daemons.h>
 #include <net/daemons.h>
-#include <uid.h>
+// #include <uid.h>
 
 #define log(x)     log_file("MS", x)
 #define MS_SAVE     "mail-queue"
@@ -24,6 +24,7 @@
 #define AGE_TIME   604800
 #define EOF     "%EOF%"
 #define EOT     "%EOT%"
+#define MAILDIR DATA_DIR "mail"
 
 nosave mapping   sockets;
 nosave mixed   mqi, outgoing;

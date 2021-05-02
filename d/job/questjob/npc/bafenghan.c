@@ -8,7 +8,7 @@ void create()
         set("gender", "男性" );
         set("age", 32);
    set("long", "这是西突厥的勇士跋锋寒，也是胆敢向毕玄挑战的人。\n");
-       
+
    set("combat_exp",1200000);
    set("per", 24);
    set("cor",30);
@@ -22,19 +22,19 @@ void create()
    set_skill("dodge",180);
    set_skill("parry",180);
    set_skill("force",180);
-   set_skill("bafeng-jian",200);
+   // set_skill("bafeng-jian",200);
    set("max_kee",2000);
    set("max_gin",2000);
    set("max_sen",2000);
    set("max_force",2000);
    set("force",2000);
-   
+
    setup();
-  
+
    carry_object(__DIR__"obj/changjian")->wield();
-  
+
 }
 
 
-   
+
 #include "job_npc.c"

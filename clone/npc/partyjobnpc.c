@@ -42,7 +42,7 @@ void create()
         set_skill("parry", 300);
         set_skill("dodge", 300);
         set_skill("strike", 300);
-        set_skill("claw", 300);
+        // set_skill("claw", 300);
         set_skill("leg", 300);
         set_skill("finger", 300);
         set_skill("cuff", 300);
@@ -52,7 +52,7 @@ void create()
         set_skill("blade", 300);
         set_skill("hammer", 300);
         set_skill("stick", 300);
-        set_skill("club", 300);
+        // set_skill("club", 300);
         set_skill("staff", 300);
         set_skill("whip", 300);
         set_skill("dagger", 300);
@@ -76,7 +76,7 @@ void init()
                 command("knock " + ob->query("id"));
                 ob->start_busy(1);
         }
-}       
+}
 
 void do_copy(object ob)
 {
@@ -213,7 +213,7 @@ void dest()
         object me,ob;
         me = this_player();
         ob = this_object();
-        write(ob->query("name")+"道：今天好爽，玩的差不多了，该走了！\n",me); 
+        write(ob->query("name")+"道：今天好爽，玩的差不多了，该走了！\n",me);
         write(ob->query("name")+"施展身法，身形一晃，飘然离去。\n",me);
         destruct(this_object());
 }

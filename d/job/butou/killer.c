@@ -7,7 +7,7 @@ void create()
         set("gender", "男性" );
         set("age", 42);
    set("long", "这是一个流窜于江湖的盗贼，近日被长安的捕头通缉。\n");
-       
+
    set("combat_exp",100000);
    set("str", 28);
    set("per", 20);
@@ -19,9 +19,9 @@ void create()
    set_skill("unarmed",80);
    set_skill("force",1500);
    set_skill("xiuluo-zhi",80);
-   set_skill("sanhua-zhi",80);
-   set_skill("pojun-quan",80);
-   set_skill("xukong-zhang",80);
+  //  set_skill("sanhua-zhi",80);
+  //  set_skill("pojun-quan",80);
+  //  set_skill("xukong-zhang",80);
    set_skill("cuff",80);
    set_skill("finger",80);
    set_skill("strike",80);
@@ -32,7 +32,7 @@ void create()
    set("max_sen",1500);
    set("jiali",50);
    setup();
-  
+
 }
 
 void die()

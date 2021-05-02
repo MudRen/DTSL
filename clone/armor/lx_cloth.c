@@ -71,7 +71,7 @@ int do_longxiang(string arg)
 		message_vision(MAG"$N"MAG"脸上泛起一层隐隐的紫气，双手虚按十三龙象袈裟，把龙象内力注入袈裟之中。\n"NOR,me);
 	else
 		message_vision(HIC"$N"HIC"潜运内功，努力把内力注入十三龙象袈裟，最后虽然成功但因为不是龙象内力而多花了点力气。\n"NOR,me);
-	
+
 	setcolor();
 
 	return 1;
@@ -81,14 +81,14 @@ mixed ob_hit(object target, object me, int damage)
 {
 	int times , qi , cost , charge = 16;
 	string color;
-	
-	::ob_hit();
+
+	// ::ob_hit();
 	if(query("neili")<= 0 || damage<250)
 		return 0;
 
 	if(query("owner") == me->query("id"))
 		times = 10;
-	else 
+	else
 		times = 15;
 
 	cost = (damage / 2)*charge/10*times/10;
@@ -96,13 +96,13 @@ mixed ob_hit(object target, object me, int damage)
 	if( cost > query("neili") ) {
 		qi = qi * query("neili") / cost ;
 		cost = query("neili");
-	}		
+	}
 	add("neili" , -cost);
 
-	if(wizardp(me) && me->query("env/test")) 
+	if(wizardp(me) && me->query("env/test"))
 		tell_object(me,sprintf("qi:%d , neili:%d   ",qi,cost));
 
-	color = setcolor();	
+	color = setcolor();
 	if( times<=10 )
 		message_vision(query("name")+color+"突然发出耀眼的光芒，抵挡了$N"+color+"的部分攻势！\n"NOR,target);
 	else
@@ -139,7 +139,7 @@ string setcolor()
 		default: color = HIW;
 	}
 	set("name" , color+"十三龙象袈裟"NOR );
-	
+
 	if( lvl > 0 )
 		s = color+"袈裟之上已经注有"+CHINESE_D->chinese_number(lvl)+"道内力！\n"NOR;
 	else

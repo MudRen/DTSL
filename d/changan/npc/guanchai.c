@@ -15,7 +15,7 @@ void create()
         set("dex", 18);
         set("con", 18);
 
-        set("kee", 500); 
+        set("kee", 500);
         set("max_kee", 500);
         set("gin", 100);
         set("max_gin", 100);
@@ -46,4 +46,4 @@ void init()
 	add_action("do_ok","task");
 }
 
-#include "/d/job/yunyanjob/job.c"        
+#include "/d/job/yunyanjob/job.c"

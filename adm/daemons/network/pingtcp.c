@@ -9,10 +9,10 @@
 
 #include <mudlib.h>
 #include <net/socket.h>
-#include <uid.h>
+// #include <uid.h>
 #include <net/daemons.h>
 
-inherit DAEMON;
+// inherit DAEMON;
 
 #define TIME_OUT_TIME  30
 #define LOG_FILE       "PS"

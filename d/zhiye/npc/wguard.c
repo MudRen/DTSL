@@ -58,12 +58,12 @@ void create()
 	set_skill("blade", 500);
 	set_skill("hammer", 500);
 	set_skill("stick", 500);
-	set_skill("club", 500);
+	// set_skill("club", 500);
 	set_skill("staff", 500);
 	set_skill("literate", 500);
 	set_skill("whip", 500);
 	set_skill("dagger", 500);
-
+/*
 	switch( random(22) ) {
                 case 0:  // wd1
                         set_skill("yinyun-ziqi", 500);
@@ -497,7 +497,7 @@ void create()
                 default: // others      BUG!!!
                         set("long","武功设置错误，BUG！！！");
         }
-
+*/
 	set("long" , query("long") + sprintf("这位高手似乎来自%s。\n",menpai) );
 	set("weapon" , weapon);
 

@@ -7,7 +7,7 @@ void create()
 {
    set_name("可达志",({ "ke dazhi","ke" }) );
         set("gender", "男性" );
-		
+
         set("age", 42);
    set("combat_exp",1000000);
    set("str", 25);
@@ -22,7 +22,7 @@ void create()
    set_skill("yanyang-dafa",200);
       set_skill("youlong-shenfa",250);
    set_skill("tianlang-dao",250);
-   set_skill("pojun-quan",200);
+   // set_skill("pojun-quan",200);
    set("gin",4000);
    set("max_gin",4000);
    set("kee",4000);
@@ -33,7 +33,7 @@ void create()
    set("max_force",4000);
    create_family("突厥",2,"武士");
    setup();
-   carry_object(__DIR__"obj/blade")->wield();  
+   carry_object(__DIR__"obj/blade")->wield();
 }
 
 

@@ -4,6 +4,17 @@ inherit F_CLEAN_UP;
 
 int help(object me);
 
+int tail(string path)
+{
+	if (stringp(path) && file_size(path) >= 0)
+	{
+		write(read_file(path, file_length(path) - 9));
+		return 1;
+	}
+
+	return 0;
+}
+
 int main(object me, string arg)
 {
 	string file;

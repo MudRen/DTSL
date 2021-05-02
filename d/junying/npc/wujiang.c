@@ -14,7 +14,6 @@ void create()
         set("shen_type", 1);
         set("attitude", "peaceful");
         setup();
-        carry_object("/u/smokes/junying/obj/gangjian")->wield();
-        carry_object("/u/smokes/junying/obj/tiejia")->wear();
+        carry_object("/d/junying/obj/gangjian")->wield();
+        carry_object("/d/junying/obj/tiejia")->wear();
 }
-

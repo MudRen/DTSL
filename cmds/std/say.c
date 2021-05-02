@@ -17,6 +17,12 @@ int main(object me, string arg)
 	}
 
 	write( CYN "你说道：" + arg + "\n" NOR);
+
+	if (!environment(me))
+	{
+		return 1;
+	}
+
 	message("sound", CYN + me->name() +CYN+ "说道：" +  arg + "\n" NOR,
 		environment(me), me);
 
@@ -30,11 +36,11 @@ int help (object me)
 {
 	write(@HELP
 指令格式: say <讯息>
- 
+
 说话，所有跟你在同一个房间的人都会听到你说的话。
- 
+
 注: 本指令可用 ' 取代.
- 
+
 HELP
 	);
 	return 1;

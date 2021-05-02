@@ -79,14 +79,14 @@ void search_dir(object me, int raw)
                                 if (! info) continue;
                                 result += ({ info });
                                 count++;
-                        
+
                         }
                 }
                 total += j;
         	message("system", ESC + "[1A" + ESC + "[256D"
                                   HIG "进度：" + process_bar((i + 1) * 100 / sizeof(dir)) +
                                   "\n" + (me ? HIR "执行中" NOR "> " : ""),
-                                  me ? me : filter_array(all_interactive(), (: userp :)));
+                                  me ? me : filter_array(users(), (: userp :)));
 //                                  me ? me : filter_array(all_interactive(), (: wizardp :)));
         }
 
@@ -148,11 +148,11 @@ private string examine_player(string name, int copy_user, int raw, int last_touc
                 {
                         st = stat(DATA_DIR + "login/" + name[0..0] + "/" +
                                   name + __SAVE_EXTENSION__);
-        
+
                         if (! arrayp(st) || sizeof(st) < 3)
                                 // 可能没有这个文件
                                 return sprintf(WHT "无法查阅玩家(%s)的的登录信息。\n" NOR, name);
-        
+
                         // 计算没有上线的时间
                         day = (time() - st[1]) / 86400;
                 } else

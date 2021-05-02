@@ -9,7 +9,7 @@ inherit NPC;
 #include <mudlib.h>
 #include <database.h>
 
-#define URLMSG(x) HIY"请浏览"+HIW+U+BBS_ADDR+"/runner.php?id="+x+NOR+HIY+"把看到的数字和字母的组合用answer回答。\n"NOR
+#define URLMSG(x) HIY"请浏览"+HIW+U+"xxxx/runner.php?id="+x+NOR+HIY+"把看到的数字和字母的组合用answer回答。\n"NOR
 
 object ob;
 int timer = 0;
@@ -109,7 +109,7 @@ void give_reward(object ob)
 	int sn,sn2, lvl = 0;
 	string skill;
 	string* quest_skill = ({ "jiuyin-zhengong","hamagong", "kuihua-xinfa" });
-	
+
 	if (ob->query("registered") < 3) return;
 	switch (ob->add_temp("robot_check_pass", 1)) {
 		case 1:
@@ -130,27 +130,27 @@ void give_reward(object ob)
 					skls += ([ skill : val ]);
 				}
 			}
-			
+
 			sn = random(sizeof(skls));
-			skill = keys(skls)[sn];			
-			
+			skill = keys(skls)[sn];
+
 			while( member_array(skill,quest_skill)!= -1 || SKILL_D(skill)->type2() == "worker" )
 			{
 				sn = random(sizeof(skls));
 				skill = keys(skls)[sn];
 			}
-						
+
 			lvl = values(skls)[sn];
 			lvl *= lvl/2;
 			lvl = lvl/2 + random(lvl/2);
-			
+
 			if( SKILL_D(skill)->type2() == "worker" ) {
 				if( values(skls)[sn] > 300 )
 					lvl = lvl / 3;
 				else if( values(skls)[sn] > 200 )
 					lvl = lvl / 2;
 			}
-			
+
 			write("你获得了"+chinese_number(lvl)+"点「"+to_chinese(skill)+"」的奖励。\n");
 			ob->improve_skill(skill, lvl, 1);
 			log_file("static/ROBOT",
@@ -178,13 +178,13 @@ void move_to_court(object ob)
 	object me=this_object();
 	ob->delete_temp("robot_check_pass");
 	ob->apply_condition("robot", 15);
-	
-	ob->delete_temp("robot_test");	
+
+	ob->delete_temp("robot_test");
 	ob->set("iamrobot",1);
 	ob->add("iamrobottime",1);
 	if (ob->is_vip())
 	if (me->query("reward")) ob->set_temp("robot_prize",1);
-	message_vision("系统判定$n为机器人，你随时可以用"HIY"robot"NOR"命令重新召回银翼杀手把自己的robot状态取消掉！\n", this_object(), ob);	
+	message_vision("系统判定$n为机器人，你随时可以用"HIY"robot"NOR"命令重新召回银翼杀手把自己的robot状态取消掉！\n", this_object(), ob);
 }
 
 void test1()
@@ -233,12 +233,12 @@ string ans1;
 string query_id()
 {
 	string id;
-	
+
 	if(!ob) return 0;
-	
+
 	id = ob->query("id");
 	if(strsrch(id,"@")==-1) id += "@"+lower_case(INTERMUD_MUD_NAME);
-	
+
 	return id;
 }
 
@@ -286,13 +286,13 @@ int do_answer(string arg)
 			message_vision("$N叹了口气道：连续10次都回答错误，你肯定是机器人！\n", me);
 			move_to_court(ob);
 			destruct(this_object());
-			return 1;			
+			return 1;
 		}
 		if (num--){
 			add("failed",1);
 			return notify_fail("答案不对，再仔细看看。\n");
 		}
-		
+
 		message_vision("$N叹了口气道："+arg+"？"+ans+"才对，这么简单都答不出？肯定是机器人！\n", me);
 		move_to_court(ob);
 	}
@@ -301,14 +301,14 @@ int do_answer(string arg)
 }
 
 void test_robot(object obj,int reward)
-{	
+{
 	object me = this_object();
 	string prize;
 	//int temp;
 
 	ob = obj;
-	
-	if (reward) 
+
+	if (reward)
 		prize="有奖励.";
 	else
 		prize="无奖励.";
@@ -316,7 +316,7 @@ void test_robot(object obj,int reward)
 		//len = 4 + random(2);
 		//目前暂定4位验证码
 		ans = makepasswd();
-		
+
 		/*temp = random(1) + 4;
 		while (temp--) {
 			ans += "0";
@@ -328,7 +328,7 @@ void test_robot(object obj,int reward)
 			me->set("reward",1);
 		}
 		message("wizard:linux",sprintf(HIY"%-8s 的机器人检查答案是 %s, %s\n"NOR,ob->query("id"),ans,prize),users());
-		timer = 180;		
+		timer = 180;
 		if(!BBS_D->add_Bbs_Up_Map(WEB_DB_NAME,"UPDATE members SET runner_code = '"+ans+"',mud_ip='"+query_ip_number(ob)+"' WHERE username = '"+query_id()+"' limit 1",this_object(),"bbs_ok",1))
 			CHANNEL_D->do_channel( me, "sys", ob->name(1)+"("+capitalize(getuid(ob))+")的问题答案被论坛拒绝接受。");
 	} else destruct(me);
@@ -337,7 +337,7 @@ void test_robot(object obj,int reward)
 void bbs_ok(mixed ret)
 {
 	if(!clonep()) return;
-	
+
 	if(!ob)
 	{
 		destruct(this_object());

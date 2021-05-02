@@ -7,7 +7,7 @@ void create()
         set("gender", "男性" );
         set("age", 32);
    set("long", "这是一个杀手，据说专门和长安李阀作对。\n");
-       
+
    set("combat_exp", 200000);
    set("str", 28);
    set_skill("finger",70);
@@ -20,16 +20,16 @@ void create()
    set_skill("bencao-shuli",70);
    set_skill("huanmo-shenfa",70);
    set_skill("dujie-zhi",70);
-   set_skill("sanhua-zhi",70);
+  //  set_skill("sanhua-zhi",70);
    set_skill("xiuluo-zhi",70);
-   set_skill("pojun-quan",70);
+  //  set_skill("pojun-quan",70);
    set_skill("linglong-yuquan",70);
-   set_skill("xukong-zhang",70);    
+  //  set_skill("xukong-zhang",70);
    set("max_force",200);
    set("force",200);
-   
+
    setup();
-  
+
 }
 
 int clear()
@@ -52,10 +52,10 @@ void dispear()
 int chat()
 {
   int i;
-  
+
   if(clear())
    return 1;
-   
+
   i=random(10);
   if(i==4)
    command("apply dujie-zhi 3 8");
@@ -94,17 +94,17 @@ int clean_up()
 void die()
 {
   object killer;
-  
+
   killer=query_temp("last_damage_from");
  if(!objectp(killer)) return ::die();
-  if(query("target_id")!=killer->query("id")) return ::die();  
-  
+  if(query("target_id")!=killer->query("id")) return ::die();
+
   message_vision(HIW+"$N仰天大笑：就算我不能亲手杀了李渊\n"+
                  "这个臭贼，我的兄弟也不会死心的！！\n"NOR,this_object());
   killer->add_temp("liyuan_job/step",1);
   if(objectp(killer->query_temp("temp_ob")))
    destruct(killer->query_temp("temp_ob"));
-    
+
   return ::die();
 }
 
@@ -114,4 +114,3 @@ int kill_object(object killer,object victim)
   destruct(this_object());
   return 1;
 }
-  
