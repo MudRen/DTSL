@@ -87,4 +87,3 @@ void delete_status()
         ob->save();
         return;
 }
-

@@ -10,29 +10,25 @@ string *name=({
 
 void create()
 {
-        
+
         int i;
-        
+
         i=random(sizeof(name));
-        i++;
         i=i-i%4;
-         
-        
-        set_name(name[i], ({name[i+1],name[i+2],name[i+3]}) );
+
+        set_name(name[i], ({name[i + 1], name[i + 2], name[i + 3]}));
         set_weight(10);
         if( clonep() )
                 set_default_object(__FILE__);
         else {
                 set("unit", "棵");
-				set("long","这是一棵草药，可以用来炼药。\n");
+                set("long","这是一棵草药，可以用来炼药。\n");
                 set("value", 3);
-				set("wei_med",1);
-				set("heal",([
-					"heals":50+random(50),
-					]));
-		
+                set("wei_med",1);
+                set("heal",([
+                        "heals":50+random(50),
+                ]));
         }
 
-      
         setup();
 }

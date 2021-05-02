@@ -60,7 +60,7 @@ int update_dir(object me, string dir, int continueable, int *total)
 
         if (! is_root(previous_object()))
                 return 0;
-        if (dir[0..1] == "/u")
+        if (dir[0..2] == "/u/" || dir[0..5] == "/.git/")
         {
                 return 1;
         }

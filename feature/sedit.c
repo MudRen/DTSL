@@ -100,7 +100,7 @@ void start_edit(string file)                // 呼叫编辑器，开始编辑
         else
         {
         	string content=read_file(file);
-        	
+
  	        // 档案长度大於 0
                 me["is_Command_Mode"] = 1;
                 me["is_NewFile"] = 0;
@@ -108,7 +108,7 @@ void start_edit(string file)                // 呼叫编辑器，开始编辑
                 {
                 	me["sText"] = explode(read_file(file), "\n");
                 	// 将 TAB，以 8 个空白代替，以方便游标位置的计算
-                	for (i=sizeof(me["sText"])-1; i>=0; i--) 
+                	for (i=sizeof(me["sText"])-1; i>=0; i--)
                         	me["sText"][i] = replace_string(me["sText"][i], "\t",
                                 "        ");
                 }
@@ -146,9 +146,9 @@ private void _refresh_cursor(object pl)        // 更新游标位置
 
 
 private void _refresh_status(object pl)        // 更新状态列
-{        
+{
         mapping me=pl->query_temp("me");
-        
+
         // 移动游标到 (1,1)，用反相字元显示状态列
         printf(HOME + NOR + HBBLU+YEL+"列:%4d 行:%3d %-43s %10s [命令模式]" + NOR,
                 me["iS_Row"]+me["iRow"]-1, me["iS_Col"]+me["iCol"]-1,
@@ -165,20 +165,20 @@ private void _refresh_screen(object pl, int s_row, int e_row, int s_col)
         int  i, temp;
         mapping me=pl->query_temp("me");
 
-        
+
         if (e_row < s_row)                // 检查始末行号的先後次序
         {
                 temp = e_row;
                 e_row = s_row;
                 s_row = temp;
         }
-        
+
         if (s_row < 1) s_row = 1;
         if (s_col < 1) s_col = 1;
         if (e_row > sizeof(me["sText"])) // 不能超过档尾
                 e_row = sizeof(me["sText"]);
         if (e_row-s_row > 22) e_row = s_row+22;
-        
+
         me["iS_Row"] = s_row;        me["iE_Row"] = e_row;
         me["iS_Col"] = s_col;        me["iE_Col"] = s_col+79;
 
@@ -287,7 +287,7 @@ protected void _input(string str, object pl, int fresh) // 读得输入字串
                         	case 26: me["sChar"]="Ctrl-Z"; break;
                 	} // switch
                 	else
-                	{        
+                	{
                         	me["sChar"] = chars[i];            // 此为普通字串
                         	if (!bs) me["is_Substituted"] = 0; // 清除代换内码旗标
                 	} // else
@@ -302,12 +302,12 @@ private int _dispatcher(object pl)                // 分派指令到不同函式
 {
         int  i, count=1;
         mapping me=pl->query_temp("me");
-        
-        
+
+
         if ( me["is_Command_Mode"] ||
             (me["is_Substituted"] && // 让输入模式也能使用某些指令
              // 这二个指令不在这处理
-             me["sChar"]!="ENTER" && me["sChar"]!="TAB") )     
+             me["sChar"]!="ENTER" && me["sChar"]!="TAB") )
         {        // 现在是命令模式
                 if (sizeof(me["sChar"])!=1 && !me["is_Substituted"])
                         return 1;
@@ -320,7 +320,7 @@ private int _dispatcher(object pl)                // 分派指令到不同函式
                 if ('0'<=me["sChar"][0] && me["sChar"][0]<='9')
                         me["sCount"] += me["sChar"];
                 else
-                {        
+                {
                         sscanf(me["sCount"], "%d", count);
                         me["sCount"] = ""; // 计数器归零
                         // 重覆上个指令
@@ -373,7 +373,7 @@ private int _dispatcher(object pl)                // 分派指令到不同函式
                         case "x":
                         case "DELETE":
                         case "Ctrl-X":   _del_char(pl, 0);        break;
-                        case "A": 
+                        case "A":
                         case "HOME":
                         case "Ctrl-A":   _home(pl);        break;
                         case "B":
@@ -402,9 +402,9 @@ private int _dispatcher(object pl)                // 分派指令到不同函式
                         case "TAB": _tab(pl);                        break;
                         } // switch
         } // if me["is_Command_Mode"]
-        else        
+        else
                 _process(pl);                // 处理输入模式的字串输入
-        
+
         return 1;                        // 表示继续读取新输入，继续编辑
 } // dispatcher()
 
@@ -412,7 +412,7 @@ private int _dispatcher(object pl)                // 分派指令到不同函式
 private void _append(object pl)                // 在游标後面加字
 {
         mapping me=pl->query_temp("me");
-        
+
         if (sizeof(me["sText"]) == 0) return;
         me["is_Command_Mode"] = 0;
         _refresh_status(pl);
@@ -424,10 +424,10 @@ private void _append_line(object pl)        // 在游标底下加一新行
 {
         string *text;
         mapping me=pl->query_temp("me");
-        
+
         me["is_Command_Mode"] = me["is_NewFile"] = 0;
         me["is_Modify"] = 1;
-        text = me["sText"][0..me["iS_Row"]+me["iRow"]-2] + ({ "" }) + 
+        text = me["sText"][0..me["iS_Row"]+me["iRow"]-2] + ({ "" }) +
                 me["sText"][me["iS_Row"]+me["iRow"]-1..<1];
         me["sText"] = text;
         _refresh_screen(pl, me["iS_Row"], sizeof(me["sText"]), 1);
@@ -439,7 +439,7 @@ private void _append_line(object pl)        // 在游标底下加一新行
 private void _backspace(object pl)        // 删除游标前的字
 {
         mapping me=pl->query_temp("me");
-        
+
         if (me["iS_Col"] == me["iCol"])        return;
         _left(pl);
         _del_char(pl, 1);
@@ -449,7 +449,7 @@ private void _backspace(object pl)        // 删除游标前的字
 protected void _confirm_save(string str, object pl) // 离开编辑器前确认存档
 {
         mapping me=pl->query_temp("me");
-        
+
         if (str=="y" || str=="Y") return _write_done("", pl, 1);
         me["is_Modify"] = 0;                // 设定「未修改」旗标
         _quit(0, pl);
@@ -469,7 +469,7 @@ private void _del_char(object pl, int bs)                // 删除游标上的字
         if (me["is_NewFile"] || !me["is_Modify"])
         {
                 me["is_NewFile"] = 0;
-                me["is_Modify"] = 1;        
+                me["is_Modify"] = 1;
                 _refresh_status(pl);
         }
         if (me["iS_Col"]+me["iCol"]-2 >=
@@ -497,7 +497,7 @@ private void _del_line(object pl)        // 删除整行
         mapping me=pl->query_temp("me");
 
         me["is_NewFile"] = 0;
-        me["is_Modify"] = 1;        
+        me["is_Modify"] = 1;
         if (me["iS_Row"]+me["iRow"]-2 > 0)
                 text = me["sText"][0..me["iS_Row"]+me["iRow"]-3];
         text += me["sText"][me["iS_Row"]+me["iRow"]-1..<1];
@@ -556,7 +556,7 @@ private void _down(object pl)                // 游标往下移一行
 private void _end(object pl)                // 将游标移到行尾
 {
         mapping me=pl->query_temp("me");
-        
+
         if (sizeof(me["sText"]) == 0) return;
         // 计算行尾的位置
         me["iCol"] = sizeof(me["sText"][me["iS_Row"]+me["iRow"]-2])-
@@ -614,7 +614,7 @@ protected void _goto_line_done(string str, object pl, int rein) // 取得行号
         if (str == "") return _message_done("", pl);
         if (sscanf(str, "%d", no)!=1 || no<1 || no>sizeof(me["sText"]))
                 return _message(pl, "错误的行号！", "_message_done", HIDE);
-        
+
         me["iCol"] = 1;
         if (me["iS_Row"]<=no && no<=me["iE_Row"])
         {        // 指定行号在原可视范围中
@@ -626,7 +626,7 @@ protected void _goto_line_done(string str, object pl, int rein) // 取得行号
                 me["iS_Row"] = no-11;
                 if (me["iS_Row"] < 1)        me["iS_Row"] = 1;
                 if (me["iE_Row"] < no+11)        me["iE_Row"] = no+11;
-                me["iRow"] = no-me["iS_Row"]+1;        
+                me["iRow"] = no-me["iS_Row"]+1;
                 _refresh_screen(pl, me["iS_Row"], me["iE_Row"], 1);
         }
         if (rein) get_char("_input", HIDE, pl); // 检查是否需要读取下次输入
@@ -642,10 +642,10 @@ a            在游标後面加字               d  Ctrl-D    删除整行\r
 f  Ctrl-Z    更新画面                     g  Ctrl-G    跳到特定行去\r
 h  Ctrl-J    游标往左移一字               i            在游标前面插字\r
 j  Ctrl-K    游标往下移一行               k  Ctrl-O    游标往上移一行\r
-l  Ctrl-L    游标往右移一字               m            定义新功\能键\r
+l  Ctrl-L    游标往右移一字               m            定义新功能键\r
 n  Ctrl-N    搜寻/替换下个符合字串        o            在游标底下加一新行\r
 q  Ctrl-Q    离开编辑器                   r  Ctrl-R    字串替换\r
-s  Ctrl-S    字串搜寻                     u            取消某功\能键定义\r
+s  Ctrl-S    字串搜寻                     u            取消某功能键定义\r
 w  Ctrl-W    储存档案                     x  Ctrl-X    删除游标上的字\r
 A  Ctrl-A    将游标移到行首               B  Ctrl-B    往上卷一页（22 行）\r
 E  Ctrl-E    将游标移到行尾               F  Ctrl-F    往下卷一页（22 行）\r
@@ -669,7 +669,7 @@ HOME、END、PAGEUP、PAGEDOWN、UP、DOWN、LEFT、RIGHT、Ctrl-A～Ctrl-Z。\r
 private void _home(object pl)                // 将游标移到行首
 {
         mapping me=pl->query_temp("me");
-        
+
         me["iCol"] = 1;
         if (me["iS_Col"] == 1)_refresh_status(pl);
         else        _refresh_screen(pl, me["iS_Row"], me["iE_Row"], 1);
@@ -679,7 +679,7 @@ private void _home(object pl)                // 将游标移到行首
 private void _insert(object pl)                // 在游标前面插字
 {
         mapping me=pl->query_temp("me");
-        
+
         if (sizeof(me["sText"]) == 0) return;
         me["is_Command_Mode"] = 0;
         _refresh_status(pl);
@@ -690,7 +690,7 @@ private void _insert_line(object pl)        // 在游标上方加一新行
 {
         string *text=({ });
         mapping me=pl->query_temp("me");
-        
+
         me["is_Command_Mode"] = me["is_NewFile"] = 0;
         me["is_Modify"] = 1;
         // 检查是否游标上方是否有内容
@@ -707,7 +707,7 @@ private void _insert_line(object pl)        // 在游标上方加一新行
 private void _insert_exclam_mark(object pl) // 在游标前面插入一个「!」字元
 {
         mapping me=pl->query_temp("me");
-        
+
         // 因为无法正常输入「!」，所以特地加此函式以输入「!」。
         if (sizeof(me["sText"]) == 0) return;
         me["sChar"] = "!";
@@ -722,7 +722,7 @@ private void _join(object pl)                // 将下行文字移到此行後面
 
 
         if (me["iS_Row"]+me["iRow"]-1 >= sizeof(me["sText"])) return;
-        
+
         me["is_NewFile"] = 0;
         me["is_Modify"] = 1;
         _end(pl);                        // 先将游标移到行尾
@@ -741,7 +741,7 @@ private void _join(object pl)                // 将下行文字移到此行後面
 
 private void _keymap(object pl)                // 定义新功能键
 {
-        _message(pl, "请输入新定义键和原功\能键（直接按 ENTER 取消，以空白隔开)：",
+        _message(pl, "请输入新定义键和原功能键（直接按 ENTER 取消，以空白隔开)：",
                 "_keymap_done", ECHO);
 } // _keymap()
 
@@ -750,7 +750,7 @@ protected void _keymap_done(string str, object pl) // 取得定义功能键
 {
         string old, _new;
         mapping me=pl->query_temp("me");
-        
+
         _refresh_status(pl);
         if (str != "")
         {        // 若有资料输入
@@ -758,7 +758,7 @@ protected void _keymap_done(string str, object pl) // 取得定义功能键
                         return _message(pl, "输入格式错误。", "_message_done",
                                 HIDE);
                 me["keymap"][_new] = old;
-                _message(pl, sprintf("好了，从此以後新定义键「%s」就有原功\能键「%s」的功\能了！",
+                _message(pl, sprintf("好了，从此以後新定义键「%s」就有原功能键「%s」的功能了！",
                         _new, old), "_message_done", HIDE);
         }
         else        get_char("_input", HIDE, pl); // 取消输入，继续读取下个输入
@@ -811,17 +811,17 @@ private void _next_match(object pl)                // 搜寻/替换下个符合字串
         int    j=me["iS_Col"]+me["iCol"]-1,
                i, ofs;
 
-        
+
         if (!stringp(me["sSearch"])) return; // 若没先设定搜寻字串，不做事
 
         for (i=me["iS_Row"]+me["iRow"]-2; i<sizeof(me["sText"]); i++)
-        {        
+        {
                 if ((ofs = strsrch(me["sText"][i][j-1..<1], me["sSearch"]))
                     == -1)
                         j = 1; // 这行没找到的话，设定下行从第一栏开始找
                 else
                 {        // 找到指定字串了, 移动游标到目的行
-                        _goto_line_done(sprintf("%d", i+1), pl, 0); 
+                        _goto_line_done(sprintf("%d", i+1), pl, 0);
                         me["iCol"] = j+ofs; // 计算指定字串的绝对位置
                         // 若指定字串落在原画面外，则重绘画面
                         if (me["iCol"]<me["iS_Col"] ||
@@ -831,7 +831,7 @@ private void _next_match(object pl)                // 搜寻/替换下个符合字串
                         if (stringp(me["sReplace"]))
                         {        // 需要替换字串
                                 me["is_NewFile"] = 0;
-                                me["is_Modify"] = 1;        
+                                me["is_Modify"] = 1;
                                 // 附加游标前内容
                                 str = me["sText"][i][0..me["iCol"]-2];
                                 str += me["sReplace"];
@@ -854,7 +854,7 @@ private void _next_match(object pl)                // 搜寻/替换下个符合字串
                         }
                         // 将游漂移到搜寻字串後面
                         else        me["iCol"] = me["iCol"]+strlen(me["sSearch"])-
-                                        me["iS_Col"]+1; 
+                                        me["iS_Col"]+1;
                         _refresh_status(pl);
                         break;
                 } // if found
@@ -885,7 +885,7 @@ private void _page_down(object pl)        // 往下卷一页（22 行）
 private void _page_up(object pl)        // 往上卷一页（22 行）
 {
         mapping me=pl->query_temp("me");
-        
+
         if (me["iS_Row"] <= 1) return; // 检查是否不能再卷了
         me["iS_Row"] -= 22;
         if (me["iS_Row"] < 1) me["iS_Row"] = 1; // 最多只能翻到第一列
@@ -953,7 +953,7 @@ private void _process(object pl)        // 处理输入模式的字串输入
 protected void _quit(mixed unused, mixed pl) // 离开编辑器
 {
         mapping me;
-        
+
         seteuid(geteuid(pl));
         me = pl->query_temp("me");
         if (me["is_Modify"])
@@ -987,7 +987,7 @@ private void _replace(object pl)        // 字串替换
 protected void _replace_done(string str, object pl) // 取得替换字串
 {
         mapping me=pl->query_temp("me");
-        
+
         _refresh_status(pl);
         if (str != "")
         {        // 有输入资料时
@@ -1042,7 +1042,7 @@ private void _search(object pl)                // 字串搜寻
 protected void _search_done(string str, object pl) // 取得搜寻字串
 {
         mapping me=pl->query_temp("me");
-        
+
         _refresh_status(pl);
         if (str != "")
         {        // 有输入资料时
@@ -1062,7 +1062,7 @@ private void _tab(object pl)                 // 命令模式下 TAB 键的定位
 
 private void _undef_key(object pl)        // 取消某功能键定义
 {
-        _message(pl, "请输入欲取消定义之功\能键（直接按 ENTER 取消)：",
+        _message(pl, "请输入欲取消定义之功能键（直接按 ENTER 取消)：",
                 "_undef_key_done", ECHO);
 } // undef_key()
 
@@ -1079,8 +1079,8 @@ private void _up(object pl)                // 游标往上移一行
 {
         int  acc;
         mapping me=pl->query_temp("me");
-        
-        
+
+
         if (me["iRow"]==1 && me["iS_Row"]==1)        return;
         if (--me["iRow"] < 1)
         {        // 游标新位置不在可见视窗内，就上移视窗
@@ -1127,7 +1127,7 @@ protected void _write_done(string str, object pl, int quit) // 储存档案
         {
                 me["is_Modify"] = me["is_NewFile"] = 0;
                 me["sFileName"] = str;
-                _message(pl, "存档成功\。", callback, HIDE);
+                _message(pl, "存档成功。", callback, HIDE);
         }
         else
                 _message(pl, "存档失败。", callback, HIDE);

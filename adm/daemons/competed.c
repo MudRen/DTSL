@@ -25,9 +25,10 @@ nosave object *total = ({ });
 nosave mapping tops = ([ ]);
 nosave mapping tmp_top = ([ ]);
 
-string query_top_id() { return top_id; } 
+string query_top_id() { return top_id; }
 string query_new_id()
 {
+        // debug_message("challenger = " + challenger);
         if (challenger)
                 return challenger->query("id");
         else
@@ -61,17 +62,17 @@ void create()
 {
         seteuid(ROOT_UID);
         set("channel_id", "比武精灵");
-        CHANNEL_D->do_channel( this_object(), "sys", "演武系统已经启动。");     
+        CHANNEL_D->do_channel( this_object(), "sys", "演武系统已经启动。");
         get_tops();
 }
 
-void remove(string euid) 
+void remove(string euid)
 {
-        if (! this_player()) 
+        if (! this_player())
                 return;
-      
-        if (state = 2 && sizeof(total) > 0) 
-              error("比武精灵：目前还有玩家正在挑战十大高手，你不能摧毁比武精灵。\n"); 
+
+        if (state = 2 && sizeof(total) > 0)
+              error("比武精灵：目前还有玩家正在挑战十大高手，你不能摧毁比武精灵。\n");
 }
 
 private void heart_beat()
@@ -121,34 +122,34 @@ private void auto_check()
         foreach (ob in lost)
                 check_out(ob);
 
-        total -= ({ 0 }); 
-        
+        total -= ({ 0 });
+
         if (state == 2)
         {
                 if (sizeof(total) < 1)
                 {
-                        restore_competition();   
-                        finish_competition();       
+                        restore_competition();
+                        finish_competition();
                         return;
                 }
         }
-                
+
         if (state != 2)
         {
                 // set_heart_beat(0);
                 return;
         }
-        
+
         if (sizeof(total) == 1)
         {
                 if (userp(total[0]))
                 {
-                        top_num--;                        
+                        top_num--;
                         start_competition(top_num);
                 }
                 else
                         finish_competition();
-        } 
+        }
 }
 
 int check_out(object me)
@@ -156,7 +157,7 @@ int check_out(object me)
         object ob;
         mapping my;
         string msg;
-        
+
         if (userp(me))
         {
                 my = me->query_entire_dbase();
@@ -186,15 +187,15 @@ int check_out(object me)
                 return 1;
         } else
         {
-                message_vision(NOR "\n$N膝盖一软，单膝着地，又强撑着站起身来，口中却喷出一口" 
-                        HIR "鲜血" NOR "，黯然转身离去！\n\n" NOR, me); 
-                msg = HIY "恭喜" + NOR + HIR + challenger->name(1) + NOR + 
-                      HIY "比武战胜" + NOR + HIR + me->name(1) + NOR +  
+                message_vision(NOR "\n$N膝盖一软，单膝着地，又强撑着站起身来，口中却喷出一口"
+                        HIR "鲜血" NOR "，黯然转身离去！\n\n" NOR, me);
+                msg = HIY "恭喜" + NOR + HIR + challenger->name(1) + NOR +
+                      HIY "比武战胜" + NOR + HIR + me->name(1) + NOR +
                       HIY "！！\n" NOR;
-                message_competition(msg);    
-                              
-                restore_status(me); 
-                total -= ({ me });                   
+                message_competition(msg);
+
+                restore_status(me);
+                total -= ({ me });
                 destruct(me);
                 return 1;
         }
@@ -243,12 +244,12 @@ int join_competition(object ob)
                 total = ({ ob });
         else
         if (member_array(ob, total) == -1)
-                total += ({ ob });                
-               
+                total += ({ ob });
+
 
         init_player(ob);
         // set_heart_beat(1);
-        
+
         tmp_top["id"] = ob->query("id");
         tmp_top["title"] = ob->short(1);
         challenger = ob;
@@ -268,8 +269,8 @@ private void init_player(object me)
         me->move(FIGHT_ROOM);
         if (userp(me))
                 message_vision(HIW "$N飞身跳上擂台，周围响起一片叫好声。\n\n", me);
-        else        
-                message_vision(HIW "只听的一声锣响，$N从后台大步走了出来，环顾一下四方。\n\n", me); 
+        else
+                message_vision(HIW "只听的一声锣响，$N从后台大步走了出来，环顾一下四方。\n\n", me);
         me->set("backup/condition", me->query_condition());
         me->clear_condition();
 }
@@ -310,7 +311,7 @@ private int start_competition(int top_num)
 {
         int i;
         object ob;
-        
+
         if (top_num < 0)
         {
                 finish_competition();
@@ -318,10 +319,10 @@ private int start_competition(int top_num)
         }
         if (! challenger)
         {
-                finish_competition(); 
+                finish_competition();
                 return 1;
         }
-        
+
         top_id = tops[top_num]["id"];
         if (top_id == challenger->query("id"))
         {
@@ -329,17 +330,17 @@ private int start_competition(int top_num)
                 start_competition(top_num);
                 return 1;
         }
-        
+
         ob = new(GAOSHOU_OBJ);
-        
+
         if (! arrayp(total))
                 total = ({ ob });
         else
         if (member_array(ob, total) == -1)
-                total += ({ ob });  
-                
+                total += ({ ob });
+
         init_player(ob);
-        
+
         competitor = ob;
         state = 2;
         set_heart_beat(1);
@@ -347,16 +348,16 @@ private int start_competition(int top_num)
         return 1;
 }
 
-private int do_competition(object ob1, object ob2)    
-{            
+private int do_competition(object ob1, object ob2)
+{
         object room;
-               
+
         if (! ob1 || ! ob2)
         {
                 finish_competition();
                 return 1;
         }
-        
+
         if (! room = find_object(FIGHT_ROOM))
                 room = load_object(FIGHT_ROOM);
         if (present(ob1, room) && present(ob2, room))
@@ -375,12 +376,12 @@ private int do_competition(object ob1, object ob2)
                                 times = 3;
                                 tell_room(room, HIY "\t-------  开     始  -------\n\n" NOR);
                                 message_vision(HIW "\n$N对着$n冷哼一声：既然不要命，那就放马过来吧！\n", ob2, ob1);
-                        } 
+                        }
                 }
-                
-                if (! ob2->is_killing(ob1)) 
+
+                if (! ob2->is_killing(ob1))
                         ob2->kill_ob(ob1);
-                if (! ob1->is_killing(ob2)) 
+                if (! ob1->is_killing(ob2))
                         ob1->kill_ob(ob2);
         }
 
@@ -395,12 +396,12 @@ private int finish_competition()
         string weapon_file, armor_file, *carry_ob;
         string msg;
         object weapon, armor, temp_ob;
-        
+
         set_heart_beat(0);
-        
+
         if (objectp(competitor))
                 destruct(competitor);
-        
+
         if (! objectp(challenger))
         {
                 restore_competition();
@@ -410,25 +411,25 @@ private int finish_competition()
         mingci = top_num + 1;
 
         if (base_name(environment(challenger)) == FIGHT_ROOM && top_num < 0)
-        {               
+        {
                 restore_status(challenger);
                 challenger->move(ENTRY_ROOM);
                 message_vision(HIW "$N哈哈一笑，轻身飘下了擂台。\n" NOR, challenger);
                 msg = HIY + challenger->name(1) + "打败所有高手，大笑着飞身飘下擂台！\n" NOR;
-                message_competition(msg);    
+                message_competition(msg);
         }
 
         /*
         if (mingci != 0)
         {
                 msg = HIY + challenger->name(1) + "被几个大汉抬下了擂台！\n" NOR;
-                message_competition(msg);    
+                message_competition(msg);
         }
         */
-                
+
         if (mingci > 9)
         {
-                restore_competition();   
+                restore_competition();
                 return 1;
         }
         old_mingci = 100;
@@ -442,9 +443,9 @@ private int finish_competition()
         }
         if (old_mingci == 100)
                 old_mingci = 9;
-        else 
+        else
         if (mingci >= old_mingci)
-        {      
+        {
                 restore_competition();
                 return 1;
         }
@@ -488,14 +489,14 @@ private int finish_competition()
                         {
                                 weapon_file = base_name(weapon);
                                 from_file = weapon_file + ".c";
-                                to_file = GAOSHOU_DIR + "weapon/" + 
-                                          challenger->query("id") + 
+                                to_file = GAOSHOU_DIR + "weapon/" +
+                                          challenger->query("id") +
                                           "-weapon.c";
                                 cp(from_file,to_file);
-                                if (strlen(weapon_file) > 11 && 
+                                if (strlen(weapon_file) > 11 &&
                                     weapon_file[0..10] == "/data/item/")
                                 {
-                                        temp_ob->set("can_summon/" + challenger->query("id") + 
+                                        temp_ob->set("can_summon/" + challenger->query("id") +
                                                      "-weapon",to_file);
                                 } else carry_ob += ({ to_file });
                         }
@@ -506,20 +507,20 @@ private int finish_competition()
                                 if (objectp(armor = challenger->query_temp("armor/"+armor_type[j])))
                                 {
                                         armor_file = base_name(armor);
-                                        if (strlen(armor_file) > 11 && 
+                                        if (strlen(armor_file) > 11 &&
                                             armor_file[0..10] == "/data/item/")
                                         {
                                                 from_file = armor_file + ".c";
-                                                to_file = GAOSHOU_DIR + "weapon/" + 
-                                                          challenger->query("id") + 
+                                                to_file = GAOSHOU_DIR + "weapon/" +
+                                                          challenger->query("id") +
                                                           "-" + armor_type[j] + ".c";
                                                 cp(from_file,to_file);
-                                                temp_ob->set("can_summon/" + challenger->query("id") + 
+                                                temp_ob->set("can_summon/" + challenger->query("id") +
                                                              "-" + armor_type[j],to_file);
                                         } else carry_ob += ({ armor_file });
                                 }
                         }
-                        
+
                         if (sizeof(carry_ob))
                                 temp_ob->set("carry_ob",carry_ob);
 
@@ -534,7 +535,7 @@ private int finish_competition()
         msg = HIY "恭喜" + challenger->name(1) +
               HIY "荣登" + HIG + "天下第" + chinese_number(mingci + 1) +
               NOR + HIY + "的宝座！\n" NOR;
-        message_competition(msg);    
+        message_competition(msg);
         get_tops();
         restore_competition();
         return 1;
@@ -558,25 +559,25 @@ int get_tops()
         int i;
         string *str, *line;
         mapping top;
-        
-        tops = ([ ]);   
-        
+
+        tops = ([ ]);
+
         if (file_size(GAOSHOU_DIR + "gaoshou_tops") < 0)
-        {                
+        {
                 for (i = 0; i < 10; i ++)
                 {
                         top = ([ ]);
                         top["id"] = "test";
                         top["title"] = "「巫师测试人物」测试(test)";
-                        tops += ([ i : top ]);       
+                        tops += ([ i : top ]);
                 }
                 return 1;
         }
-                
+
         str = explode(read_file(GAOSHOU_DIR + "gaoshou_tops"), "\n");
         // if (sizeof(str) != 10)
                 // return 0;
-             
+
         for (i = 0; i < sizeof(str); i ++)
         {
                 top = ([ ]);
@@ -595,7 +596,7 @@ int save_tops()
         int i;
         string str;
         str = "";
-        
+
         for (i = 0;i < sizeof(tops);i ++)
         {
                 str += tops[i]["id"] + "|" + replace_string(tops[i]["title"], "|", "");

@@ -21,7 +21,6 @@
 /adm/daemons/jobmond
 /adm/daemons/ward
 #/adm/daemons/httpd
-
+/adm/daemons/competed
 #/adm/daemons/network/dns_master
-
 /obj/updateroom/foodroomupdate
